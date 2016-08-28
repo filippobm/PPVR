@@ -6,6 +6,7 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using PPVR.WebApp.DAL;
+using PPVR.WebApp.IdentityConfigs;
 using PPVR.WebApp.Models;
 
 namespace PPVR.WebApp

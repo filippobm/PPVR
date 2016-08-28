@@ -201,6 +201,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_GlobalResources\ValidationErrorMessage.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ValidationErrorMessage.resx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfigs\ApplicationSignInManager.cs" />
@@ -217,12 +222,25 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="DAL\AppDbContext.cs" />
+    <Compile Include="DAL\Mappings\CandidatoMap.cs" />
+    <Compile Include="DAL\Mappings\EnderecoMap.cs" />
+    <Compile Include="DAL\Mappings\IdeologiaMap.cs" />
+    <Compile Include="DAL\Mappings\OcorrenciaMap.cs" />
+    <Compile Include="DAL\Mappings\PartidoMap.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ApplicationUser.cs" />
+    <Compile Include="Models\Candidato.cs" />
+    <Compile Include="Models\CargoEletivo.cs" />
+    <Compile Include="Models\Endereco.cs" />
+    <Compile Include="Models\EspectroPolitico.cs" />
+    <Compile Include="Models\Ideologia.cs" />
+    <Compile Include="Models\Ocorrencia.cs" />
+    <Compile Include="Models\Partido.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="Utils\AssertionConcern.cs" />
     <Compile Include="Utils\OcrHelper.cs" />
     <Compile Include="ViewModels\Account\ExternalLoginConfirmationViewModel.cs" />
     <Compile Include="ViewModels\Account\ExternalLoginListViewModel.cs" />
@@ -290,7 +308,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="DAL\Mappings\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -298,6 +315,12 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\ValidationErrorMessage.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>ValidationErrorMessage.Designer.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

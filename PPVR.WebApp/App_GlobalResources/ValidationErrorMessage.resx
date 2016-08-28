@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="CandidatoNomeInvalidLength" xml:space="preserve">
+    <value>O Nome do Candidato deve ter no máximo 60 caracteres.</value>
+  </data>
+  <data name="CandidatoNomeNotNull" xml:space="preserve">
+    <value>O Nome do Candidato não pode ser nulo.</value>
+  </data>
+  <data name="CandidatoNumeroEleitoralDeputadoEstadualInvalidRange" xml:space="preserve">
+    <value>O Número Eleitoral do Candidato à Deputado Estadual não é válido.</value>
+  </data>
+  <data name="CandidatoNumeroEleitoralDeputadoFederalInvalidRange" xml:space="preserve">
+    <value>O Número Eleitoral do Candidato à Deputado Federal não é válido.</value>
+  </data>
+  <data name="CandidatoNumeroEleitoralGovernadorInvalidRange" xml:space="preserve">
+    <value>O Número Eleitoral do Candidato à Governador não é válido.</value>
+  </data>
+  <data name="CandidatoNumeroEleitoralPrefeitoInvalidRange" xml:space="preserve">
+    <value>O Número Eleitoral do Candidato à Prefeito não é válido.</value>
+  </data>
+  <data name="CandidatoNumeroEleitoralPresidenteInvalidRange" xml:space="preserve">
+    <value>O Número Eleitoral do Candidato à Presidência não é válido.</value>
+  </data>
+  <data name="CandidatoNumeroEleitoralSenadorInvalidRange" xml:space="preserve">
+    <value>O Número Eleitoral do Candidato à Senador não é válido.</value>
+  </data>
+  <data name="CandidatoNumeroEleitoralVereadorInvalidRange" xml:space="preserve">
+    <value>O Número Eleitoral do Candidato à Vereador não é válido.</value>
+  </data>
+  <data name="CargoEletivoDescricaoInvalidLength" xml:space="preserve">
+    <value>A Descrição do Cargo Eletivo deve ter entre 1 e 255 caracteres.</value>
+  </data>
+  <data name="CargoEletivoNomeInvalidLength" xml:space="preserve">
+    <value>O Nome do Cargo Eletivo deve ter entre 1 e 30 caracteres.</value>
+  </data>
+  <data name="CargoEletivoNomeNotNull" xml:space="preserve">
+    <value>O Nome do Cargo Letivo não pode ser nulo.</value>
+  </data>
+  <data name="EnderecoBairroInvalidLength" xml:space="preserve">
+    <value>O Nome do Bairro deve ter entre 1 e 60 caracteres.</value>
+  </data>
+  <data name="EnderecoCEPInvalidLength" xml:space="preserve">
+    <value>O CEP informado não é válido.</value>
+  </data>
+  <data name="EnderecoCidadeInvalidLength" xml:space="preserve">
+    <value>O Nome da Cidade deve ter entre 1 e 60 caracteres.</value>
+  </data>
+  <data name="EnderecoEstadoInvalidValue" xml:space="preserve">
+    <value>O Estado informado não existe.</value>
+  </data>
+  <data name="EnderecoFormatadoInvalidLength" xml:space="preserve">
+    <value>O Endereço Formatado deve ter entre 1 e 255 caracteres.</value>
+  </data>
+  <data name="EspectroPoliticoDescricaoInvalidLength" xml:space="preserve">
+    <value>A Descrição do Espectro Político deve ter no máximo 255 caracteres.</value>
+  </data>
+  <data name="EspectroPoliticoNomeInvalidLength" xml:space="preserve">
+    <value>O Nome da Espectro Político deve ter entre 1 e 30 caracteres.</value>
+  </data>
+  <data name="EspectroPoliticoNomeNotNull" xml:space="preserve">
+    <value>O Nome do Espectro Político não pode ser nulo.</value>
+  </data>
+  <data name="IdeologiaNomeInvalidLength" xml:space="preserve">
+    <value>O Nome da Ideologia deve ter entre 1 e 30 caracteres.</value>
+  </data>
+  <data name="IdeologiaNomeNotNull" xml:space="preserve">
+    <value>O Nome da Ideologia não pode ser nulo.</value>
+  </data>
+  <data name="PartidoEspectroPoliticoInvalidValue" xml:space="preserve">
+    <value>O Espectro Político informado não existe.</value>
+  </data>
+  <data name="PartidoNomeInvalidLength" xml:space="preserve">
+    <value>O Nome do Partido deve ter entre 1 e 60 caracteres.</value>
+  </data>
+  <data name="PartidoNomeNotNull" xml:space="preserve">
+    <value>O Nome do Partido não pode ser nulo.</value>
+  </data>
+  <data name="PartidoNumeroEleitoralInvalidRange" xml:space="preserve">
+    <value>O Número Eleitoral do Partido não é válido.</value>
+  </data>
+  <data name="PartidoSiglaInvalidLength" xml:space="preserve">
+    <value>A Sigla do Partido deve ter entre 1 e 10 caracteres.</value>
+  </data>
+  <data name="PartidoSiglaNotNull" xml:space="preserve">
+    <value>A Sigla do Partido não pode ser nula.</value>
+  </data>
+</root>

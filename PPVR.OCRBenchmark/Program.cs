@@ -13,6 +13,8 @@ namespace PPVR.OCRBenchmark
         {
             if (args[0] != null)
             {
+                Console.WriteLine("{0,-20} {1,40} {2,30}", "Número Eleitoral", "Nome", "Match");
+
                 foreach (var imageFilePath in Directory.GetFiles(args[0]))
                 {
                     var fileNameWithoutExtension = Path.GetFileNameWithoutExtension(imageFilePath);
@@ -28,11 +30,11 @@ namespace PPVR.OCRBenchmark
                             TextTesseract = TesseractHelper.UploadAndRecognizeImage(imageFilePath)
                         };
 
-                        var msg1 = PesquisarCandidatoTexto(santinhoPolitico.NomeCandidato,
+                        var match = PesquisarCandidatoTexto(santinhoPolitico.NomeCandidato,
                             santinhoPolitico.NumeroEleitoral, santinhoPolitico.TextTesseract);
 
-                        Console.WriteLine("{0,-20} {1,50} {2,20}", santinhoPolitico.NumeroEleitoral,
-                            santinhoPolitico.NomeCandidato, msg1);
+                        Console.WriteLine("{0,-20} {1,40} {2,30}", santinhoPolitico.NumeroEleitoral,
+                            santinhoPolitico.NomeCandidato, match);
                     }
                 }
                 //var t = MainAsync(args);
@@ -96,9 +98,7 @@ namespace PPVR.OCRBenchmark
                 {
                     if (match.Value == numeroEleitoral.ToString())
                     {
-                        msg = string.Format("O NomeCandidato {0} - {1} foi encontrado pelo Número Eleitoral.",
-                            nomeCandidato, numeroEleitoral);
-
+                        msg = "[NÚMERO ELEITORAL]";
                         containsNumeroEleitoral = true;
                     }
                 }
@@ -106,10 +106,7 @@ namespace PPVR.OCRBenchmark
             if (!containsNumeroEleitoral)
             {
                 if (textoSantinho.Contains(nomeCandidato, StringComparison.OrdinalIgnoreCase))
-                {
-                    msg = string.Format("O Candidato {0} - {1} foi encontrado pelo Nome.", nomeCandidato,
-                        numeroEleitoral);
-                }
+                    msg = "[NOME]";
             }
             return msg;
         }

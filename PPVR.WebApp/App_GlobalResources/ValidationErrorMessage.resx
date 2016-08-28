@@ -177,6 +177,9 @@
   <data name="EspectroPoliticoNomeNotNull" xml:space="preserve">
     <value>O Nome do Espectro Político não pode ser nulo.</value>
   </data>
+  <data name="ExifTagsGeolocationNull" xml:space="preserve">
+    <value>A foto não possui as informações de geolocalização.</value>
+  </data>
   <data name="IdeologiaNomeInvalidLength" xml:space="preserve">
     <value>O Nome da Ideologia deve ter entre 1 e 30 caracteres.</value>
   </data>

@@ -241,6 +241,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to A foto não possui as informações de geolocalização..
+        /// </summary>
+        internal static string ExifTagsGeolocationNull {
+            get {
+                return ResourceManager.GetString("ExifTagsGeolocationNull", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to O Nome da Ideologia deve ter entre 1 e 30 caracteres..
         /// </summary>
         internal static string IdeologiaNomeInvalidLength {

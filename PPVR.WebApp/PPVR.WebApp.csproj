@@ -44,6 +44,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ExifLib, Version=1.7.0.0, Culture=neutral, PublicKeyToken=30284005913968db, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\ExifLib.1.7.0.0\lib\net45\ExifLib.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Geocoding, Version=3.4.0.0, Culture=neutral, PublicKeyToken=7c714700b88674c7, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Geocoding.net.3.4.0\lib\net40\Geocoding.dll</HintPath>
       <Private>True</Private>
@@ -241,6 +245,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Utils\AssertionConcern.cs" />
+    <Compile Include="Utils\GPSInfoFileExtractor.cs" />
     <Compile Include="Utils\OcrHelper.cs" />
     <Compile Include="ViewModels\Account\ExternalLoginConfirmationViewModel.cs" />
     <Compile Include="ViewModels\Account\ExternalLoginListViewModel.cs" />

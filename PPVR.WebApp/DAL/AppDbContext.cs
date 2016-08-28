@@ -13,8 +13,8 @@ namespace PPVR.WebApp.DAL
         public AppDbContext()
             : base("AppConnectionString", false)
         {
-            //Configuration.ProxyCreationEnabled = false;
-            //Configuration.LazyLoadingEnabled = false;
+            Configuration.ProxyCreationEnabled = false;
+            Configuration.LazyLoadingEnabled = false;
 
             //Database.SetInitializer(new ContextInitializer());
             //Database.Initialize(true);

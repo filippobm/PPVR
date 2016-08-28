@@ -235,6 +235,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201608280609542_InitialMigration.cs" />
+    <Compile Include="Migrations\201608280609542_InitialMigration.Designer.cs">
+      <DependentUpon>201608280609542_InitialMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\Candidato.cs" />
     <Compile Include="Models\CargoEletivo.cs" />
@@ -327,6 +332,11 @@
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>ValidationErrorMessage.Designer.cs</LastGenOutput>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201608280609542_InitialMigration.resx">
+      <DependentUpon>201608280609542_InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

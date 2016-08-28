@@ -7,6 +7,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using PPVR.WebApp.Models;
+using PPVR.WebApp.ViewModels.Manage;
 
 namespace PPVR.WebApp.Controllers
 {

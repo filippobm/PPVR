@@ -1,8 +1,7 @@
 ﻿using ExifLib;
-using Resources;
 using System;
 
-namespace PPVR.WebApp.Utils
+namespace PPVR.Common
 {
     public class GPSInfoFileExtractor
     {
@@ -51,21 +50,21 @@ namespace PPVR.WebApp.Utils
 
         private static double ConvertDegreeAngleToDouble(double degrees, double minutes, double seconds)
         {
-            return degrees + minutes/60 + seconds/3600;
+            return degrees + minutes / 60 + seconds / 3600;
         }
 
         private double GetLatitude()
         {
             var result = ConvertDegreeAngleToDouble(_exifLatitude[0], _exifLatitude[1], _exifLatitude[2]);
 
-            return _exifLatitudeRef == "S" ? result*-1 : result;
+            return _exifLatitudeRef == "S" ? result * -1 : result;
         }
 
         private double GetLongitude()
         {
             var result = ConvertDegreeAngleToDouble(_exifLongitude[0], _exifLongitude[1], _exifLongitude[2]);
 
-            return _exifLongitudeRef == "W" ? result*-1 : result;
+            return _exifLongitudeRef == "W" ? result * -1 : result;
         }
 
         private void ValidateFile()
@@ -75,7 +74,7 @@ namespace PPVR.WebApp.Utils
                   _reader.GetTagValue(ExifTags.GPSLongitude, out _exifLongitude) &&
                   _reader.GetTagValue(ExifTags.GPSLongitudeRef, out _exifLongitudeRef)))
             {
-                throw new Exception(ValidationErrorMessage.ExifTagsGeolocationNull);
+                throw new Exception("A foto não possui as informações de geolocalização.");
             }
         }
 

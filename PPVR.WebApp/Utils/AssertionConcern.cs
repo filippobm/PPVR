@@ -12,11 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-namespace PPVR.Models.Validation
-{
-    using System;
-    using System.Text.RegularExpressions;
+using System;
+using System.Text.RegularExpressions;
 
+namespace PPVR.WebApp.Utils
+{
     public class AssertionConcern
     {
         public static void AssertArgumentEquals(object object1, object object2, string message)

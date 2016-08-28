@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using PPVR.Models.Validation;
 using Resources;
 using System.Linq;
+using PPVR.WebApp.Utils;
 
 namespace PPVR.WebApp.Models
 {

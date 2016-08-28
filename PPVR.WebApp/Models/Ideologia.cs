@@ -1,6 +1,6 @@
-﻿using PPVR.Models.Validation;
-using Resources;
+﻿using Resources;
 using System.Collections.Generic;
+using PPVR.WebApp.Utils;
 
 namespace PPVR.WebApp.Models
 {

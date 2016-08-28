@@ -1,21 +1,33 @@
 ﻿using Microsoft.ProjectOxford.Vision;
 using Microsoft.ProjectOxford.Vision.Contract;
-using System.Configuration;
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PPVR.WebApp.Utils
+namespace PPVR.Common.OCRHelpers
 {
-    public class OcrHelper
+    public static class MicrosoftCognitiveServicesHelper
     {
+        private static readonly string _microsoftComputerVisionAPIKey1 = "3fcef6c666cb4ea3b01bc3d59e49803b";
+        private static string _microsoftComputerVisionAPIKey2 = "50d7b8857c1d44259d8d780820dec22f";
+
         public static async Task<string> UploadAndRecognizeImage(Stream imageStream)
         {
-            var visionServiceClient =
-                new VisionServiceClient(ConfigurationManager.AppSettings["MicrosoftComputerVisionAPIKey1"]);
+            var visionServiceClient = new VisionServiceClient(_microsoftComputerVisionAPIKey1);
 
             var ocrResults = await visionServiceClient.RecognizeTextAsync(imageStream, "pt");
             return GetTextOcrResults(ocrResults);
+        }
+
+        public static async Task<string> UploadAndRecognizeImage(string imageFilePath)
+        {
+            using (Stream imageStream = File.OpenRead(imageFilePath))
+            {
+                var visionServiceClient = new VisionServiceClient(_microsoftComputerVisionAPIKey1);
+
+                var ocrResults = await visionServiceClient.RecognizeTextAsync(imageStream, "pt");
+                return GetTextOcrResults(ocrResults);
+            }
         }
 
         /// <summary>

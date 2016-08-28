@@ -1,6 +1,4 @@
 ﻿using Microsoft.AspNet.Identity;
-using PPVR.Common.OCRHelpers;
-using System.IO;
 using System.Threading.Tasks;
 using System.Web.Http;
 
@@ -21,10 +19,10 @@ namespace PPVR.WebApp.Controllers
 
             var text = "";
 
-            using (Stream imageStream = File.OpenRead(imageFilePath))
-            {
-                text = await MicrosoftCognitiveServicesHelper.UploadAndRecognizeImage(imageStream);
-            }
+            //using (Stream imageStream = File.OpenRead(imageFilePath))
+            //{
+            //    text = await MicrosoftCognitiveServicesHelper.UploadAndRecognizeImage(imageStream);
+            //}
             return text;
         }
     }

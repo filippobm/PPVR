@@ -4,10 +4,10 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
 using Owin;
+using PPVR.WebApp.Configs.Providers;
 using PPVR.WebApp.DAL;
 using PPVR.WebApp.IdentityConfigs;
 using PPVR.WebApp.Models;
-using PPVR.WebApp.Providers;
 using System;
 
 namespace PPVR.WebApp
@@ -39,31 +39,15 @@ namespace PPVR.WebApp
                             (manager, user) => user.GenerateUserIdentityAsync(manager))
                 }
             });
-            app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
-
-            // Enables the application to temporarily store user information when they are verifying the second factor in the two-factor authentication process.
-            app.UseTwoFactorSignInCookie(DefaultAuthenticationTypes.TwoFactorCookie, TimeSpan.FromMinutes(5));
-
-            // Enables the application to remember the second login verification factor such as phone or email.
-            // Once you check this option, your second step of verification during the login process will be remembered on the device where you logged in from.
-            // This is similar to the RememberMe option when you log in.
-            app.UseTwoFactorRememberBrowserCookie(DefaultAuthenticationTypes.TwoFactorRememberBrowserCookie);
 
             // Configure the application for OAuth based flow
-            //var publicClientId = "self";
             var oAuthOptions = new OAuthAuthorizationServerOptions
             {
                 TokenEndpointPath = new PathString("/Token"),
-                //Provider = new ApplicationOAuthProvider(publicClientId),
                 Provider = new ApplicationOAuthProvider(),
-                AuthorizeEndpointPath = new PathString("/api/Account/ExternalLogin"),
-                AccessTokenExpireTimeSpan = TimeSpan.FromDays(1),
+                AccessTokenExpireTimeSpan = TimeSpan.FromSeconds(30),
                 AllowInsecureHttp = false
             };
-
-#if DEBUG
-            oAuthOptions.AllowInsecureHttp = true;
-#endif
 
             // Enable the application to use bearer tokens to authenticate users
             app.UseOAuthBearerTokens(oAuthOptions);

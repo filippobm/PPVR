@@ -45,7 +45,7 @@ namespace PPVR.WebApp
             {
                 TokenEndpointPath = new PathString("/Token"),
                 Provider = new ApplicationOAuthProvider(),
-                AccessTokenExpireTimeSpan = TimeSpan.FromSeconds(30),
+                AccessTokenExpireTimeSpan = TimeSpan.FromDays(10),
                 AllowInsecureHttp = false
             };
 

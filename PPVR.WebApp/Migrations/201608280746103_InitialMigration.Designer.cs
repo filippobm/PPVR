@@ -13,7 +13,7 @@ namespace PPVR.WebApp.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201608280609542_InitialMigration"; }
+            get { return "201608280746103_InitialMigration"; }
         }
         
         string IMigrationMetadata.Source

@@ -226,7 +226,6 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="DAL\AppDbContext.cs" />
-    <Compile Include="DAL\ContextInitializer.cs" />
     <Compile Include="DAL\Mappings\CandidatoMap.cs" />
     <Compile Include="DAL\Mappings\EnderecoMap.cs" />
     <Compile Include="DAL\Mappings\IdeologiaMap.cs" />
@@ -235,9 +234,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201608280609542_InitialMigration.cs" />
-    <Compile Include="Migrations\201608280609542_InitialMigration.Designer.cs">
-      <DependentUpon>201608280609542_InitialMigration.cs</DependentUpon>
+    <Compile Include="Migrations\201608280746103_InitialMigration.cs" />
+    <Compile Include="Migrations\201608280746103_InitialMigration.Designer.cs">
+      <DependentUpon>201608280746103_InitialMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
@@ -334,8 +333,8 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201608280609542_InitialMigration.resx">
-      <DependentUpon>201608280609542_InitialMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201608280746103_InitialMigration.resx">
+      <DependentUpon>201608280746103_InitialMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

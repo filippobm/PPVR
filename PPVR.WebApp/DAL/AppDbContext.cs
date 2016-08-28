@@ -1,10 +1,10 @@
+using Microsoft.AspNet.Identity.EntityFramework;
+using PPVR.WebApp.DAL.Mappings;
+using PPVR.WebApp.Models;
 using System;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
-using Microsoft.AspNet.Identity.EntityFramework;
-using PPVR.WebApp.DAL.Mappings;
-using PPVR.WebApp.Models;
 
 namespace PPVR.WebApp.DAL
 {
@@ -13,8 +13,8 @@ namespace PPVR.WebApp.DAL
         public AppDbContext()
             : base("AppConnectionString", false)
         {
-            Configuration.ProxyCreationEnabled = false;
-            Configuration.LazyLoadingEnabled = false;
+            //Configuration.ProxyCreationEnabled = false;
+            //Configuration.LazyLoadingEnabled = false;
 
             //Database.SetInitializer(new ContextInitializer());
             //Database.Initialize(true);
@@ -27,6 +27,8 @@ namespace PPVR.WebApp.DAL
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
             modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();

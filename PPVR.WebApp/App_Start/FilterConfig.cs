@@ -1,5 +1,4 @@
-﻿using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 
 namespace PPVR.WebApp
 {
@@ -8,6 +7,8 @@ namespace PPVR.WebApp
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new HandleErrorAttribute());
+            // The RequireHttps requires that all access to the web app be through HTTPS.
+            filters.Add(new RequireHttpsAttribute());
         }
     }
 }

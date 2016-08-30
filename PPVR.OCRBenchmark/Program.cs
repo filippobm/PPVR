@@ -47,77 +47,60 @@ namespace PPVR.OCRBenchmark
                         }
                     }
                 }
-
-                var t = MainAsync(args);
-                t.Wait();
+                //var t = MainAsync();
+                //t.Wait();
 
                 //Console.WriteLine("{0,-20} {1,40} {2,30}", "Número Eleitoral", "Nome", "Match");
 
                 //foreach (var imageFilePath in Directory.GetFiles(args[0]))
                 //{
                 //    var fileNameWithoutExtension = Path.GetFileNameWithoutExtension(imageFilePath);
-
                 //    if (fileNameWithoutExtension != null)
                 //    {
-                //        var candidato = fileNameWithoutExtension.Split('_');
-
-                //        var santinhoPolitico = new SantinhoPolitico
-                //        {
-                //            NumeroEleitoral = int.Parse(candidato[0]),
-                //            NomeCandidato = candidato[1],
-                //            TextoTesseract = TesseractHelper.UploadAndRecognizeImage(imageFilePath)
-                //        };
-
                 //        var match = PesquisarCandidatoTexto(santinhoPolitico.NomeCandidato,
                 //            santinhoPolitico.NumeroEleitoral, santinhoPolitico.TextoTesseract);
 
                 //        Console.WriteLine("{0,-20} {1,40} {2,30}", santinhoPolitico.NumeroEleitoral,
                 //            santinhoPolitico.NomeCandidato, match);
-
-                //        //using (StreamWriter writer = new StreamWriter("important.txt"))
-                //        //{
-                //        //    writer.Write("Word ");
-                //        //    writer.WriteLine("word 2");
-                //        //    writer.WriteLine("Line");
-                //        //}
                 //    }
                 //}  
+
+                var directoryInfo = Directory.CreateDirectory("output");
+                using (var writer = new StreamWriter(directoryInfo.FullName + @"\analise_ocr.csv"))
+                {
+                    writer.WriteLine(
+                        "Nome Candidato,Número Eleitoral,Arquivo,OCR.Space Match,M$ Cognitive Services Match,Tesseract Match");
+
+                    foreach (var santinhoPolitico in SantinhosPoliticos)
+                    {
+                        writer.Write(santinhoPolitico.NomeCandidato + ",");
+                        writer.Write(santinhoPolitico.NumeroEleitoral + ",");
+                        writer.Write(Path.GetFileName(santinhoPolitico.ImageFilePath) + ",");
+                        writer.Write(santinhoPolitico.MatchOCRSpace + ",");
+                        writer.Write(santinhoPolitico.MatchMicrosoftCognitiveServices + ",");
+                        writer.WriteLine(santinhoPolitico.MatchTesseract);
+                    }
+                }
             }
             Console.ReadKey();
         }
 
-        private static async Task MainAsync(string[] args)
+        private static async Task MainAsync()
         {
             foreach (var item in SantinhosPoliticos)
             {
+                // OCR.Space
                 item.TextoOCRSpace = await SpaceHelper.UploadAndRecognizeImage(item.ImageFilePath);
+                item.MatchOCRSpace = PesquisarCandidatoTexto(item.NomeCandidato, item.NumeroEleitoral,
+                    item.TextoOCRSpace);
 
-                //item.TextoMicrosoftCognitiveServices =
-                //    await MicrosoftCognitiveServicesHelper.UploadAndRecognizeImage(item.ImageFilePath);
+                // Microsoft Cognitive Service
+                item.TextoMicrosoftCognitiveServices =
+                    await MicrosoftCognitiveServicesHelper.UploadAndRecognizeImage(item.ImageFilePath);
 
-                //item.MatchMicrosoftCognitiveServices = PesquisarCandidatoTexto(item.NomeCandidato, item.NumeroEleitoral,
-                //    item.TextoMicrosoftCognitiveServices);
+                item.MatchMicrosoftCognitiveServices = PesquisarCandidatoTexto(item.NomeCandidato, item.NumeroEleitoral,
+                    item.TextoMicrosoftCognitiveServices);
             }
-
-            //foreach (var imageFilePath in Directory.GetFiles(args[0]))
-            //{
-            //    var fileNameWithoutExtension = Path.GetFileNameWithoutExtension(imageFilePath);
-
-            //    if (fileNameWithoutExtension != null)
-            //    {
-            //        var candidato = fileNameWithoutExtension.Split('_');
-
-            //        var santinhoPolitico = new SantinhoPolitico
-            //        {
-            //            NumeroEleitoral = int.Parse(candidato[0]),
-            //            NomeCandidato = candidato[1],
-            //            //TextoMicrosoftCognitiveServices = await MicrosoftCognitiveServicesHelper.UploadAndRecognizeImage(imageFilePath)
-            //        };
-
-            //        var matchTextMicrosoftCognitiveServices = PesquisarCandidatoTexto(santinhoPolitico.NomeCandidato,
-            //            santinhoPolitico.NumeroEleitoral, santinhoPolitico.TextoMicrosoftCognitiveServices);
-            //    }
-            //}
         }
 
         private static MatchType? PesquisarCandidatoTexto(string nomeCandidato, int numeroEleitoral, string texto)

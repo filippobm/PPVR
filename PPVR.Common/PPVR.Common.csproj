@@ -60,7 +60,10 @@
   <ItemGroup>
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Helpers\Geocoding\GeolocationInfoFileExtractor.cs" />
-    <Compile Include="Helpers\OCR\Microsoft Cognitive ServicesHelper.cs" />
+    <Compile Include="Helpers\OCR\MicrosoftCognitiveServicesHelper.cs" />
+    <Compile Include="Helpers\OCR\OCRSpace\OCRSpaceHelper.cs" />
+    <Compile Include="Helpers\OCR\OCRSpace\ParsedResult.cs" />
+    <Compile Include="Helpers\OCR\OCRSpace\RootObject.cs" />
     <Compile Include="Helpers\OCR\TesseractHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

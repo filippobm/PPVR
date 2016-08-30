@@ -1,5 +1,6 @@
 ﻿using PPVR.Common.Extensions;
 using PPVR.Common.Helpers.OCR;
+using PPVR.Common.Helpers.OCR.OCRSpace;
 using PPVR.OCRBenchmark.Entities;
 using System;
 using System.Collections.Generic;
@@ -89,11 +90,13 @@ namespace PPVR.OCRBenchmark
         {
             foreach (var item in SantinhosPoliticos)
             {
-                item.TextoMicrosoftCognitiveServices =
-                    await MicrosoftCognitiveServicesHelper.UploadAndRecognizeImage(item.ImageFilePath);
+                item.TextoOCRSpace = await SpaceHelper.UploadAndRecognizeImage(item.ImageFilePath);
 
-                item.MatchMicrosoftCognitiveServices = PesquisarCandidatoTexto(item.NomeCandidato, item.NumeroEleitoral,
-                    item.TextoMicrosoftCognitiveServices);
+                //item.TextoMicrosoftCognitiveServices =
+                //    await MicrosoftCognitiveServicesHelper.UploadAndRecognizeImage(item.ImageFilePath);
+
+                //item.MatchMicrosoftCognitiveServices = PesquisarCandidatoTexto(item.NomeCandidato, item.NumeroEleitoral,
+                //    item.TextoMicrosoftCognitiveServices);
             }
 
             //foreach (var imageFilePath in Directory.GetFiles(args[0]))

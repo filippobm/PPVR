@@ -1,4 +1,5 @@
-﻿using PPVR.Common.Extensions;
+﻿using OfficeOpenXml;
+using PPVR.Common.Extensions;
 using PPVR.Common.Helpers.OCR;
 using PPVR.Common.Helpers.OCR.OCRSpace;
 using PPVR.OCRBenchmark.Entities;
@@ -6,8 +7,8 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace PPVR.OCRBenchmark
@@ -24,7 +25,8 @@ namespace PPVR.OCRBenchmark
 
                 if (files.Any())
                 {
-                    Console.WriteLine("{0,-15} {1,30} {2,20} {3,20}", "Nº ELEITORAL", "NOME", "OCR", "MATCH TYPE");
+                    Console.WriteLine("{0,-15} {1,15} {2,35} {3,25} {4,20}", "TIME", "Nº ELEITORAL", "NOME", "OCR",
+                        "MATCH TYPE");
 
                     SantinhosPoliticos = new List<SantinhoPolitico>();
                     foreach (var imageFilePath in Directory.GetFiles(args[0]))
@@ -46,55 +48,102 @@ namespace PPVR.OCRBenchmark
                             santinhoPolitico.MatchTesseract = PesquisarCandidatoTexto(santinhoPolitico.NomeCandidato,
                                 santinhoPolitico.NumeroEleitoral, santinhoPolitico.TextoTesseract);
 
-                            Console.WriteLine("{0,-15} {1,30} {2,20} {3,20}", santinhoPolitico.NumeroEleitoral,
-                                santinhoPolitico.NomeCandidato, "Tesseract", santinhoPolitico.MatchTesseract);
+                            Console.WriteLine("{0,-15} {1,15} {2,35} {3,25} {4,20}", DateTime.Now.ToLongTimeString(),
+                                santinhoPolitico.NumeroEleitoral, santinhoPolitico.NomeCandidato, "Tesseract",
+                                santinhoPolitico.MatchTesseract);
 
                             SantinhosPoliticos.Add(santinhoPolitico);
                         }
                     }
                 }
-                //var t = MainAsync();
-                //t.Wait();
+                var t = MainAsync();
+                t.Wait();
+                ExportResultToExcel();
             }
-            ExportResultCsv();
+            else
+            {
+                Console.WriteLine("O diretório não foi informado.");
+            }
+            Console.WriteLine("Precione qualquer tecla para encerrar.");
+            Console.ReadKey();
         }
 
         private static async Task MainAsync()
         {
+            // OCR.Space
             foreach (var item in SantinhosPoliticos)
             {
-                // OCR.Space
                 item.TextoOCRSpace = await SpaceHelper.UploadAndRecognizeImage(item.ImageFilePath);
+
                 item.MatchOCRSpace = PesquisarCandidatoTexto(item.NomeCandidato, item.NumeroEleitoral,
                     item.TextoOCRSpace);
 
-                // Microsoft Cognitive Service
+                Console.WriteLine("{0,-15} {1,15} {2,35} {3,25} {4,20}", DateTime.Now.ToLongTimeString(),
+                    item.NumeroEleitoral, item.NomeCandidato, "OCR.Space", item.MatchOCRSpace);
+
+                Thread.Sleep(5000);
+            }
+
+            // Microsoft Cognitive Service
+            foreach (var item in SantinhosPoliticos)
+            {
                 item.TextoMicrosoftCognitiveServices =
                     await MicrosoftCognitiveServicesHelper.UploadAndRecognizeImage(item.ImageFilePath);
 
                 item.MatchMicrosoftCognitiveServices = PesquisarCandidatoTexto(item.NomeCandidato, item.NumeroEleitoral,
                     item.TextoMicrosoftCognitiveServices);
+
+                Console.WriteLine("{0,-15} {1,15} {2,35} {3,25} {4,20}", DateTime.Now.ToLongTimeString(),
+                    item.NumeroEleitoral, item.NomeCandidato, "MS Cognitive Services",
+                    item.MatchMicrosoftCognitiveServices);
+
+                Thread.Sleep(5000);
             }
         }
 
-        private static void ExportResultCsv()
+        private static void ExportResultToExcel()
         {
             var directoryInfo = Directory.CreateDirectory("output");
-            using (var writer = new StreamWriter(directoryInfo.FullName + @"\analise_ocr.csv", true, Encoding.UTF8))
-            {
-                writer.WriteLine(
-                    "Nome Candidato,Número Eleitoral,Arquivo,OCR.Space Match,M$ Cognitive Services Match,Tesseract Match");
+            var fileInfo = new FileInfo(directoryInfo.FullName + @"\analise_ocr.xlsx");
 
-                foreach (var santinhoPolitico in SantinhosPoliticos)
-                {
-                    writer.Write(santinhoPolitico.NomeCandidato + ",");
-                    writer.Write(santinhoPolitico.NumeroEleitoral + ",");
-                    writer.Write(Path.GetFileName(santinhoPolitico.ImageFilePath) + ",");
-                    writer.Write(santinhoPolitico.MatchOCRSpace + ",");
-                    writer.Write(santinhoPolitico.MatchMicrosoftCognitiveServices + ",");
-                    writer.WriteLine(santinhoPolitico.MatchTesseract);
-                }
+            if (fileInfo.Exists)
+                File.Delete(fileInfo.FullName);
+
+            var excelPackage = new ExcelPackage(fileInfo);
+            var worksheet = excelPackage.Workbook.Worksheets.Add("Analise OCRs");
+
+            // Headers
+            worksheet.Cells[1, 1].Value = "Nome Candidato";
+            worksheet.Cells[1, 2].Value = "Número Eleitoral";
+            worksheet.Cells[1, 3].Value = "Arquivo";
+            worksheet.Cells[1, 4].Value = "OCR.Space Match";
+            worksheet.Cells[1, 5].Value = "MS Cognitive Services Match";
+            worksheet.Cells[1, 6].Value = "Tesseract Match";
+            worksheet.Cells[1, 8].Value = "OCR.Space Texto";
+            worksheet.Cells[1, 9].Value = "MS Cognitive Services Texto";
+            worksheet.Cells[1, 10].Value = "Tesseract Texto";
+
+            var rowNumber = 2;
+
+            foreach (var santinhoPolitico in SantinhosPoliticos)
+            {
+                worksheet.Cells[rowNumber, 1].Value = santinhoPolitico.NomeCandidato;
+                worksheet.Cells[rowNumber, 2].Value = santinhoPolitico.NumeroEleitoral;
+                worksheet.Cells[rowNumber, 3].Value = Path.GetFileName(santinhoPolitico.ImageFilePath);
+
+                // Matches
+                worksheet.Cells[rowNumber, 4].Value = santinhoPolitico.MatchOCRSpace;
+                worksheet.Cells[rowNumber, 5].Value = santinhoPolitico.MatchMicrosoftCognitiveServices;
+                worksheet.Cells[rowNumber, 6].Value = santinhoPolitico.MatchTesseract;
+
+                // Textos
+                worksheet.Cells[rowNumber, 8].Value = santinhoPolitico.TextoOCRSpace;
+                worksheet.Cells[rowNumber, 9].Value = santinhoPolitico.TextoMicrosoftCognitiveServices;
+                worksheet.Cells[rowNumber, 10].Value = santinhoPolitico.TextoTesseract;
+
+                rowNumber++;
             }
+            excelPackage.Save();
         }
 
         private static MatchType? PesquisarCandidatoTexto(string nomeCandidato, int numeroEleitoral, string texto)

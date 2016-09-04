@@ -119,9 +119,9 @@ namespace PPVR.OCRBenchmark
             worksheet.Cells[1, 4].Value = "OCR.Space Match";
             worksheet.Cells[1, 5].Value = "MS Cognitive Services Match";
             worksheet.Cells[1, 6].Value = "Tesseract Match";
-            worksheet.Cells[1, 8].Value = "OCR.Space Texto";
-            worksheet.Cells[1, 9].Value = "MS Cognitive Services Texto";
-            worksheet.Cells[1, 10].Value = "Tesseract Texto";
+            worksheet.Cells[1, 7].Value = "OCR.Space Texto";
+            worksheet.Cells[1, 8].Value = "MS Cognitive Services Texto";
+            worksheet.Cells[1, 9].Value = "Tesseract Texto";
 
             var rowNumber = 2;
 
@@ -137,9 +137,9 @@ namespace PPVR.OCRBenchmark
                 worksheet.Cells[rowNumber, 6].Value = santinhoPolitico.MatchTesseract;
 
                 // Textos
-                worksheet.Cells[rowNumber, 8].Value = santinhoPolitico.TextoOCRSpace;
-                worksheet.Cells[rowNumber, 9].Value = santinhoPolitico.TextoMicrosoftCognitiveServices;
-                worksheet.Cells[rowNumber, 10].Value = santinhoPolitico.TextoTesseract;
+                worksheet.Cells[rowNumber, 7].Value = santinhoPolitico.TextoOCRSpace;
+                worksheet.Cells[rowNumber, 8].Value = santinhoPolitico.TextoMicrosoftCognitiveServices;
+                worksheet.Cells[rowNumber, 9].Value = santinhoPolitico.TextoTesseract;
 
                 rowNumber++;
             }

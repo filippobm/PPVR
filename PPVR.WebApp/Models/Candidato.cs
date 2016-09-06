@@ -1,52 +1,13 @@
-﻿using Resources;
+﻿using PPVR.WebApp.Utils;
+using Resources;
 using System;
 using System.Collections.Generic;
-using PPVR.WebApp.Utils;
+using System.Linq;
 
 namespace PPVR.WebApp.Models
 {
     public class Candidato
     {
-        #region Private Fields
-
-        private string _nome;
-
-        #endregion
-
-        #region Properties
-
-        public int CandidatoId { get; set; }
-        public byte PartidoId { get; set; }
-
-        public string Nome
-        {
-            get { return _nome; }
-            set
-            {
-                AssertionConcern.AssertArgumentNotNull(value,
-                    ValidationErrorMessage.CandidatoNomeNotNull);
-
-                AssertionConcern.AssertArgumentLength(value, 1, 60,
-                    ValidationErrorMessage.CandidatoNomeInvalidLength);
-                _nome = value;
-            }
-        }
-
-        public CargoEletivo CargoEletivo { get; private set; }
-        public int NumeroEleitoral { get; private set; }
-        public bool Enabled { get; set; }
-        public DateTime CreatedAt { get; set; }
-        public DateTime? UpdatedAt { get; set; }
-
-        #endregion
-
-        #region Navigation Properties
-
-        public virtual Partido Partido { get; set; }
-        public virtual ICollection<Ocorrencia> Ocorrencias { get; set; }
-
-        #endregion
-
         #region Methods
 
         public void SetNumeroEleitoral(CargoEletivo cargoEletivo, int numeroEleitoral)
@@ -82,9 +43,76 @@ namespace PPVR.WebApp.Models
                         ValidationErrorMessage.CandidatoNumeroEleitoralVereadorInvalidRange);
                     break;
             }
-            this.CargoEletivo = cargoEletivo;
-            this.NumeroEleitoral = numeroEleitoral;
+            CargoEletivo = cargoEletivo;
+            NumeroEleitoral = numeroEleitoral;
         }
+
+        #endregion
+
+        #region Private Fields
+
+        private string _nome;
+        private string _cidade;
+        private string _estado;
+
+        #endregion
+
+        #region Properties
+
+        public int CandidatoId { get; set; }
+        public byte PartidoId { get; set; }
+
+        public string Nome
+        {
+            get { return _nome; }
+            set
+            {
+                AssertionConcern.AssertArgumentNotNull(value,
+                    ValidationErrorMessage.CandidatoNomeNotNull);
+
+                AssertionConcern.AssertArgumentLength(value, 1, 60,
+                    ValidationErrorMessage.CandidatoNomeInvalidLength);
+                _nome = value;
+            }
+        }
+
+        public CargoEletivo CargoEletivo { get; private set; }
+        public int NumeroEleitoral { get; private set; }
+
+        public string Estado
+        {
+            get { return _estado; }
+            set
+            {
+                if (_estado != null)
+                    AssertionConcern.AssertStateTrue(Endereco.EstadosBrasileiros.Contains(value),
+                        ValidationErrorMessage.EnderecoEstadoInvalidValue);
+                _estado = value;
+            }
+        }
+
+        public string Cidade
+        {
+            get { return _cidade; }
+            set
+            {
+                if (_cidade != null)
+                    AssertionConcern.AssertArgumentLength(value, 1, 60,
+                        ValidationErrorMessage.EnderecoCidadeInvalidLength);
+                _cidade = value;
+            }
+        }
+
+        public bool Enabled { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public DateTime? UpdatedAt { get; set; }
+
+        #endregion
+
+        #region Navigation Properties
+
+        public virtual Partido Partido { get; set; }
+        public virtual ICollection<Ocorrencia> Ocorrencias { get; set; }
 
         #endregion
     }

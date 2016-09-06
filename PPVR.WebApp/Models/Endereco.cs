@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using PPVR.WebApp.Utils;
 using Resources;
+using System.Collections.Generic;
 using System.Linq;
-using PPVR.WebApp.Utils;
 
 namespace PPVR.WebApp.Models
 {
@@ -9,7 +9,7 @@ namespace PPVR.WebApp.Models
     {
         #region Private Fields
 
-        private static readonly string[] EstadosBrasileiros =
+        public static readonly string[] EstadosBrasileiros =
         {
             "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO",
             "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI",

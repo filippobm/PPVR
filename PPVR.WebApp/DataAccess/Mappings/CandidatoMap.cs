@@ -15,7 +15,28 @@ namespace PPVR.WebApp.DataAccess.Mappings
 
             Property(x => x.Nome)
                 .IsRequired()
-                .HasMaxLength(60);
+                .HasMaxLength(60)
+                .HasColumnAnnotation(
+                    IndexAnnotation.AnnotationName,
+                    new IndexAnnotation(
+                        new IndexAttribute("IX_CANDIDATO_NOME", 1)));
+
+            Property(x => x.Cidade)
+                .IsRequired()
+                .HasMaxLength(60)
+                .HasColumnAnnotation(
+                    IndexAnnotation.AnnotationName,
+                    new IndexAnnotation(
+                        new IndexAttribute("IX_CANDIDATO_CIDADE", 3)));
+
+            Property(x => x.Estado)
+                .IsRequired()
+                .HasColumnType("char")
+                .HasMaxLength(2)
+                .HasColumnAnnotation(
+                    IndexAnnotation.AnnotationName,
+                    new IndexAnnotation(
+                        new IndexAttribute("IX_CANDIDATO_ESTADO", 4)));
 
             Property(x => x.CargoEletivo)
                 .IsRequired();
@@ -25,7 +46,7 @@ namespace PPVR.WebApp.DataAccess.Mappings
                 .HasColumnAnnotation(
                     IndexAnnotation.AnnotationName,
                     new IndexAnnotation(
-                        new IndexAttribute("IX_CANDIDATO_NUMERO_ELEITORAL")
+                        new IndexAttribute("IX_CANDIDATO_NUMERO_ELEITORAL", 2)
                         {
                             IsUnique = true
                         }));

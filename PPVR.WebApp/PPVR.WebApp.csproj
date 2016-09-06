@@ -230,6 +230,14 @@
     <Compile Include="Migrations\201608280746103_InitialMigration.Designer.cs">
       <DependentUpon>201608280746103_InitialMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201609060225157_AlterCandidatoAddCidadeAddEstado.cs" />
+    <Compile Include="Migrations\201609060225157_AlterCandidatoAddCidadeAddEstado.Designer.cs">
+      <DependentUpon>201609060225157_AlterCandidatoAddCidadeAddEstado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609060232415_AlterCandidatoAddIndexNomeCidadeEstado.cs" />
+    <Compile Include="Migrations\201609060232415_AlterCandidatoAddIndexNomeCidadeEstado.Designer.cs">
+      <DependentUpon>201609060232415_AlterCandidatoAddIndexNomeCidadeEstado.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\Candidato.cs" />
@@ -325,6 +333,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201608280746103_InitialMigration.resx">
       <DependentUpon>201608280746103_InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609060225157_AlterCandidatoAddCidadeAddEstado.resx">
+      <DependentUpon>201609060225157_AlterCandidatoAddCidadeAddEstado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609060232415_AlterCandidatoAddIndexNomeCidadeEstado.resx">
+      <DependentUpon>201609060232415_AlterCandidatoAddIndexNomeCidadeEstado.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

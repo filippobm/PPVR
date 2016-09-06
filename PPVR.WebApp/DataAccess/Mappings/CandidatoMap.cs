@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.Infrastructure.Annotations;
 using System.Data.Entity.ModelConfiguration;
 
-namespace PPVR.WebApp.DAL.Mappings
+namespace PPVR.WebApp.DataAccess.Mappings
 {
     public class CandidatoMap : EntityTypeConfiguration<Candidato>
     {

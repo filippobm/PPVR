@@ -2,7 +2,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
-using PPVR.WebApp.DAL;
+using PPVR.WebApp.DataAccess;
 using PPVR.WebApp.Models;
 using System;
 

@@ -1,12 +1,12 @@
 using Microsoft.AspNet.Identity.EntityFramework;
-using PPVR.WebApp.DAL.Mappings;
 using PPVR.WebApp.Models;
 using System;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
+using PPVR.WebApp.DataAccess.Mappings;
 
-namespace PPVR.WebApp.DAL
+namespace PPVR.WebApp.DataAccess
 {
     public class AppDbContext : IdentityDbContext<ApplicationUser>
     {

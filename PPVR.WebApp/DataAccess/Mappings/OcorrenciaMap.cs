@@ -1,7 +1,7 @@
 ﻿using PPVR.WebApp.Models;
 using System.Data.Entity.ModelConfiguration;
 
-namespace PPVR.WebApp.DAL.Mappings
+namespace PPVR.WebApp.DataAccess.Mappings
 {
     public class OcorrenciaMap : EntityTypeConfiguration<Ocorrencia>
     {

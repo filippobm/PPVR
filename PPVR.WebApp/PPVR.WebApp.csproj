@@ -217,12 +217,12 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
-    <Compile Include="DAL\AppDbContext.cs" />
-    <Compile Include="DAL\Mappings\CandidatoMap.cs" />
-    <Compile Include="DAL\Mappings\EnderecoMap.cs" />
-    <Compile Include="DAL\Mappings\IdeologiaMap.cs" />
-    <Compile Include="DAL\Mappings\OcorrenciaMap.cs" />
-    <Compile Include="DAL\Mappings\PartidoMap.cs" />
+    <Compile Include="DataAccess\AppDbContext.cs" />
+    <Compile Include="DataAccess\Mappings\CandidatoMap.cs" />
+    <Compile Include="DataAccess\Mappings\EnderecoMap.cs" />
+    <Compile Include="DataAccess\Mappings\IdeologiaMap.cs" />
+    <Compile Include="DataAccess\Mappings\OcorrenciaMap.cs" />
+    <Compile Include="DataAccess\Mappings\PartidoMap.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

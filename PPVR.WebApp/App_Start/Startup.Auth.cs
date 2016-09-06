@@ -5,7 +5,7 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
 using Owin;
 using PPVR.WebApp.Configs.Providers;
-using PPVR.WebApp.DAL;
+using PPVR.WebApp.DataAccess;
 using PPVR.WebApp.IdentityConfigs;
 using PPVR.WebApp.Models;
 using System;

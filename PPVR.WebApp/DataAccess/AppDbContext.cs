@@ -1,10 +1,10 @@
 using Microsoft.AspNet.Identity.EntityFramework;
+using PPVR.WebApp.DataAccess.Mappings;
 using PPVR.WebApp.Models;
 using System;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
-using PPVR.WebApp.DataAccess.Mappings;
 
 namespace PPVR.WebApp.DataAccess
 {
@@ -15,9 +15,6 @@ namespace PPVR.WebApp.DataAccess
         {
             Configuration.ProxyCreationEnabled = false;
             Configuration.LazyLoadingEnabled = false;
-
-            //Database.SetInitializer(new ContextInitializer());
-            //Database.Initialize(true);
         }
 
         public static AppDbContext Create()
@@ -35,6 +32,7 @@ namespace PPVR.WebApp.DataAccess
 
             // Mappings
             modelBuilder.Configurations.Add(new CandidatoMap());
+            modelBuilder.Configurations.Add(new EleicaoMap());
             modelBuilder.Configurations.Add(new EnderecoMap());
             modelBuilder.Configurations.Add(new OcorrenciaMap());
             modelBuilder.Configurations.Add(new IdeologiaMap());
@@ -64,6 +62,7 @@ namespace PPVR.WebApp.DataAccess
         #region DbSets
 
         public DbSet<Candidato> Candidatos { get; set; }
+        public DbSet<Eleicao> Eleicoes { get; set; }
         public DbSet<Endereco> Enderecos { get; set; }
         public DbSet<Ideologia> Ideologias { get; set; }
         public DbSet<Ocorrencia> Ocorrencias { get; set; }

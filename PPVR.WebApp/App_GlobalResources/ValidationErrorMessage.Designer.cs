@@ -169,6 +169,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to A Descrição da eleição deve ter entre 1 e 60 caracteres..
+        /// </summary>
+        internal static string EleicaoDescricaoInvalidLength {
+            get {
+                return ResourceManager.GetString("EleicaoDescricaoInvalidLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A Descrição da eleição não pode ser nula..
+        /// </summary>
+        internal static string EleicaoDescricaoNotNull {
+            get {
+                return ResourceManager.GetString("EleicaoDescricaoNotNull", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to O Nome do Bairro deve ter entre 1 e 60 caracteres..
         /// </summary>
         internal static string EnderecoBairroInvalidLength {

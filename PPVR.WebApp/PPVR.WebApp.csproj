@@ -219,6 +219,7 @@
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="DataAccess\AppDbContext.cs" />
     <Compile Include="DataAccess\Mappings\CandidatoMap.cs" />
+    <Compile Include="DataAccess\Mappings\EleicaoMap.cs" />
     <Compile Include="DataAccess\Mappings\EnderecoMap.cs" />
     <Compile Include="DataAccess\Mappings\IdeologiaMap.cs" />
     <Compile Include="DataAccess\Mappings\OcorrenciaMap.cs" />
@@ -242,6 +243,7 @@
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\Candidato.cs" />
     <Compile Include="Models\CargoEletivo.cs" />
+    <Compile Include="Models\Eleicao.cs" />
     <Compile Include="Models\Endereco.cs" />
     <Compile Include="Models\EspectroPolitico.cs" />
     <Compile Include="Models\Ideologia.cs" />

@@ -7,14 +7,14 @@ namespace PPVR.WebApp.Models
 {
     public class Endereco
     {
-        #region Private Fields
-
         public static readonly string[] EstadosBrasileiros =
         {
             "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO",
             "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI",
             "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO"
         };
+
+        #region Private Fields        
 
         private string _estado;
         private string _cidade;

@@ -1,6 +1,6 @@
-﻿using Resources;
+﻿using PPVR.WebApp.Utils;
+using Resources;
 using System.Collections.Generic;
-using PPVR.WebApp.Utils;
 
 namespace PPVR.WebApp.Models
 {

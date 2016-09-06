@@ -8,9 +8,9 @@ namespace PPVR.Common.Helpers.OCR
 {
     public static class MicrosoftCognitiveServicesHelper
     {
-        private const string ApiKey1 = "ENTER_YOUR_APIKEY";
+        private const string ApiKey1 = "3fcef6c666cb4ea3b01bc3d59e49803b";
         private const string LanguageCode = "pt";
-        //private const string ApiKey2 = "ENTER_YOUR_APIKEY";
+        //private const string ApiKey2 = "50d7b8857c1d44259d8d780820dec22f";
 
         public static async Task<string> UploadAndRecognizeImage(string imageFilePath)
         {

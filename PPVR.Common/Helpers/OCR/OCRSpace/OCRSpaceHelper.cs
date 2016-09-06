@@ -9,7 +9,7 @@ namespace PPVR.Common.Helpers.OCR.OCRSpace
 {
     public static class SpaceHelper
     {
-        private const string ApiKey = "ENTER_YOUR_APIKEY";
+        private const string ApiKey = "1a391fbd2c88957";
         private const string Language = "por";
 
         public static async Task<string> UploadAndRecognizeImage(string imageFilePath)

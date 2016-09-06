@@ -243,3 +243,7 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+
+# ignore a single file
+PPVR.Common/Helpers/OCR/MicrosoftCognitiveServicesHelper.cs
+PPVR.Common/Helpers/OCR/OCRSpace/OCRSpaceHelper.cs.cs

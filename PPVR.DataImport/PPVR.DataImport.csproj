@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="dataset\consulta_cand_2016\LEIAME.pdf" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="dataset\consulta_cand_2016\consulta_cand_2016_MG.txt" />

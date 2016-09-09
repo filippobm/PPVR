@@ -2,7 +2,8 @@
 {
     public enum MatchType : byte
     {
-        NumeroEleitoral = 1,
-        Nome = 2
+        Nome = 1,
+        NumeroEleitoral = 2,
+        NomeENumeroEleitoral = 3
     }
 }

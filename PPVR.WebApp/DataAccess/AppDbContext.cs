@@ -1,4 +1,5 @@
 using Microsoft.AspNet.Identity.EntityFramework;
+using PPVR.WebApp.DataAccess.InitConfig;
 using PPVR.WebApp.DataAccess.Mappings;
 using PPVR.WebApp.Models;
 using System;
@@ -16,8 +17,8 @@ namespace PPVR.WebApp.DataAccess
             Configuration.ProxyCreationEnabled = false;
             Configuration.LazyLoadingEnabled = false;
 
-            //Database.SetInitializer(new ContextInitializer());
-            //Database.Initialize(true);
+            Database.SetInitializer(new ContextInitializer());
+            Database.Initialize(true);
         }
 
         public static AppDbContext Create()

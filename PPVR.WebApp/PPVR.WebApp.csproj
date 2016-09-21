@@ -297,9 +297,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Migrations\dataset\consulta_cand_2016\consulta_cand_2016_MG.txt">
+    <EmbeddedResource Include="Migrations\dataset\consulta_cand_2016\consulta_cand_2016_MG.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    </EmbeddedResource>
     <Content Include="Migrations\dataset\consulta_cand_2016\consulta_cand_2016_RJ.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

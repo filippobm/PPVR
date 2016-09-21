@@ -16,26 +16,20 @@ namespace PPVR.WebApp.Models
 
         public short EleicaoId { get; set; }
 
-        /// <summary>
-        ///     Ano da eleição.
-        /// </summary>
-        public byte Ano { get; set; }
+        // Ano da Eleição
+        public int Ano { get; set; }
 
-        /// <summary>
-        ///     Número do turno.
-        /// </summary>
+        // Número do Turno
         public byte Turno { get; set; }
 
-        /// <summary>
-        ///     Descrição da eleição.
-        /// </summary>
+        // Descrição da Eleição
         public string Descricao
         {
             get { return _descricao; }
             set
             {
                 AssertionConcern.AssertArgumentNotNull(value, ValidationErrorMessage.EleicaoDescricaoNotNull);
-                AssertionConcern.AssertArgumentLength(value, 1, 255,
+                AssertionConcern.AssertArgumentLength(value, 1, 100,
                     ValidationErrorMessage.EleicaoDescricaoInvalidLength);
 
                 _descricao = value;

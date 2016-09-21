@@ -163,10 +163,10 @@
     <value>O Nome do Cargo Letivo não pode ser nulo.</value>
   </data>
   <data name="EleicaoDescricaoInvalidLength" xml:space="preserve">
-    <value>A Descrição da eleição deve ter entre 1 e 255 caracteres.</value>
+    <value>A descrição da eleição deve ter entre 1 e 100 caracteres.</value>
   </data>
   <data name="EleicaoDescricaoNotNull" xml:space="preserve">
-    <value>A Descrição da eleição não pode ser nula.</value>
+    <value>A descrição da eleição não pode ser nula.</value>
   </data>
   <data name="EnderecoBairroInvalidLength" xml:space="preserve">
     <value>O Nome do Bairro deve ter entre 1 e 60 caracteres.</value>

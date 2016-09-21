@@ -244,6 +244,10 @@
     <Compile Include="Migrations\201609210123144_AddTableEleicoes.Designer.cs">
       <DependentUpon>201609210123144_AddTableEleicoes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201609210159349_AlterCandidatos.cs" />
+    <Compile Include="Migrations\201609210159349_AlterCandidatos.Designer.cs">
+      <DependentUpon>201609210159349_AlterCandidatos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\Candidato.cs" />
@@ -356,6 +360,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201609210123144_AddTableEleicoes.resx">
       <DependentUpon>201609210123144_AddTableEleicoes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609210159349_AlterCandidatos.resx">
+      <DependentUpon>201609210159349_AlterCandidatos.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

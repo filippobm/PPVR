@@ -169,7 +169,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to A Descrição da eleição deve ter entre 1 e 60 caracteres..
+        ///   Looks up a localized string similar to A Descrição da eleição deve ter entre 1 e 255 caracteres..
         /// </summary>
         internal static string EleicaoDescricaoInvalidLength {
             get {

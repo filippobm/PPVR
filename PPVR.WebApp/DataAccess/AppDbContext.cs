@@ -15,6 +15,9 @@ namespace PPVR.WebApp.DataAccess
         {
             Configuration.ProxyCreationEnabled = false;
             Configuration.LazyLoadingEnabled = false;
+
+            //Database.SetInitializer(new ContextInitializer());
+            //Database.Initialize(true);
         }
 
         public static AppDbContext Create()

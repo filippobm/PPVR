@@ -11,8 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PPVR.Common", "PPVR.Common\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Preprocessing", "Preprocessing", "{18169B80-C2B9-4AD9-B24B-404589F4721B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PPVR.DataImport", "PPVR.DataImport\PPVR.DataImport.csproj", "{7F140B63-A175-4A22-B851-C72FA5C155F5}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,16 +29,11 @@ Global
 		{9DDD97D6-6C70-4198-AFC1-441EAC3B3B82}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9DDD97D6-6C70-4198-AFC1-441EAC3B3B82}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9DDD97D6-6C70-4198-AFC1-441EAC3B3B82}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7F140B63-A175-4A22-B851-C72FA5C155F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7F140B63-A175-4A22-B851-C72FA5C155F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7F140B63-A175-4A22-B851-C72FA5C155F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7F140B63-A175-4A22-B851-C72FA5C155F5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{A72ED2E8-80D5-4977-8BD0-DEA13D4184E1} = {18169B80-C2B9-4AD9-B24B-404589F4721B}
-		{7F140B63-A175-4A22-B851-C72FA5C155F5} = {18169B80-C2B9-4AD9-B24B-404589F4721B}
 	EndGlobalSection
 EndGlobal

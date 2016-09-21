@@ -13,18 +13,27 @@ namespace PPVR.WebApp.DataAccess.Mappings
 
             HasKey(x => x.EleicaoId);
 
-            Property(x => x.Descricao)
+            Property(x => x.Ano)
                 .IsRequired()
                 .HasColumnAnnotation(
                     IndexAnnotation.AnnotationName,
                     new IndexAnnotation(
-                        new IndexAttribute("IX_ELEICAO_DESCRICAO")
-                        {
-                            IsUnique = true
-                        }));
+                        new IndexAttribute("IX_ELEICAO_ANO", 1)));
 
-            Property(x => x.Ano)
-                .IsRequired();
+            Property(x => x.Turno)
+                .IsRequired()
+                .HasColumnAnnotation(
+                    IndexAnnotation.AnnotationName,
+                    new IndexAnnotation(
+                        new IndexAttribute("IX_ELEICAO_TURNO", 2)));
+
+            Property(x => x.Descricao)
+                .IsRequired()
+                .HasMaxLength(60)
+                .HasColumnAnnotation(
+                    IndexAnnotation.AnnotationName,
+                    new IndexAnnotation(
+                        new IndexAttribute("IX_ELEICAO_DESCRICAO", 3)));
         }
     }
 }

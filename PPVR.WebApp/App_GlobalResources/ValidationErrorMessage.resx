@@ -154,7 +154,7 @@
     <value>O Nome do Cargo Letivo não pode ser nulo.</value>
   </data>
   <data name="EleicaoDescricaoInvalidLength" xml:space="preserve">
-    <value>A Descrição da eleição deve ter entre 1 e 60 caracteres.</value>
+    <value>A Descrição da eleição deve ter entre 1 e 255 caracteres.</value>
   </data>
   <data name="EleicaoDescricaoNotNull" xml:space="preserve">
     <value>A Descrição da eleição não pode ser nula.</value>

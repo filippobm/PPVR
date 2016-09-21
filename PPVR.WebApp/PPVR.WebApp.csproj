@@ -218,6 +218,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="DataAccess\AppDbContext.cs" />
+    <Compile Include="DataAccess\InitConfig\ContextInitializer.cs" />
     <Compile Include="DataAccess\Mappings\CandidatoMap.cs" />
     <Compile Include="DataAccess\Mappings\EleicaoMap.cs" />
     <Compile Include="DataAccess\Mappings\EnderecoMap.cs" />
@@ -238,6 +239,10 @@
     <Compile Include="Migrations\201609060232415_AlterCandidatoAddIndexNomeCidadeEstado.cs" />
     <Compile Include="Migrations\201609060232415_AlterCandidatoAddIndexNomeCidadeEstado.Designer.cs">
       <DependentUpon>201609060232415_AlterCandidatoAddIndexNomeCidadeEstado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609210123144_AddTableEleicoes.cs" />
+    <Compile Include="Migrations\201609210123144_AddTableEleicoes.Designer.cs">
+      <DependentUpon>201609210123144_AddTableEleicoes.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
@@ -276,8 +281,15 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Migrations\dataset\consulta_cand_2016\consulta_cand_2016_MG.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Migrations\dataset\consulta_cand_2016\consulta_cand_2016_RJ.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Migrations\dataset\consulta_cand_2016\LEIAME.pdf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -341,6 +353,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201609060232415_AlterCandidatoAddIndexNomeCidadeEstado.resx">
       <DependentUpon>201609060232415_AlterCandidatoAddIndexNomeCidadeEstado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609210123144_AddTableEleicoes.resx">
+      <DependentUpon>201609210123144_AddTableEleicoes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

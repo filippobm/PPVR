@@ -21,22 +21,26 @@ namespace PPVR.WebApp.DataAccess.Mappings
                     new IndexAnnotation(
                         new IndexAttribute("IX_CANDIDATO_NOME", 1)));
 
-            Property(x => x.Cidade)
+            Property(x => x.DescricaoUnidadeEleitoral)
                 .IsRequired()
-                .HasMaxLength(60)
+                .HasMaxLength(255)
                 .HasColumnAnnotation(
                     IndexAnnotation.AnnotationName,
                     new IndexAnnotation(
-                        new IndexAttribute("IX_CANDIDATO_CIDADE", 3)));
+                        new IndexAttribute("IX_CANDIDATO_DESCRICAO_UNIDADE_ELEITORAL", 3)));
 
-            Property(x => x.Estado)
+            Property(x => x.SiglaUnidadeEleitoral)
+                .IsRequired()
+                .HasMaxLength(60);
+
+            Property(x => x.SiglaUnidadeFederacao)
                 .IsRequired()
                 .HasColumnType("char")
                 .HasMaxLength(2)
                 .HasColumnAnnotation(
                     IndexAnnotation.AnnotationName,
                     new IndexAnnotation(
-                        new IndexAttribute("IX_CANDIDATO_ESTADO", 4)));
+                        new IndexAttribute("IX_CANDIDATO_SIGLA_UNIDADE_FEDERACAO", 4)));
 
             Property(x => x.CargoEletivo)
                 .IsRequired();

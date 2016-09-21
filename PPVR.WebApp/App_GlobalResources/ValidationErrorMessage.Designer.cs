@@ -61,6 +61,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to A Descrição da Unidade Eleitoral da Eleição à qual o Candidato está participando deve ter entre 1 e 255 caracteres..
+        /// </summary>
+        internal static string CandidatoDescricaoUnidadeEleitoralInvalidLength {
+            get {
+                return ResourceManager.GetString("CandidatoDescricaoUnidadeEleitoralInvalidLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to O Nome do Candidato deve ter no máximo 60 caracteres..
         /// </summary>
         internal static string CandidatoNomeInvalidLength {
@@ -138,6 +147,24 @@ namespace Resources {
         internal static string CandidatoNumeroEleitoralVereadorInvalidRange {
             get {
                 return ResourceManager.GetString("CandidatoNumeroEleitoralVereadorInvalidRange", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A Sigla da Unidade Eleitoral da Eleição à qual o Candidato está participando deve ter entre 1 e 60 caracteres..
+        /// </summary>
+        internal static string CandidatoSiglaUnidadeEleitoralInvalidLength {
+            get {
+                return ResourceManager.GetString("CandidatoSiglaUnidadeEleitoralInvalidLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A Sigla da Unidade da Federação da Eleição à qual o Candidato está participando não existe..
+        /// </summary>
+        internal static string CandidatoSiglaUnidadeFederacaoInvalidValue {
+            get {
+                return ResourceManager.GetString("CandidatoSiglaUnidadeFederacaoInvalidValue", resourceCulture);
             }
         }
         

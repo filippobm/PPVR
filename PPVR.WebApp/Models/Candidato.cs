@@ -52,8 +52,9 @@ namespace PPVR.WebApp.Models
         #region Private Fields
 
         private string _nome;
-        private string _cidade;
-        private string _estado;
+        private string _siglaUnidadeFederacao;
+        private string _siglaUnidadeEleitoral;
+        private string _descricaoUnidadeEleitoral;
 
         #endregion
 
@@ -79,27 +80,55 @@ namespace PPVR.WebApp.Models
         public CargoEletivo CargoEletivo { get; private set; }
         public int NumeroEleitoral { get; private set; }
 
-        public string Estado
+        /// <summary>
+        ///     Sigla da Unidade da Federação da Eleição à qual o Candidato está participando.
+        /// </summary>
+        public string SiglaUnidadeFederacao
         {
-            get { return _estado; }
+            get { return _siglaUnidadeFederacao; }
             set
             {
-                if (_estado != null)
+                if (_siglaUnidadeFederacao != null)
                     AssertionConcern.AssertStateTrue(Endereco.EstadosBrasileiros.Contains(value),
-                        ValidationErrorMessage.EnderecoEstadoInvalidValue);
-                _estado = value;
+                        ValidationErrorMessage.CandidatoSiglaUnidadeFederacaoInvalidValue);
+
+                _siglaUnidadeFederacao = value;
             }
         }
 
-        public string Cidade
+        /// <summary>
+        ///     Sigla da Unidade Eleitoral da Eleição à qual o Candidato está participando.
+        ///     (Em caso de eleição majoritária é a sigla da UF que o candidato concorre (texto)
+        ///     e em caso de eleição municipal é o código TSE do município (número)).
+        ///     Assume os valores especiais BR, ZZ e VT para designar, respectivamente,
+        ///     o Brasil, Exterior e Voto em Trânsito.
+        /// </summary>
+        public string SiglaUnidadeEleitoral
         {
-            get { return _cidade; }
+            get { return _siglaUnidadeEleitoral; }
             set
             {
-                if (_cidade != null)
+                if (_siglaUnidadeEleitoral != null)
                     AssertionConcern.AssertArgumentLength(value, 1, 60,
-                        ValidationErrorMessage.EnderecoCidadeInvalidLength);
-                _cidade = value;
+                        ValidationErrorMessage.CandidatoSiglaUnidadeEleitoralInvalidLength);
+
+                _siglaUnidadeEleitoral = value;
+            }
+        }
+
+        /// <summary>
+        ///     Descrição da Unidade Eleitoral da Eleição à qual o Candidato está participando.
+        /// </summary>
+        public string DescricaoUnidadeEleitoral
+        {
+            get { return _descricaoUnidadeEleitoral; }
+            set
+            {
+                if (_descricaoUnidadeEleitoral != null)
+                    AssertionConcern.AssertArgumentLength(value, 1, 255,
+                        ValidationErrorMessage.CandidatoDescricaoUnidadeEleitoralInvalidLength);
+
+                _descricaoUnidadeEleitoral = value;
             }
         }
 

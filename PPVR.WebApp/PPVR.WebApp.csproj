@@ -260,6 +260,14 @@
     <Compile Include="Migrations\201609210220523_AlterEleicoesChangeDescricaoMaxLength.Designer.cs">
       <DependentUpon>201609210220523_AlterEleicoesChangeDescricaoMaxLength.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201609241630051_AlterCandidatosAddNomeUrna.cs" />
+    <Compile Include="Migrations\201609241630051_AlterCandidatosAddNomeUrna.Designer.cs">
+      <DependentUpon>201609241630051_AlterCandidatosAddNomeUrna.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609241825097_AlterCandidatosIndexes.cs" />
+    <Compile Include="Migrations\201609241825097_AlterCandidatosIndexes.Designer.cs">
+      <DependentUpon>201609241825097_AlterCandidatosIndexes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\Candidato.cs" />
@@ -297,6 +305,12 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <EmbeddedResource Include="Migrations\201609241630051_AlterCandidatosAddNomeUrna.resx">
+      <DependentUpon>201609241630051_AlterCandidatosAddNomeUrna.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609241825097_AlterCandidatosIndexes.resx">
+      <DependentUpon>201609241825097_AlterCandidatosIndexes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\dataset\consulta_cand_2016\consulta_cand_2016_MG.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>

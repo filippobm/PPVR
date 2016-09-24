@@ -88,6 +88,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to O nome da urna do candidato deve ter no máximo 60 caracteres..
+        /// </summary>
+        internal static string CandidatoNomeUrnaInvalidLength {
+            get {
+                return ResourceManager.GetString("CandidatoNomeUrnaInvalidLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to O nome da urna do candidato não pode ser nulo..
+        /// </summary>
+        internal static string CandidatoNomeUrnaNotNull {
+            get {
+                return ResourceManager.GetString("CandidatoNomeUrnaNotNull", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to O Número Eleitoral do Candidato à Deputado Estadual não é válido..
         /// </summary>
         internal static string CandidatoNumeroEleitoralDeputadoEstadualInvalidRange {

@@ -1,7 +1,8 @@
 ﻿using PPVR.WebApp.Models;
-using System.Collections.Generic;
+using System;
 using System.Data.Entity;
 using System.IO;
+using System.Linq;
 using System.Text;
 
 namespace PPVR.WebApp.DataAccess.InitConfig
@@ -10,46 +11,86 @@ namespace PPVR.WebApp.DataAccess.InitConfig
     {
         protected override void Seed(AppDbContext context)
         {
-            var candidatos = ImportarCandidatos();
-
-            context.SaveChanges();
-        }
-
-        private List<Candidato> ImportarCandidatos()
-        {
-            var candidatos = new List<Candidato>();
-
-            var path = @"C:\Projects\PPVR\src\PPVR.WebApp\bin\Migrations\dataset\consulta_cand_2016\consulta_cand_2016_MG.txt";
+            var path =
+                @"C:\Projects\PPVR\src\PPVR.WebApp\bin\Migrations\dataset\consulta_cand_2016\consulta_cand_2016_MG.txt";            
 
             using (var streamReader = new StreamReader(path, Encoding.GetEncoding("ISO-8859-1")))
             {
                 string line;
+
                 while ((line = streamReader.ReadLine()) != null)
                 {
-                    var x = line.Split(';');
+                    var c = line.Split(';');
 
-                    if (x.Length != 46)
+                    if (c.Length != 46)
+                        throw new Exception("aaa");
+
+                    for (var i = 0; i < c.Length; i++)
+                        c[i] = c[i].Substring(1, c[i].Length - 2);
+
+                    #region Eleição
+
+                    var eleicaoAno = int.Parse(c[2]);
+                    var eleicaoDescricao = c[4];
+                    var eleicaoTurno = byte.Parse(c[3]);
+
+                    var eleicao =
+                        context.Eleicoes.FirstOrDefault(
+                            x => x.Ano == eleicaoAno && x.Descricao == eleicaoDescricao && x.Turno == eleicaoTurno);
+
+                    if (eleicao == null)
                     {
-                        string i = "";
+                        eleicao = new Eleicao
+                        {
+                            Descricao = eleicaoDescricao,
+                            Ano = eleicaoAno,
+                            Turno = eleicaoTurno,
+                            Enabled = true
+                        };
                     }
 
+                    #endregion
+
+                    #region Partido
+
+                    var numeroPartido = byte.Parse(c[17]);
+                    var partido = context.Partidos.FirstOrDefault(x => x.NumeroEleitoral == numeroPartido);
+
+                    if (partido == null)
+                    {
+                        partido = new Partido
+                        {
+                            NumeroEleitoral = numeroPartido,
+                            Nome = c[18]
+                        };
+                    }
+
+                    #endregion
+
+                    //[12] Número Candidato Urna
+                    //[16] Descrição Situação Candidato
+
+                    var candidato = new Candidato
+                    {
+                        SiglaUnidadeFederacao = c[5],
+                        SiglaUnidadeEleitoral = c[6],
+                        DescricaoUnidadeEleitoral = c[7],
+                        Nome = c[10],
+                        NomeUrna = c[14],
+                        Partido = partido,
+                        Eleicao = eleicao,
+                        Enabled = true
+                    };
+
+                    context.Candidatos.Add(candidato);
+                    //context.SaveChanges();
                 }
-
-                //[2] Ano eleição
-                //[3] Turno
-                //[4] Descrição Eleição
-                //[5] SiglaUF
-                //[6] SiglaUE
-                //[7] NomeMunicipio
-                //[12] Número Candidato Urna
-                //[10] Nome Candidato
-                //[14] Nome Urna Candidato
-                //[16] Descrição Situação Candidato
-                //[17] Número Partido
-                //[18] Nome Partido
             }
+        }
 
-            return candidatos;
+        private
+            void ImportarCandidatos(string path)
+        {
         }
     }
 }

@@ -126,6 +126,12 @@
   <data name="CandidatoNomeNotNull" xml:space="preserve">
     <value>O Nome do Candidato não pode ser nulo.</value>
   </data>
+  <data name="CandidatoNomeUrnaInvalidLength" xml:space="preserve">
+    <value>O nome da urna do candidato deve ter no máximo 60 caracteres.</value>
+  </data>
+  <data name="CandidatoNomeUrnaNotNull" xml:space="preserve">
+    <value>O nome da urna do candidato não pode ser nulo.</value>
+  </data>
   <data name="CandidatoNumeroEleitoralDeputadoEstadualInvalidRange" xml:space="preserve">
     <value>O Número Eleitoral do Candidato à Deputado Estadual não é válido.</value>
   </data>

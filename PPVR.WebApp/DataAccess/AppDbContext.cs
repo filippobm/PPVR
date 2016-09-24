@@ -45,6 +45,13 @@ namespace PPVR.WebApp.DataAccess
 
         public override int SaveChanges()
         {
+            // Set Enabled = true
+            foreach (var entry in ChangeTracker.Entries().Where(x => x.Entity.GetType().GetProperty("Enabled") != null))
+            {
+                if (entry.State == EntityState.Added)
+                    entry.Property("Enabled").CurrentValue = true;
+            }
+
             // Set CreatedAt
             foreach (var entry in ChangeTracker.Entries()
                 .Where(x => x.Entity.GetType().GetProperty("CreatedAt") != null))

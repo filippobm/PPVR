@@ -8,53 +8,13 @@ namespace PPVR.WebApp.Models
 {
     public class Candidato
     {
-        #region Methods
-
-        public void SetNumeroEleitoral(CargoEletivo cargoEletivo, int numeroEleitoral)
-        {
-            switch (cargoEletivo)
-            {
-                case CargoEletivo.Presidente:
-                    AssertionConcern.AssertArgumentRange(numeroEleitoral, 10, 99,
-                        ValidationErrorMessage.CandidatoNumeroEleitoralPresidenteInvalidRange);
-                    break;
-                case CargoEletivo.Governador:
-                    AssertionConcern.AssertArgumentRange(numeroEleitoral, 10, 99,
-                        ValidationErrorMessage.CandidatoNumeroEleitoralGovernadorInvalidRange);
-                    break;
-                case CargoEletivo.Prefeito:
-                    AssertionConcern.AssertArgumentRange(numeroEleitoral, 10, 99,
-                        ValidationErrorMessage.CandidatoNumeroEleitoralPrefeitoInvalidRange);
-                    break;
-                case CargoEletivo.Senador:
-                    AssertionConcern.AssertArgumentRange(numeroEleitoral, 10, 999,
-                        ValidationErrorMessage.CandidatoNumeroEleitoralSenadorInvalidRange);
-                    break;
-                case CargoEletivo.DeputadoFederal:
-                    AssertionConcern.AssertArgumentRange(numeroEleitoral, 10, 99999,
-                        ValidationErrorMessage.CandidatoNumeroEleitoralDeputadoFederalInvalidRange);
-                    break;
-                case CargoEletivo.DeputadoEstadual:
-                    AssertionConcern.AssertArgumentRange(numeroEleitoral, 10, 99999,
-                        ValidationErrorMessage.CandidatoNumeroEleitoralDeputadoEstadualInvalidRange);
-                    break;
-                case CargoEletivo.Vereador:
-                    AssertionConcern.AssertArgumentRange(numeroEleitoral, 10, 99999,
-                        ValidationErrorMessage.CandidatoNumeroEleitoralVereadorInvalidRange);
-                    break;
-            }
-            CargoEletivo = cargoEletivo;
-            NumeroEleitoral = numeroEleitoral;
-        }
-
-        #endregion
-
         #region Private Fields
 
+        private string _descricaoUnidadeEleitoral;
         private string _nome;
+        private string _nomeUrna;
         private string _siglaUnidadeFederacao;
         private string _siglaUnidadeEleitoral;
-        private string _descricaoUnidadeEleitoral;
 
         #endregion
 
@@ -62,6 +22,7 @@ namespace PPVR.WebApp.Models
 
         public int CandidatoId { get; set; }
         public byte PartidoId { get; set; }
+        public short EleicaoId { get; set; }
 
         public string Nome
         {
@@ -74,6 +35,21 @@ namespace PPVR.WebApp.Models
                 AssertionConcern.AssertArgumentLength(value, 1, 60,
                     ValidationErrorMessage.CandidatoNomeInvalidLength);
                 _nome = value;
+            }
+        }
+
+        public string NomeUrna
+        {
+            get { return _nomeUrna; }
+            set
+            {
+                AssertionConcern.AssertArgumentNotNull(value,
+                    ValidationErrorMessage.CandidatoNomeUrnaNotNull);
+
+                AssertionConcern.AssertArgumentLength(value, 1, 60,
+                    ValidationErrorMessage.CandidatoNomeUrnaInvalidLength);
+
+                _nomeUrna = value;
             }
         }
 
@@ -141,7 +117,49 @@ namespace PPVR.WebApp.Models
         #region Navigation Properties
 
         public virtual Partido Partido { get; set; }
+        public virtual Eleicao Eleicao { get; set; }
         public virtual ICollection<Ocorrencia> Ocorrencias { get; set; }
+
+        #endregion
+
+        #region Methods
+
+        public void SetNumeroEleitoral(CargoEletivo cargoEletivo, int numeroEleitoral)
+        {
+            switch (cargoEletivo)
+            {
+                case CargoEletivo.Presidente:
+                    AssertionConcern.AssertArgumentRange(numeroEleitoral, 10, 99,
+                        ValidationErrorMessage.CandidatoNumeroEleitoralPresidenteInvalidRange);
+                    break;
+                case CargoEletivo.Governador:
+                    AssertionConcern.AssertArgumentRange(numeroEleitoral, 10, 99,
+                        ValidationErrorMessage.CandidatoNumeroEleitoralGovernadorInvalidRange);
+                    break;
+                case CargoEletivo.Prefeito:
+                    AssertionConcern.AssertArgumentRange(numeroEleitoral, 10, 99,
+                        ValidationErrorMessage.CandidatoNumeroEleitoralPrefeitoInvalidRange);
+                    break;
+                case CargoEletivo.Senador:
+                    AssertionConcern.AssertArgumentRange(numeroEleitoral, 10, 999,
+                        ValidationErrorMessage.CandidatoNumeroEleitoralSenadorInvalidRange);
+                    break;
+                case CargoEletivo.DeputadoFederal:
+                    AssertionConcern.AssertArgumentRange(numeroEleitoral, 10, 99999,
+                        ValidationErrorMessage.CandidatoNumeroEleitoralDeputadoFederalInvalidRange);
+                    break;
+                case CargoEletivo.DeputadoEstadual:
+                    AssertionConcern.AssertArgumentRange(numeroEleitoral, 10, 99999,
+                        ValidationErrorMessage.CandidatoNumeroEleitoralDeputadoEstadualInvalidRange);
+                    break;
+                case CargoEletivo.Vereador:
+                    AssertionConcern.AssertArgumentRange(numeroEleitoral, 10, 99999,
+                        ValidationErrorMessage.CandidatoNumeroEleitoralVereadorInvalidRange);
+                    break;
+            }
+            CargoEletivo = cargoEletivo;
+            NumeroEleitoral = numeroEleitoral;
+        }
 
         #endregion
     }

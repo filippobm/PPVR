@@ -32,8 +32,9 @@ namespace PPVR.WebApp.Models
                 AssertionConcern.AssertArgumentNotNull(value,
                     ValidationErrorMessage.CandidatoNomeNotNull);
 
-                AssertionConcern.AssertArgumentLength(value, 1, 60,
+                AssertionConcern.AssertArgumentLength(value, 1, 100,
                     ValidationErrorMessage.CandidatoNomeInvalidLength);
+
                 _nome = value;
             }
         }

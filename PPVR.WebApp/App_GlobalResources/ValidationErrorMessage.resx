@@ -117,14 +117,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ArquivoImportacaoCandidatosInvalidFormat" xml:space="preserve">
+    <value>O arquivo importado com a lista dos candidatos não possui o formato esperado.</value>
+  </data>
   <data name="CandidatoDescricaoUnidadeEleitoralInvalidLength" xml:space="preserve">
     <value>A Descrição da Unidade Eleitoral da Eleição à qual o Candidato está participando deve ter entre 1 e 255 caracteres.</value>
   </data>
   <data name="CandidatoNomeInvalidLength" xml:space="preserve">
-    <value>O Nome do Candidato deve ter no máximo 60 caracteres.</value>
+    <value>O nome do candidato deve ter no máximo 100 caracteres.</value>
   </data>
   <data name="CandidatoNomeNotNull" xml:space="preserve">
-    <value>O Nome do Candidato não pode ser nulo.</value>
+    <value>O nome do candidato não pode ser nulo.</value>
   </data>
   <data name="CandidatoNomeUrnaInvalidLength" xml:space="preserve">
     <value>O nome da urna do candidato deve ter no máximo 60 caracteres.</value>

@@ -61,6 +61,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to O arquivo importado com a lista dos candidatos não possui o formato esperado..
+        /// </summary>
+        internal static string ArquivoImportacaoCandidatosInvalidFormat {
+            get {
+                return ResourceManager.GetString("ArquivoImportacaoCandidatosInvalidFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to A Descrição da Unidade Eleitoral da Eleição à qual o Candidato está participando deve ter entre 1 e 255 caracteres..
         /// </summary>
         internal static string CandidatoDescricaoUnidadeEleitoralInvalidLength {
@@ -70,7 +79,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to O Nome do Candidato deve ter no máximo 60 caracteres..
+        ///   Looks up a localized string similar to O nome do candidato deve ter no máximo 100 caracteres..
         /// </summary>
         internal static string CandidatoNomeInvalidLength {
             get {
@@ -79,7 +88,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to O Nome do Candidato não pode ser nulo..
+        ///   Looks up a localized string similar to O nome do candidato não pode ser nulo..
         /// </summary>
         internal static string CandidatoNomeNotNull {
             get {

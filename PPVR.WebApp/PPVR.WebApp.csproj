@@ -228,45 +228,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201608280746103_InitialMigration.cs" />
-    <Compile Include="Migrations\201608280746103_InitialMigration.Designer.cs">
-      <DependentUpon>201608280746103_InitialMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201609060225157_AlterCandidatosAddCidadeEstado.cs" />
-    <Compile Include="Migrations\201609060225157_AlterCandidatosAddCidadeEstado.Designer.cs">
-      <DependentUpon>201609060225157_AlterCandidatosAddCidadeEstado.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201609060232415_AlterCandidatosAddIndexNomeCidadeEstado.cs" />
-    <Compile Include="Migrations\201609060232415_AlterCandidatosAddIndexNomeCidadeEstado.Designer.cs">
-      <DependentUpon>201609060232415_AlterCandidatosAddIndexNomeCidadeEstado.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201609210123144_AddTableEleicoes.cs" />
-    <Compile Include="Migrations\201609210123144_AddTableEleicoes.Designer.cs">
-      <DependentUpon>201609210123144_AddTableEleicoes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201609210159349_AlterCandidatos.cs" />
-    <Compile Include="Migrations\201609210159349_AlterCandidatos.Designer.cs">
-      <DependentUpon>201609210159349_AlterCandidatos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201609210210029_AlterEleicoesChangeColumnAnoToInt.cs" />
-    <Compile Include="Migrations\201609210210029_AlterEleicoesChangeColumnAnoToInt.Designer.cs">
-      <DependentUpon>201609210210029_AlterEleicoesChangeColumnAnoToInt.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201609210214523_AlterIndexEleicoes.cs" />
-    <Compile Include="Migrations\201609210214523_AlterIndexEleicoes.Designer.cs">
-      <DependentUpon>201609210214523_AlterIndexEleicoes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201609210220523_AlterEleicoesChangeDescricaoMaxLength.cs" />
-    <Compile Include="Migrations\201609210220523_AlterEleicoesChangeDescricaoMaxLength.Designer.cs">
-      <DependentUpon>201609210220523_AlterEleicoesChangeDescricaoMaxLength.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201609241630051_AlterCandidatosAddNomeUrna.cs" />
-    <Compile Include="Migrations\201609241630051_AlterCandidatosAddNomeUrna.Designer.cs">
-      <DependentUpon>201609241630051_AlterCandidatosAddNomeUrna.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201609241825097_AlterCandidatosIndexes.cs" />
-    <Compile Include="Migrations\201609241825097_AlterCandidatosIndexes.Designer.cs">
-      <DependentUpon>201609241825097_AlterCandidatosIndexes.cs</DependentUpon>
+    <Compile Include="Migrations\201609242015076_InitialMigration.cs" />
+    <Compile Include="Migrations\201609242015076_InitialMigration.Designer.cs">
+      <DependentUpon>201609242015076_InitialMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
@@ -305,11 +269,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <EmbeddedResource Include="Migrations\201609241630051_AlterCandidatosAddNomeUrna.resx">
-      <DependentUpon>201609241630051_AlterCandidatosAddNomeUrna.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201609241825097_AlterCandidatosIndexes.resx">
-      <DependentUpon>201609241825097_AlterCandidatosIndexes.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201609242015076_InitialMigration.resx">
+      <DependentUpon>201609242015076_InitialMigration.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\dataset\consulta_cand_2016\consulta_cand_2016_MG.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -373,32 +334,6 @@
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>ValidationErrorMessage.Designer.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201608280746103_InitialMigration.resx">
-      <DependentUpon>201608280746103_InitialMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201609060225157_AlterCandidatosAddCidadeEstado.resx">
-      <DependentUpon>201609060225157_AlterCandidatosAddCidadeEstado.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201609060232415_AlterCandidatosAddIndexNomeCidadeEstado.resx">
-      <DependentUpon>201609060232415_AlterCandidatosAddIndexNomeCidadeEstado.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201609210123144_AddTableEleicoes.resx">
-      <DependentUpon>201609210123144_AddTableEleicoes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201609210159349_AlterCandidatos.resx">
-      <DependentUpon>201609210159349_AlterCandidatos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201609210210029_AlterEleicoesChangeColumnAnoToInt.resx">
-      <DependentUpon>201609210210029_AlterEleicoesChangeColumnAnoToInt.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201609210214523_AlterIndexEleicoes.resx">
-      <DependentUpon>201609210214523_AlterIndexEleicoes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201609210220523_AlterEleicoesChangeDescricaoMaxLength.resx">
-      <DependentUpon>201609210220523_AlterEleicoesChangeDescricaoMaxLength.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PPVR.Common\PPVR.Common.csproj">

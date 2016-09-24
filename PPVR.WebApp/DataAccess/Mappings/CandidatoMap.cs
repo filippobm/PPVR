@@ -23,7 +23,7 @@ namespace PPVR.WebApp.DataAccess.Mappings
 
             Property(x => x.Nome)
                 .IsRequired()
-                .HasMaxLength(60)
+                .HasMaxLength(100)
                 .HasColumnAnnotation(
                     IndexAnnotation.AnnotationName,
                     new IndexAnnotation(
@@ -61,11 +61,11 @@ namespace PPVR.WebApp.DataAccess.Mappings
                 .IsRequired();
 
             HasRequired(x => x.Partido)
-                .WithMany()
+                .WithMany(x => x.Candidatos)
                 .HasForeignKey(x => x.PartidoId);
 
             HasRequired(x => x.Eleicao)
-                .WithMany()
+                .WithMany(x => x.Candidatos)
                 .HasForeignKey(x => x.EleicaoId);
         }
     }

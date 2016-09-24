@@ -7,13 +7,13 @@ namespace PPVR.WebApp.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class AlterCandidatoAddIndexNomeCidadeEstado : IMigrationMetadata
+    public sealed partial class InitialMigration : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AlterCandidatoAddIndexNomeCidadeEstado));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialMigration));
         
         string IMigrationMetadata.Id
         {
-            get { return "201609060232415_AlterCandidatoAddIndexNomeCidadeEstado"; }
+            get { return "201609242015076_InitialMigration"; }
         }
         
         string IMigrationMetadata.Source

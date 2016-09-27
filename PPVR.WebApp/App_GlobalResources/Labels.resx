@@ -117,118 +117,58 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ArquivoImportacaoCandidatosInvalidFormat" xml:space="preserve">
-    <value>O arquivo importado com a lista dos candidatos não possui o formato esperado.</value>
+  <data name="Adicionar" xml:space="preserve">
+    <value>Adicionar</value>
   </data>
-  <data name="CandidatoDescricaoUnidadeEleitoralInvalidLength" xml:space="preserve">
-    <value>A Descrição da Unidade Eleitoral da Eleição à qual o Candidato está participando deve ter entre 1 e 255 caracteres.</value>
+  <data name="Ativo" xml:space="preserve">
+    <value>Ativo?</value>
   </data>
-  <data name="CandidatoNomeInvalidLength" xml:space="preserve">
-    <value>O nome do candidato deve ter no máximo 100 caracteres.</value>
+  <data name="CreatedAt" xml:space="preserve">
+    <value>Data Criação</value>
   </data>
-  <data name="CandidatoNomeNotNull" xml:space="preserve">
-    <value>O nome do candidato não pode ser nulo.</value>
+  <data name="Desabilitar" xml:space="preserve">
+    <value>Desabilitar</value>
   </data>
-  <data name="CandidatoNomeUrnaInvalidLength" xml:space="preserve">
-    <value>O nome da urna do candidato deve ter no máximo 60 caracteres.</value>
+  <data name="Editar" xml:space="preserve">
+    <value>Editar</value>
   </data>
-  <data name="CandidatoNomeUrnaNotNull" xml:space="preserve">
-    <value>O nome da urna do candidato não pode ser nulo.</value>
+  <data name="Excluir" xml:space="preserve">
+    <value>Excluir</value>
   </data>
-  <data name="CandidatoNumeroEleitoralDeputadoEstadualInvalidRange" xml:space="preserve">
-    <value>O Número Eleitoral do Candidato à Deputado Estadual não é válido.</value>
+  <data name="PartidoNome" xml:space="preserve">
+    <value>Nome</value>
   </data>
-  <data name="CandidatoNumeroEleitoralDeputadoFederalInvalidRange" xml:space="preserve">
-    <value>O Número Eleitoral do Candidato à Deputado Federal não é válido.</value>
+  <data name="PartidoNumeroEleitoral" xml:space="preserve">
+    <value>Número Eleitoral</value>
   </data>
-  <data name="CandidatoNumeroEleitoralGovernadorInvalidRange" xml:space="preserve">
-    <value>O Número Eleitoral do Candidato à Governador não é válido.</value>
+  <data name="PartidoPesquisarPlaceholder" xml:space="preserve">
+    <value>Pesquisar por: nome do partido, sigla ou número eleitoral.</value>
   </data>
-  <data name="CandidatoNumeroEleitoralPrefeitoInvalidRange" xml:space="preserve">
-    <value>O Número Eleitoral do Candidato à Prefeito não é válido.</value>
+  <data name="Partidos" xml:space="preserve">
+    <value>Partidos</value>
   </data>
-  <data name="CandidatoNumeroEleitoralPresidenteInvalidRange" xml:space="preserve">
-    <value>O Número Eleitoral do Candidato à Presidência não é válido.</value>
+  <data name="PartidoSigla" xml:space="preserve">
+    <value>Sigla</value>
   </data>
-  <data name="CandidatoNumeroEleitoralSenadorInvalidRange" xml:space="preserve">
-    <value>O Número Eleitoral do Candidato à Senador não é válido.</value>
+  <data name="PartidoTitleListaPartidosPoliticos" xml:space="preserve">
+    <value>Lista de Partidos Políticos</value>
   </data>
-  <data name="CandidatoNumeroEleitoralVereadorInvalidRange" xml:space="preserve">
-    <value>O Número Eleitoral do Candidato à Vereador não é válido.</value>
+  <data name="Pesquisar" xml:space="preserve">
+    <value>Pesquisar</value>
   </data>
-  <data name="CandidatoSiglaUnidadeEleitoralInvalidLength" xml:space="preserve">
-    <value>A Sigla da Unidade Eleitoral da Eleição à qual o Candidato está participando deve ter entre 1 e 60 caracteres.</value>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
   </data>
-  <data name="CandidatoSiglaUnidadeFederacaoInvalidValue" xml:space="preserve">
-    <value>A Sigla da Unidade da Federação da Eleição à qual o Candidato está participando não existe.</value>
+  <data name="UpdatedAt" xml:space="preserve">
+    <value>Última Atualização</value>
   </data>
-  <data name="CargoEletivoDescricaoInvalidLength" xml:space="preserve">
-    <value>A Descrição do Cargo Eletivo deve ter entre 1 e 255 caracteres.</value>
+  <data name="Visualizar" xml:space="preserve">
+    <value>Visualizar</value>
   </data>
-  <data name="CargoEletivoNomeInvalidLength" xml:space="preserve">
-    <value>O Nome do Cargo Eletivo deve ter entre 1 e 30 caracteres.</value>
+  <data name="Acoes" xml:space="preserve">
+    <value>Ações</value>
   </data>
-  <data name="CargoEletivoNomeNotNull" xml:space="preserve">
-    <value>O Nome do Cargo Letivo não pode ser nulo.</value>
-  </data>
-  <data name="EleicaoDescricaoInvalidLength" xml:space="preserve">
-    <value>A descrição da eleição deve ter entre 1 e 100 caracteres.</value>
-  </data>
-  <data name="EleicaoDescricaoNotNull" xml:space="preserve">
-    <value>A descrição da eleição não pode ser nula.</value>
-  </data>
-  <data name="EnderecoBairroInvalidLength" xml:space="preserve">
-    <value>O Nome do Bairro deve ter entre 1 e 60 caracteres.</value>
-  </data>
-  <data name="EnderecoCEPInvalidLength" xml:space="preserve">
-    <value>O CEP informado não é válido.</value>
-  </data>
-  <data name="EnderecoCidadeInvalidLength" xml:space="preserve">
-    <value>O Nome da Cidade deve ter entre 1 e 60 caracteres.</value>
-  </data>
-  <data name="EnderecoEstadoInvalidValue" xml:space="preserve">
-    <value>O Estado informado não existe.</value>
-  </data>
-  <data name="EnderecoFormatadoInvalidLength" xml:space="preserve">
-    <value>O Endereço Formatado deve ter entre 1 e 255 caracteres.</value>
-  </data>
-  <data name="EspectroPoliticoDescricaoInvalidLength" xml:space="preserve">
-    <value>A Descrição do Espectro Político deve ter no máximo 255 caracteres.</value>
-  </data>
-  <data name="EspectroPoliticoNomeInvalidLength" xml:space="preserve">
-    <value>O nome do espectro político deve ter entre 1 e 30 caracteres.</value>
-  </data>
-  <data name="EspectroPoliticoNomeNotNull" xml:space="preserve">
-    <value>O nome do espectro político não pode ser nulo.</value>
-  </data>
-  <data name="ExifTagsGeolocationNull" xml:space="preserve">
-    <value>A foto não possui as informações de geolocalização.</value>
-  </data>
-  <data name="IdeologiaNomeInvalidLength" xml:space="preserve">
-    <value>O nome da ideologia deve ter entre 1 e 30 caracteres.</value>
-  </data>
-  <data name="IdeologiaNomeNotNull" xml:space="preserve">
-    <value>O nome da ideologia não pode ser nulo.</value>
-  </data>
-  <data name="PartidoEspectroPoliticoInvalidValue" xml:space="preserve">
-    <value>O espectro político informado não existe.</value>
-  </data>
-  <data name="PartidoNomeInvalidLength" xml:space="preserve">
-    <value>O nome do partido deve ter entre 1 e 60 caracteres.</value>
-  </data>
-  <data name="PartidoNomeNotNull" xml:space="preserve">
-    <value>O nome do partido não pode ser nulo.</value>
-  </data>
-  <data name="PartidoNumeroEleitoralInvalidRange" xml:space="preserve">
-    <value>O número eleitoral do partido não é válido.</value>
-  </data>
-  <data name="PartidoNumeroEleitoralNotNull" xml:space="preserve">
-    <value>O número eleitoral do partido não pode ser nulo.</value>
-  </data>
-  <data name="PartidoSiglaInvalidLength" xml:space="preserve">
-    <value>A sigla do partido deve ter entre 1 e 10 caracteres.</value>
-  </data>
-  <data name="PartidoSiglaNotNull" xml:space="preserve">
-    <value>A sigla do partido não pode ser nula.</value>
+  <data name="PartidoTotalPartidos" xml:space="preserve">
+    <value>Partidos encontrados:</value>
   </data>
 </root>

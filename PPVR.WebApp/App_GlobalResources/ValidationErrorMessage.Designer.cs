@@ -295,7 +295,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to O Nome da Espectro Político deve ter entre 1 e 30 caracteres..
+        ///   Looks up a localized string similar to O nome do espectro político deve ter entre 1 e 30 caracteres..
         /// </summary>
         internal static string EspectroPoliticoNomeInvalidLength {
             get {
@@ -304,7 +304,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to O Nome do Espectro Político não pode ser nulo..
+        ///   Looks up a localized string similar to O nome do espectro político não pode ser nulo..
         /// </summary>
         internal static string EspectroPoliticoNomeNotNull {
             get {
@@ -322,7 +322,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to O Nome da Ideologia deve ter entre 1 e 30 caracteres..
+        ///   Looks up a localized string similar to O nome da ideologia deve ter entre 1 e 30 caracteres..
         /// </summary>
         internal static string IdeologiaNomeInvalidLength {
             get {
@@ -331,7 +331,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to O Nome da Ideologia não pode ser nulo..
+        ///   Looks up a localized string similar to O nome da ideologia não pode ser nulo..
         /// </summary>
         internal static string IdeologiaNomeNotNull {
             get {
@@ -340,7 +340,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to O Espectro Político informado não existe..
+        ///   Looks up a localized string similar to O espectro político informado não existe..
         /// </summary>
         internal static string PartidoEspectroPoliticoInvalidValue {
             get {
@@ -349,7 +349,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to O Nome do Partido deve ter entre 1 e 60 caracteres..
+        ///   Looks up a localized string similar to O nome do partido deve ter entre 1 e 60 caracteres..
         /// </summary>
         internal static string PartidoNomeInvalidLength {
             get {
@@ -358,7 +358,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to O Nome do Partido não pode ser nulo..
+        ///   Looks up a localized string similar to O nome do partido não pode ser nulo..
         /// </summary>
         internal static string PartidoNomeNotNull {
             get {
@@ -367,7 +367,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to O Número Eleitoral do Partido não é válido..
+        ///   Looks up a localized string similar to O número eleitoral do partido não é válido..
         /// </summary>
         internal static string PartidoNumeroEleitoralInvalidRange {
             get {
@@ -376,7 +376,16 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to A Sigla do Partido deve ter entre 1 e 10 caracteres..
+        ///   Looks up a localized string similar to O número eleitoral do partido não pode ser nulo..
+        /// </summary>
+        internal static string PartidoNumeroEleitoralNotNull {
+            get {
+                return ResourceManager.GetString("PartidoNumeroEleitoralNotNull", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A sigla do partido deve ter entre 1 e 10 caracteres..
         /// </summary>
         internal static string PartidoSiglaInvalidLength {
             get {
@@ -385,7 +394,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to A Sigla do Partido não pode ser nula..
+        ///   Looks up a localized string similar to A sigla do partido não pode ser nula..
         /// </summary>
         internal static string PartidoSiglaNotNull {
             get {

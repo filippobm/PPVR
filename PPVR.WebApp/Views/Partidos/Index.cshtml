@@ -1,0 +1,105 @@
+﻿@using Resources
+@using X.PagedList.Mvc
+@model X.PagedList.IPagedList<PPVR.WebApp.Models.Partido>
+
+@{
+    ViewBag.Title = Labels.PartidoTitleListaPartidosPoliticos;
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm("Index", "Partidos", FormMethod.Get, new { @class = "form-horizontal" }))
+{
+    <div class="form-group">
+        <div class="col-sm-7">
+            <div class="input-group">
+                <input id="SearchString" class="form-control" name="SearchString" type="text"
+                       placeholder="@Labels.PartidoPesquisarPlaceholder"
+                       value="@((string) ViewBag.CurrentFilter)">
+                <span class="input-group-btn">
+                    <button class="btn btn-primary" type="submit" title="@Labels.Pesquisar">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                    </button>
+                </span>
+            </div>
+        </div>
+    </div>
+}
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="pull-right">
+            <b>
+                @Labels.PartidoTotalPartidos
+            </b>
+            @Model.TotalItemCount
+        </div>
+    </div>
+</div>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.ActionLink(Labels.PartidoNome, "Index", new { orderBy = ViewBag.NomeSortParm })
+        </th>
+        <th>
+            @Html.ActionLink(Labels.PartidoSigla, "Index", new { orderBy = ViewBag.SiglaSortParm })
+        </th>
+        <th>
+            @Html.ActionLink(Labels.PartidoNumeroEleitoral, "Index", new { orderBy = ViewBag.NumeroEleitoralSortParm })
+        </th>
+        <th>
+            @Labels.Ativo
+        </th>
+        <th>
+            @Labels.Acoes
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @item.Nome
+            </td>
+            <td>
+                @item.Sigla
+            </td>
+            <td>
+                @item.NumeroEleitoral
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Enabled)
+            </td>
+            <td>
+                @Html.ActionLink(Labels.Editar, "Edit", new { id = item.PartidoId }) |
+                @Html.ActionLink(Labels.Visualizar, "Details", new { id = item.PartidoId }) |
+                @Html.ActionLink(Labels.Excluir, "Delete", new { id = item.PartidoId })
+            </td>
+        </tr>
+    }
+</table>
+
+
+<div class="text-right">
+    Página @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) de @Model.PageCount
+    @Html.PagedListPager(Model, page => Url.Action("Index",
+        new { page, orderBy = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+</div>
+
+
+@section scripts
+{
+    <script>
+        $(function () {
+            var searchInput = $("#SearchString");
+
+            // Multiply by 2 to ensure the cursor always ends up at the end;
+            // Opera sometimes sees a carriage return as 2 characters.
+            var strLength = searchInput.val().length * 2;
+
+            searchInput.focus();
+            searchInput[0].setSelectionRange(0, strLength);
+        });
+    </script>
+}

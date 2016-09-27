@@ -1,9 +1,0 @@
-﻿namespace PPVR.DataImport
-{
-    internal class Program
-    {
-        private static void Main(string[] args)
-        {
-        }
-    }
-}

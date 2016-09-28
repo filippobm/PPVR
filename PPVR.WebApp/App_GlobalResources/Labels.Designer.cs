@@ -88,6 +88,60 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Nome.
+        /// </summary>
+        internal static string CandidatoNome {
+            get {
+                return ResourceManager.GetString("CandidatoNome", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nome da Urna.
+        /// </summary>
+        internal static string CandidatoNomeUrna {
+            get {
+                return ResourceManager.GetString("CandidatoNomeUrna", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Número Eleitoral.
+        /// </summary>
+        internal static string CandidatoNumeroEleitoral {
+            get {
+                return ResourceManager.GetString("CandidatoNumeroEleitoral", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pesquisar pelo nome do candidato, nome da urna ou número eleitoral....
+        /// </summary>
+        internal static string CandidatoPesquisarPlaceholder {
+            get {
+                return ResourceManager.GetString("CandidatoPesquisarPlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Candidatos.
+        /// </summary>
+        internal static string Candidatos {
+            get {
+                return ResourceManager.GetString("Candidatos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Candidatos encontrados.
+        /// </summary>
+        internal static string CandidatoTotalPartidos {
+            get {
+                return ResourceManager.GetString("CandidatoTotalPartidos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Data Criação.
         /// </summary>
         internal static string CreatedAt {
@@ -142,7 +196,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Pesquisar por: nome do partido, sigla ou número eleitoral..
+        ///   Looks up a localized string similar to Pesquisar pelo nome do partido, sigla ou número eleitoral....
         /// </summary>
         internal static string PartidoPesquisarPlaceholder {
             get {
@@ -169,6 +223,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Lista de Candidatos.
+        /// </summary>
+        internal static string PartidoTitleListaCandidatos {
+            get {
+                return ResourceManager.GetString("PartidoTitleListaCandidatos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Lista de Partidos Políticos.
         /// </summary>
         internal static string PartidoTitleListaPartidosPoliticos {
@@ -178,7 +241,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Partidos encontrados:.
+        ///   Looks up a localized string similar to Partidos encontrados.
         /// </summary>
         internal static string PartidoTotalPartidos {
             get {

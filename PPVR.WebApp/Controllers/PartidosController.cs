@@ -1,13 +1,13 @@
-﻿using System.Linq;
+﻿using PPVR.WebApp.DataAccess;
+using System.Linq;
 using System.Web.Mvc;
-using PPVR.WebApp.DataAccess;
 using X.PagedList;
 
 namespace PPVR.WebApp.Controllers
 {
     public class PartidosController : Controller
     {
-        private readonly AppDbContext db = new AppDbContext();
+        private readonly AppDbContext _db = new AppDbContext();
 
         // GET: Partidos
         public ActionResult Index(string orderBy, string currentFilter, string searchString, int? page)
@@ -24,7 +24,7 @@ namespace PPVR.WebApp.Controllers
 
             ViewBag.CurrentFilter = searchString;
 
-            var q = db.Partidos.Select(p => p);
+            var q = _db.Partidos.Select(p => p);
 
             if (!string.IsNullOrEmpty(searchString))
                 q =

@@ -142,7 +142,7 @@
     <value>Número Eleitoral</value>
   </data>
   <data name="PartidoPesquisarPlaceholder" xml:space="preserve">
-    <value>Pesquisar por: nome do partido, sigla ou número eleitoral.</value>
+    <value>Pesquisar pelo nome do partido, sigla ou número eleitoral...</value>
   </data>
   <data name="Partidos" xml:space="preserve">
     <value>Partidos</value>
@@ -169,6 +169,27 @@
     <value>Ações</value>
   </data>
   <data name="PartidoTotalPartidos" xml:space="preserve">
-    <value>Partidos encontrados:</value>
+    <value>Partidos encontrados</value>
+  </data>
+  <data name="CandidatoNome" xml:space="preserve">
+    <value>Nome</value>
+  </data>
+  <data name="CandidatoNomeUrna" xml:space="preserve">
+    <value>Nome da Urna</value>
+  </data>
+  <data name="CandidatoNumeroEleitoral" xml:space="preserve">
+    <value>Número Eleitoral</value>
+  </data>
+  <data name="CandidatoPesquisarPlaceholder" xml:space="preserve">
+    <value>Pesquisar pelo nome do candidato, nome da urna ou número eleitoral...</value>
+  </data>
+  <data name="Candidatos" xml:space="preserve">
+    <value>Candidatos</value>
+  </data>
+  <data name="PartidoTitleListaCandidatos" xml:space="preserve">
+    <value>Lista de Candidatos</value>
+  </data>
+  <data name="CandidatoTotalPartidos" xml:space="preserve">
+    <value>Candidatos encontrados</value>
   </data>
 </root>

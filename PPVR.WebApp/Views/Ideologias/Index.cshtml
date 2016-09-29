@@ -1,20 +1,20 @@
 ﻿@using PPVR.WebApp.Resources
 @using X.PagedList.Mvc
-@model X.PagedList.IPagedList<PPVR.WebApp.Models.Candidato>
+@model X.PagedList.IPagedList<PPVR.WebApp.Models.Ideologia>
 
 @{
-    ViewBag.Title = Labels.CandidatoTitleListaCandidatos;
+    ViewBag.Title = Labels.IdeologiaTitleListaIdeologias;
 }
 
 <h2>@ViewBag.Title</h2>
 
-@using (Html.BeginForm("Index", "Candidatos", FormMethod.Get, new { @class = "form-horizontal" }))
+@using (Html.BeginForm("Index", "Ideologias", FormMethod.Get, new { @class = "form-horizontal" }))
 {
     <div class="form-group">
         <div class="col-sm-7">
             <div class="input-group">
                 <input id="q" class="form-control" name="q" type="text"
-                       placeholder="@Labels.CandidatoPesquisarPlaceholder"
+                       placeholder="@Labels.IdeologiaPesquisarPlaceholder"
                        value="@((string) ViewBag.CurrentFilter)">
                 <span class="input-group-btn">
                     <button class="btn btn-primary" type="submit" title="@Labels.Pesquisar">
@@ -30,7 +30,7 @@
     <div class="col-sm-12">
         <div class="pull-right">
             <b>
-                @Labels.CandidatoTotalPartidos:
+                @Labels.IdeologiaTotalIdeologias:
             </b>
             @Model.TotalItemCount
         </div>
@@ -40,16 +40,8 @@
 <table class="table">
     <tr>
         <th>
-            @Html.ActionLink(Labels.CandidatoNome, "Index",
+            @Html.ActionLink(Labels.IdeologiaNome, "Index",
                 new { q = ViewBag.CurrentFilter, sort = ViewBag.SortNome })
-        </th>
-        <th>
-            @Html.ActionLink(Labels.CandidatoNomeUrna, "Index",
-                new { q = ViewBag.CurrentFilter, sort = ViewBag.SortNomeUrna })
-        </th>
-        <th>
-            @Html.ActionLink(Labels.CandidatoNumeroEleitoral, "Index",
-                new { q = ViewBag.CurrentFilter, sort = ViewBag.SortNumeroEleitoral })
         </th>
         <th>
             @Labels.Ativo
@@ -59,25 +51,19 @@
         </th>
     </tr>
 
-    @foreach (var candidato in Model)
+    @foreach (var ideologia in Model)
     {
         <tr>
             <td>
-                @candidato.Nome
+                @ideologia.Nome
             </td>
             <td>
-                @candidato.NomeUrna
+                @Html.DisplayFor(m => ideologia.Enabled)
             </td>
             <td>
-                @candidato.NumeroEleitoral
-            </td>
-            <td>
-                @Html.DisplayFor(m => candidato.Enabled)
-            </td>
-            <td>
-                @Html.ActionLink(Labels.Editar, "Edit", new { id = candidato.PartidoId }) |
-                @Html.ActionLink(Labels.Visualizar, "Details", new { id = candidato.PartidoId }) |
-                @Html.ActionLink(Labels.Excluir, "Delete", new { id = candidato.PartidoId })
+                @Html.ActionLink(Labels.Editar, "Edit", new { id = ideologia.IdeologiaId }) |
+                @Html.ActionLink(Labels.Visualizar, "Details", new { id = ideologia.IdeologiaId }) |
+                @Html.ActionLink(Labels.Excluir, "Delete", new { id = ideologia.IdeologiaId })
             </td>
         </tr>
     }
@@ -89,7 +75,6 @@
 
     @Html.PagedListPager(Model, page => Url.Action("Index",
         new { q = ViewBag.CurrentFilter, sort = ViewBag.CurrentSort, page }))
-
 </div>
 
 

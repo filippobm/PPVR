@@ -20,9 +20,6 @@ namespace PPVR.WebApp.ViewModels.Partido
         [Range(10, 99, ErrorMessageResourceType = typeof(Resources.ValidationErrorMessage), ErrorMessageResourceName = "PartidoNumeroEleitoralInvalidRange")]
         public byte NumeroEleitoral { get; set; }
 
-        //[Range(1, 11, ErrorMessageResourceType = typeof(Resources.ValidationErrorMessage), ErrorMessageResourceName = "PartidoEspectroPoliticoInvalidValue")]
-        //public EspectroPoliticoViewModel EspectroPolitico { get; set; }
-
         [Required]
         public bool Enabled { get; set; }
 

@@ -1,5 +1,5 @@
-﻿using PPVR.WebApp.Utils;
-using Resources;
+﻿using PPVR.WebApp.Resources;
+using PPVR.WebApp.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;

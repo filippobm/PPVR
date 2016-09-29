@@ -117,11 +117,35 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Acoes" xml:space="preserve">
+    <value>Ações</value>
+  </data>
   <data name="Adicionar" xml:space="preserve">
     <value>Adicionar</value>
   </data>
   <data name="Ativo" xml:space="preserve">
     <value>Ativo?</value>
+  </data>
+  <data name="CandidatoNome" xml:space="preserve">
+    <value>Nome</value>
+  </data>
+  <data name="CandidatoNomeUrna" xml:space="preserve">
+    <value>Nome da Urna</value>
+  </data>
+  <data name="CandidatoNumeroEleitoral" xml:space="preserve">
+    <value>Número Eleitoral</value>
+  </data>
+  <data name="CandidatoPesquisarPlaceholder" xml:space="preserve">
+    <value>Pesquisar pelo nome do candidato, nome da urna ou número eleitoral...</value>
+  </data>
+  <data name="Candidatos" xml:space="preserve">
+    <value>Candidatos</value>
+  </data>
+  <data name="CandidatoTitleListaCandidatos" xml:space="preserve">
+    <value>Lista de Candidatos</value>
+  </data>
+  <data name="CandidatoTotalPartidos" xml:space="preserve">
+    <value>Candidatos encontrados</value>
   </data>
   <data name="CreatedAt" xml:space="preserve">
     <value>Data Criação</value>
@@ -134,6 +158,30 @@
   </data>
   <data name="Excluir" xml:space="preserve">
     <value>Excluir</value>
+  </data>
+  <data name="Ideologia" xml:space="preserve">
+    <value>Ideologia</value>
+  </data>
+  <data name="IdeologiaDetalhes" xml:space="preserve">
+    <value>Detalhes da Ideologia</value>
+  </data>
+  <data name="IdeologiaNome" xml:space="preserve">
+    <value>Nome</value>
+  </data>
+  <data name="IdeologiaPesquisarPlaceholder" xml:space="preserve">
+    <value>Pesquisar pelo nome da ideologia...</value>
+  </data>
+  <data name="IdeologiaQtdePartidosAssociados" xml:space="preserve">
+    <value>Qtde. de Partidos Associados</value>
+  </data>
+  <data name="Ideologias" xml:space="preserve">
+    <value>Ideologias</value>
+  </data>
+  <data name="IdeologiaTitleListaIdeologias" xml:space="preserve">
+    <value>Lista de Ideologias</value>
+  </data>
+  <data name="IdeologiaTotalIdeologias" xml:space="preserve">
+    <value>Ideologias encontradas</value>
   </data>
   <data name="PartidoNome" xml:space="preserve">
     <value>Nome</value>
@@ -153,6 +201,9 @@
   <data name="PartidoTitleListaPartidosPoliticos" xml:space="preserve">
     <value>Lista de Partidos Políticos</value>
   </data>
+  <data name="PartidoTotalPartidos" xml:space="preserve">
+    <value>Partidos encontrados</value>
+  </data>
   <data name="Pesquisar" xml:space="preserve">
     <value>Pesquisar</value>
   </data>
@@ -165,31 +216,7 @@
   <data name="Visualizar" xml:space="preserve">
     <value>Visualizar</value>
   </data>
-  <data name="Acoes" xml:space="preserve">
-    <value>Ações</value>
-  </data>
-  <data name="PartidoTotalPartidos" xml:space="preserve">
-    <value>Partidos encontrados</value>
-  </data>
-  <data name="CandidatoNome" xml:space="preserve">
-    <value>Nome</value>
-  </data>
-  <data name="CandidatoNomeUrna" xml:space="preserve">
-    <value>Nome da Urna</value>
-  </data>
-  <data name="CandidatoNumeroEleitoral" xml:space="preserve">
-    <value>Número Eleitoral</value>
-  </data>
-  <data name="CandidatoPesquisarPlaceholder" xml:space="preserve">
-    <value>Pesquisar pelo nome do candidato, nome da urna ou número eleitoral...</value>
-  </data>
-  <data name="Candidatos" xml:space="preserve">
-    <value>Candidatos</value>
-  </data>
-  <data name="PartidoTitleListaCandidatos" xml:space="preserve">
-    <value>Lista de Candidatos</value>
-  </data>
-  <data name="CandidatoTotalPartidos" xml:space="preserve">
-    <value>Candidatos encontrados</value>
+  <data name="IdeologiaNenhumPartidoAssociado" xml:space="preserve">
+    <value>Não existe nenhum partido associado a ideologia.</value>
   </data>
 </root>

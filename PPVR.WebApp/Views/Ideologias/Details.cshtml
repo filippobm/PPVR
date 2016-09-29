@@ -1,0 +1,70 @@
+﻿@using PPVR.WebApp.Resources
+@model PPVR.WebApp.ViewModels.Ideologia.IdeologiaDetailsViewModel
+
+@{
+    ViewBag.Title = Labels.IdeologiaDetalhes;
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div>
+    <h4>@Labels.Ideologia - @Html.DisplayFor(model => model.Ideologia.Nome)</h4>
+    <hr />
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Ideologia.Nome)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Ideologia.Nome)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Ideologia.Enabled)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Ideologia.Enabled)
+        </dd>
+    </dl>
+
+    <h4>@Labels.PartidoTitleListaPartidosPoliticos</h4>
+
+    @{
+        if (Model.Partidos.Any())
+        {
+            <div class="pull-right">
+                <b>@Labels.IdeologiaQtdePartidosAssociados:</b>
+                @Html.DisplayFor(model => model.QtdePartidosAssociados)
+            </div>
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Partidos[0].Nome)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Partidos[0].Sigla)
+                    </th>
+                </tr>
+                @foreach (var partido in Model.Partidos)
+                {
+                    <tr>
+                        <td>
+                            @Html.ActionLink(partido.Nome, "Details", "Partidos", new { id = partido.PartidoId }, null)
+                        </td>
+                        <td>
+                            @partido.Sigla
+                        </td>
+                    </tr>
+                }
+            </table>
+        }
+        else
+        {
+            <p>@Labels.IdeologiaNenhumPartidoAssociado</p>
+        }
+    }
+</div>
+
+<p>
+    @Html.ActionLink(Labels.Editar, "Edit", new { id = Model.Ideologia.IdeologiaId }) |
+    @Html.ActionLink(Labels.IdeologiaTitleListaIdeologias, "Index")
+</p>

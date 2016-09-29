@@ -1,5 +1,5 @@
-﻿using PPVR.WebApp.Utils;
-using Resources;
+﻿using PPVR.WebApp.Resources;
+using PPVR.WebApp.Utils;
 using System.Collections.Generic;
 
 namespace PPVR.WebApp.Models
@@ -10,7 +10,7 @@ namespace PPVR.WebApp.Models
 
         private string _nome;
 
-        #endregion
+        #endregion        
 
         #region Properties
 
@@ -26,6 +26,7 @@ namespace PPVR.WebApp.Models
 
                 AssertionConcern.AssertArgumentLength(value, 1, 30,
                     ValidationErrorMessage.IdeologiaNomeInvalidLength);
+
                 _nome = value;
             }
         }

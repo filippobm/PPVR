@@ -1,4 +1,4 @@
-﻿@using Resources
+﻿@using PPVR.WebApp.Resources
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +7,6 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -24,9 +23,9 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink(Labels.Partidos, "Index", "Partidos")</li>
                     <li>@Html.ActionLink(Labels.Candidatos, "Index", "Candidatos")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink(Labels.Partidos, "Index", "Partidos")</li>
+                    <li>@Html.ActionLink(Labels.Ideologias, "Index", "Ideologias")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -39,7 +38,6 @@
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>
     </div>
-
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", false)

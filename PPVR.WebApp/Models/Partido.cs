@@ -1,5 +1,5 @@
-﻿using PPVR.WebApp.Utils;
-using Resources;
+﻿using PPVR.WebApp.Resources;
+using PPVR.WebApp.Utils;
 using System;
 using System.Collections.Generic;
 
@@ -55,7 +55,7 @@ namespace PPVR.WebApp.Models
             get { return _numeroEleitoral; }
             set
             {
-                AssertionConcern.AssertArgumentRange(value, 1, 99, 
+                AssertionConcern.AssertArgumentRange(value, 1, 99,
                     ValidationErrorMessage.PartidoNumeroEleitoralInvalidRange);
 
                 _numeroEleitoral = value;

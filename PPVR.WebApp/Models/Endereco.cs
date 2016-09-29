@@ -1,5 +1,5 @@
-﻿using PPVR.WebApp.Utils;
-using Resources;
+﻿using PPVR.WebApp.Resources;
+using PPVR.WebApp.Utils;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -13,6 +13,12 @@ namespace PPVR.WebApp.Models
             "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI",
             "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO"
         };
+
+        #region Navigation Properties
+
+        public virtual ICollection<Ocorrencia> Ocorrencias { get; set; }
+
+        #endregion
 
         #region Private Fields        
 
@@ -36,6 +42,7 @@ namespace PPVR.WebApp.Models
                 if (_estado != null)
                     AssertionConcern.AssertStateTrue(EstadosBrasileiros.Contains(value),
                         ValidationErrorMessage.EnderecoEstadoInvalidValue);
+
                 _estado = value;
             }
         }
@@ -91,12 +98,6 @@ namespace PPVR.WebApp.Models
         public double? Latitude { get; set; }
 
         public double? Longitude { get; set; }
-
-        #endregion
-
-        #region Navigation Properties
-
-        public virtual ICollection<Ocorrencia> Ocorrencias { get; set; }
 
         #endregion
     }

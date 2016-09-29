@@ -1,5 +1,5 @@
-﻿using PPVR.WebApp.Utils;
-using Resources;
+﻿using PPVR.WebApp.Resources;
+using PPVR.WebApp.Utils;
 using System;
 using System.Collections.Generic;
 
@@ -11,7 +11,13 @@ namespace PPVR.WebApp.Models
 
         private string _descricao;
 
-        #endregion        
+        #endregion
+
+        #region Navigation properties
+
+        public virtual ICollection<Candidato> Candidatos { get; set; }
+
+        #endregion
 
         #region Properties
 
@@ -40,12 +46,6 @@ namespace PPVR.WebApp.Models
         public bool Enabled { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
-
-        #endregion
-
-        #region Navigation properties
-
-        public virtual ICollection<Candidato> Candidatos { get; set; }
 
         #endregion
     }

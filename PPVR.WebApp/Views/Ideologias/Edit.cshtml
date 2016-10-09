@@ -16,27 +16,18 @@
         <hr>
 
         @Html.ValidationSummary(false, null,
-            new { id = "validation-summary", @class = "alert alert-danger", role = "alert" })
+            new { id = "validation-summary", @class = "alert alert-danger", role = "alert", style = "display:none" })
 
         <div class="form-group">
             <div class="col-md-1 text-right">
                 @Html.ValidationMessageFor(model => model.Nome, "*",
-                    new { @class = "text-danger", title = "Campo obrigatório" })
+                    new { @class = "text-danger", title = Labels.CampoObrigatorio })
 
                 @Html.LabelFor(model => model.Nome, new { @class = "control-label" }):
             </div>
             <div class="col-md-4">
                 @Html.EditorFor(model => model.Nome,
-                    new
-                    {
-                        htmlAttributes = new
-                        {
-                            @class = "form-control",
-                            maxlength = "30",
-                            placeholder = Labels.IdeologiaNomePlaceholder,
-                            autofocus = "autofocus"
-                        }
-                    })
+                    new { htmlAttributes = new { @class = "form-control", maxlength = "30", placeholder = Labels.IdeologiaNomePlaceholder } })
             </div>
         </div>
 
@@ -70,6 +61,7 @@
     <script>
         $(function () {
             validateForm("form", "validation-summary");
+            endInputFocus("Nome");
         });
     </script>
 }

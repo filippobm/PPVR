@@ -2,7 +2,7 @@
     var input = $("#" + inputId);
 
     if (input.val() == null) {
-        console.log("Elemento html com id =" + inputId + "não foi encontrado.");
+        console.log("selectedTextFocus(inputId) -> Elemento html com id =" + inputId + "não foi encontrado.");
     } else {
         // Multiply by 2 to ensure the cursor always ends up at the end;
         // Opera sometimes sees a carriage return as 2 characters.
@@ -10,6 +10,20 @@
 
         input.focus();
         input[0].setSelectionRange(0, strLength);
+    }
+}
+
+function endInputFocus(inputId) {
+
+    var input = $("#" + inputId);
+
+    if (input != null) {
+        input.focus();
+        var tmpStr = input.val();
+        input.val("");
+        input.val(tmpStr);
+    } else {
+        console.log("endInputFocus(inputId) -> Elemento html com id =" + inputId + "não foi encontrado.");
     }
 }
 

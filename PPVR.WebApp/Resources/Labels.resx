@@ -243,4 +243,7 @@
   <data name="Salvar" xml:space="preserve">
     <value>Salvar</value>
   </data>
+  <data name="CampoObrigatorio" xml:space="preserve">
+    <value>Campo Obrigatório</value>
+  </data>
 </root>

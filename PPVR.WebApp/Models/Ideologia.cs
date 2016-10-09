@@ -1,5 +1,6 @@
 ﻿using PPVR.WebApp.Resources;
 using PPVR.WebApp.Utils;
+using System;
 using System.Collections.Generic;
 
 namespace PPVR.WebApp.Models
@@ -32,6 +33,9 @@ namespace PPVR.WebApp.Models
         }
 
         public bool Enabled { get; set; }
+
+        public DateTime CreatedAt { get; set; }
+        public DateTime? UpdatedAt { get; set; }
 
         #endregion
 

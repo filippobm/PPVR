@@ -44,7 +44,19 @@ namespace PPVR.WebApp.Controllers
             #endregion
 
             var pagedIdeologias = ideologias.ToPagedList(page ?? 1, 10);
-            return View(pagedIdeologias);
+
+            var ideologiasViewModel = pagedIdeologias.ToArray()
+                .Select(i => new IdeologiaViewModel
+                {
+                    IdeologiaId = i.IdeologiaId,
+                    Nome = i.Nome,
+                    Enabled = i.Enabled
+                });
+
+            var pagedViewModel = new StaticPagedList<IdeologiaViewModel>(ideologiasViewModel,
+                pagedIdeologias.GetMetaData());
+
+            return View(pagedViewModel);
         }
 
         // GET: Ideologias/Details/5

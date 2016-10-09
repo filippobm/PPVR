@@ -295,7 +295,7 @@ namespace PPVR.WebApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Qtde. de Partidos Associados.
+        ///   Looks up a localized string similar to Qtde. Partidos Associados.
         /// </summary>
         public static string IdeologiaQtdePartidosAssociados {
             get {

@@ -21,7 +21,7 @@ namespace PPVR.WebApp.Controllers
             ViewBag.CallbackAction = callbackAction;
             ViewBag.CurrentFilter = q;
 
-            var ideologias = _db.Ideologias.Select(i => i);
+            var ideologias = _db.Ideologias.Include(i => i.Partidos);
 
             if (!string.IsNullOrEmpty(q))
                 ideologias = ideologias.Where(i => i.Nome.Contains(q));
@@ -68,7 +68,7 @@ namespace PPVR.WebApp.Controllers
 
             var pagedIdeologias = ideologias.ToPagedList(page ?? 1, 10);
 
-            var ideologiasViewModel = pagedIdeologias.Select(i => new IdeologiaGridViewModel
+            var ideologiaGridViewModel = pagedIdeologias.Select(i => new IdeologiaGridViewModel
             {
                 Ideologia = new IdeologiaViewModel
                 {
@@ -76,11 +76,12 @@ namespace PPVR.WebApp.Controllers
                     Nome = i.Nome,
                     Enabled = i.Enabled
                 },
+                QtdePartidosAssociados = i.Partidos.Count,
                 CreatedAt = i.CreatedAt,
                 UpdatedAt = i.UpdatedAt
             });
 
-            var pagedViewModel = new StaticPagedList<IdeologiaGridViewModel>(ideologiasViewModel,
+            var pagedViewModel = new StaticPagedList<IdeologiaGridViewModel>(ideologiaGridViewModel,
                 pagedIdeologias.GetMetaData());
 
             return View(pagedViewModel);
@@ -174,7 +175,7 @@ namespace PPVR.WebApp.Controllers
                             _db.Entry(ideologia).State = EntityState.Modified;
                             _db.SaveChanges();
 
-                            return RedirectToAction("Index", new {q = ideologia.Nome, callbackAction = "Edit"});
+                            return RedirectToAction("Index", new { q = ideologia.Nome, callbackAction = "Edit" });
                         }
                     }
                 }
@@ -212,10 +213,10 @@ namespace PPVR.WebApp.Controllers
                 }
                 else
                 {
-                    _db.Ideologias.Add(new Ideologia {Nome = ideologiaViewModel.Nome});
+                    _db.Ideologias.Add(new Ideologia { Nome = ideologiaViewModel.Nome });
                     _db.SaveChanges();
 
-                    return RedirectToAction("Index", new {q = ideologiaViewModel.Nome, callbackAction = "Create"});
+                    return RedirectToAction("Index", new { q = ideologiaViewModel.Nome, callbackAction = "Create" });
                 }
             }
             return View(ideologiaViewModel);

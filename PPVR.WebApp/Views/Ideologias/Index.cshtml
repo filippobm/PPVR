@@ -47,7 +47,10 @@
             @Html.ActionLink(Labels.IdeologiaNome, "Index", new {q = ViewBag.CurrentFilter, sort = ViewBag.SortNome})
         </th>
         <th class="text-center">
-            @Html.LabelFor(m=>m[0].Ideologia.Enabled)
+            @Html.LabelFor(m => m[0].Ideologia.Enabled)
+        </th>
+        <th class="text-center">
+            @Html.LabelFor(m => m[0].QtdePartidosAssociados)
         </th>
         <th>
             @Html.ActionLink(Labels.CreatedAt, "Index", new {q = ViewBag.CurrentFilter, sort = ViewBag.SortCreatedAt})
@@ -68,6 +71,9 @@
             </td>
             <td class="text-center">
                 @Html.DisplayFor(m => item.Ideologia.Enabled)
+            </td>
+            <td class="text-center">
+                @Html.DisplayFor(m => item.QtdePartidosAssociados)
             </td>
             <td>
                 @Html.DisplayFor(m => item.CreatedAt)

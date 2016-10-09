@@ -207,6 +207,9 @@
   <data name="IdeologiaNomeInvalidLength" xml:space="preserve">
     <value>O nome da ideologia deve ter entre 1 e 30 caracteres.</value>
   </data>
+  <data name="IdeologiaNomeJaCadastrado" xml:space="preserve">
+    <value>Já existe uma ideologia cadastrada com este nome, informe outro.</value>
+  </data>
   <data name="IdeologiaNomeNotNull" xml:space="preserve">
     <value>O nome da ideologia não pode ser nulo.</value>
   </data>

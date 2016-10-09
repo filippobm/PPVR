@@ -1,0 +1,18 @@
+﻿@helper CallbackActionAlert(string callbackAction)
+{
+    if (callbackAction != null)
+    {
+        <div class="alert alert-success" role="alert">
+            @{
+                if (callbackAction == "Create")
+                {
+                    <span>Registro <b>criado</b> com sucesso!</span>
+                }
+                else if (callbackAction == "Edit")
+                {
+                    <span>Registro <b>atualizado</b> com sucesso!</span>
+                }
+            }
+        </div>
+    }
+}

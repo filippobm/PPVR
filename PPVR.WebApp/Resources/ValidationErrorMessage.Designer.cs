@@ -331,6 +331,15 @@ namespace PPVR.WebApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Já existe uma ideologia cadastrada com este nome, informe outro..
+        /// </summary>
+        internal static string IdeologiaNomeJaCadastrado {
+            get {
+                return ResourceManager.GetString("IdeologiaNomeJaCadastrado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to O nome da ideologia não pode ser nulo..
         /// </summary>
         internal static string IdeologiaNomeNotNull {

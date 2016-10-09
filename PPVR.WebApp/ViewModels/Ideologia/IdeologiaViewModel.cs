@@ -9,6 +9,10 @@ namespace PPVR.WebApp.ViewModels.Ideologia
         public short IdeologiaId { get; set; }
 
         [Display(Name = nameof(Labels.IdeologiaNome), ResourceType = typeof(Labels))]
+        [Required(ErrorMessageResourceType = typeof(ValidationErrorMessage),
+            ErrorMessageResourceName = nameof(ValidationErrorMessage.IdeologiaNomeNotNull))]
+        [MaxLength(30, ErrorMessageResourceType = typeof(ValidationErrorMessage),
+            ErrorMessageResourceName = nameof(ValidationErrorMessage.IdeologiaNomeInvalidLength))]
         public string Nome { get; set; }
 
         [Display(Name = nameof(Labels.Ativo), ResourceType = typeof(Labels))]

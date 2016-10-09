@@ -219,4 +219,28 @@
   <data name="IdeologiaNenhumPartidoAssociado" xml:space="preserve">
     <value>Não existe nenhum partido associado a ideologia.</value>
   </data>
+  <data name="IdeologiaAdicionar" xml:space="preserve">
+    <value>Adicionar Ideologia</value>
+  </data>
+  <data name="Criar" xml:space="preserve">
+    <value>Criar</value>
+  </data>
+  <data name="AppName" xml:space="preserve">
+    <value>PPVR</value>
+  </data>
+  <data name="AppNameFull" xml:space="preserve">
+    <value>PPVR - </value>
+  </data>
+  <data name="Sobre" xml:space="preserve">
+    <value>Sobre</value>
+  </data>
+  <data name="IdeologiaNomePlaceholder" xml:space="preserve">
+    <value>Informe o nome da ideologia.</value>
+  </data>
+  <data name="IdeologiaEditar" xml:space="preserve">
+    <value>Editar Ideologia</value>
+  </data>
+  <data name="Salvar" xml:space="preserve">
+    <value>Salvar</value>
+  </data>
 </root>

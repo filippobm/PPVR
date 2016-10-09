@@ -79,6 +79,24 @@ namespace PPVR.WebApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to PPVR.
+        /// </summary>
+        public static string AppName {
+            get {
+                return ResourceManager.GetString("AppName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PPVR - .
+        /// </summary>
+        public static string AppNameFull {
+            get {
+                return ResourceManager.GetString("AppNameFull", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ativo?.
         /// </summary>
         public static string Ativo {
@@ -160,6 +178,15 @@ namespace PPVR.WebApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Criar.
+        /// </summary>
+        public static string Criar {
+            get {
+                return ResourceManager.GetString("Criar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Desabilitar.
         /// </summary>
         public static string Desabilitar {
@@ -196,11 +223,29 @@ namespace PPVR.WebApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Adicionar Ideologia.
+        /// </summary>
+        public static string IdeologiaAdicionar {
+            get {
+                return ResourceManager.GetString("IdeologiaAdicionar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Detalhes da Ideologia.
         /// </summary>
         public static string IdeologiaDetalhes {
             get {
                 return ResourceManager.GetString("IdeologiaDetalhes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Editar Ideologia.
+        /// </summary>
+        public static string IdeologiaEditar {
+            get {
+                return ResourceManager.GetString("IdeologiaEditar", resourceCulture);
             }
         }
         
@@ -219,6 +264,15 @@ namespace PPVR.WebApp.Resources {
         public static string IdeologiaNome {
             get {
                 return ResourceManager.GetString("IdeologiaNome", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Informe o nome da ideologia..
+        /// </summary>
+        public static string IdeologiaNomePlaceholder {
+            get {
+                return ResourceManager.GetString("IdeologiaNomePlaceholder", resourceCulture);
             }
         }
         
@@ -336,6 +390,24 @@ namespace PPVR.WebApp.Resources {
         public static string Pesquisar {
             get {
                 return ResourceManager.GetString("Pesquisar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Salvar.
+        /// </summary>
+        public static string Salvar {
+            get {
+                return ResourceManager.GetString("Salvar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sobre.
+        /// </summary>
+        public static string Sobre {
+            get {
+                return ResourceManager.GetString("Sobre", resourceCulture);
             }
         }
         

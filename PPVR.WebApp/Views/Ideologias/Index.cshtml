@@ -8,6 +8,10 @@
 
 <h2>@ViewBag.Title</h2>
 
+<hr>
+
+@Helpers.CallbackActionAlert(ViewBag.CallbackAction)
+
 @using (Html.BeginForm("Index", "Ideologias", FormMethod.Get, new { @class = "form-horizontal" }))
 {
     <div class="form-group">
@@ -77,19 +81,11 @@
         new { q = ViewBag.CurrentFilter, sort = ViewBag.CurrentSort, page }))
 </div>
 
-
 @section scripts
 {
     <script>
         $(function () {
-            var searchInput = $("#q");
-
-            // Multiply by 2 to ensure the cursor always ends up at the end;
-            // Opera sometimes sees a carriage return as 2 characters.
-            var strLength = searchInput.val().length * 2;
-
-            searchInput.focus();
-            searchInput[0].setSelectionRange(0, strLength);
+            selectedTextFocus("q");
         });
     </script>
 }

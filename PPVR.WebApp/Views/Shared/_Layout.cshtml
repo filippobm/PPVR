@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>PPVR - @ViewBag.Title</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -16,13 +16,12 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </button>                
+                    @Html.ActionLink(Labels.AppName, "Index", "Home", null, new { @class = "navbar-brand" })                
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink(Labels.Sobre, "Sobre", "Home")</li>
                     <li>@Html.ActionLink(Labels.Candidatos, "Index", "Candidatos")</li>
                     <li>@Html.ActionLink(Labels.Partidos, "Index", "Partidos")</li>
                     <li>@Html.ActionLink(Labels.Ideologias, "Index", "Ideologias")</li>
@@ -34,12 +33,13 @@
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        <footer class="text-center">
+            <p>&copy; @DateTime.Now.Year - PPVR - Propaganda Política e seu Valor Real</p>
         </footer>
     </div>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/ppvr")
     @RenderSection("scripts", false)
 </body>
 </html>

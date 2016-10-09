@@ -284,6 +284,7 @@
     <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\VT323\OFL.txt" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <EmbeddedResource Include="Migrations\201609242015076_InitialMigration.resx">
@@ -306,6 +307,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ValidationErrorMessage.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Content Include="fonts\VT323\VT323-Regular.ttf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -329,7 +331,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Sobre.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Views\Account\ForgotPassword.cshtml" />
@@ -346,6 +348,10 @@
     <Content Include="Views\Candidatos\Index.cshtml" />
     <Content Include="Views\Ideologias\Index.cshtml" />
     <Content Include="Views\Ideologias\Details.cshtml" />
+    <Content Include="Views\Ideologias\Create.cshtml" />
+    <Content Include="Views\Ideologias\Edit.cshtml" />
+    <Content Include="App_Code\Helpers.cshtml" />
+    <Content Include="Scripts\ppvr.common.js" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -22,3 +22,46 @@ select,
 textarea {
     max-width: 280px;
 }*/
+
+@font-face {
+    font-family: 'VT323';
+    src: url(../fonts/VT323/VT323-Regular.ttf);
+}
+
+.navbar-brand {
+    background-color: yellow;
+    margin: 5px;
+    -ms-border-radius: 50px 15px;
+    border-radius: 50px 15px;
+}
+
+.navbar-inverse {
+    background-color: #840000;
+    border-color: #ffffff;
+}
+
+    .navbar-inverse .navbar-brand {
+        color: #000;
+        font-family: 'VT323', monospace;
+        font-size: 36px;
+        background-color: yellow;
+    }
+
+    .navbar-inverse .navbar-nav > li > a {
+        color: #ffffff;
+    }
+
+        .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
+            color: #fff900;
+            background-color: transparent;
+        }
+
+
+    .navbar-inverse .navbar-brand:hover, .navbar-inverse .navbar-brand:focus {
+        color: #000;
+        background-color: yellow;
+    }
+
+h2 {
+    margin-top: 40px;
+}

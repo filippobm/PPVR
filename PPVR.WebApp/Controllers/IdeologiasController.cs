@@ -1,5 +1,8 @@
 ﻿using PPVR.WebApp.DataAccess;
+using PPVR.WebApp.Models;
+using PPVR.WebApp.Resources;
 using PPVR.WebApp.ViewModels.Ideologia;
+using System;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
@@ -13,8 +16,9 @@ namespace PPVR.WebApp.Controllers
         private readonly AppDbContext _db = new AppDbContext();
 
         // GET: Ideologias
-        public ActionResult Index(string q, string sort, int? page)
+        public ActionResult Index(string q, string sort, int? page, string callbackAction)
         {
+            ViewBag.CallbackAction = callbackAction;
             ViewBag.CurrentFilter = q;
 
             var ideologias = _db.Ideologias.Select(i => i);
@@ -77,5 +81,106 @@ namespace PPVR.WebApp.Controllers
 
             return View(ideologia);
         }
+
+        #region Edit
+
+        // GET: Ideologias/Edit/5
+        public ActionResult Edit(int? id)
+        {
+            if (id == null)
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
+            var ideologia = _db.Ideologias.Find(id);
+
+            if (ideologia == null)
+                return HttpNotFound();
+
+            var ideologiaViewModel = new IdeologiaViewModel
+            {
+                IdeologiaId = ideologia.IdeologiaId,
+                Nome = ideologia.Nome,
+                Enabled = ideologia.Enabled
+            };
+
+            return View(ideologiaViewModel);
+        }
+
+        // POST: Ideologias/Edit/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "IdeologiaId, Nome, Enabled")] IdeologiaViewModel ideologiaViewModel)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    var ideologiaExists =
+                        _db.Ideologias.Any(
+                            i => i.IdeologiaId != ideologiaViewModel.IdeologiaId && i.Nome == ideologiaViewModel.Nome);
+
+                    if (ideologiaExists)
+                    {
+                        ModelState.AddModelError(nameof(ValidationErrorMessage.IdeologiaNomeJaCadastrado),
+                            ValidationErrorMessage.IdeologiaNomeJaCadastrado);
+                    }
+                    else
+                    {
+                        var ideologia = new Ideologia
+                        {
+                            IdeologiaId = ideologiaViewModel.IdeologiaId,
+                            Nome = ideologiaViewModel.Nome,
+                            Enabled = ideologiaViewModel.Enabled
+                        };
+
+                        _db.Entry(ideologia).State = EntityState.Modified;
+                        _db.SaveChanges();
+
+                        return RedirectToAction("Index", new { q = ideologia.Nome, callbackAction = "Edit" });
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", ex.Message);
+            }
+
+            return View(ideologiaViewModel);
+        }
+
+        #endregion
+
+        #region Create
+
+        // GET: Ideologias/Create
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        // POST: Ideologias/Create
+        [HttpPost]
+        public ActionResult Create([Bind(Include = "Nome")] IdeologiaViewModel ideologiaViewModel)
+        {
+            if (ModelState.IsValid)
+            {
+                var ideologiaExists = _db.Ideologias.Any(i => i.Nome == ideologiaViewModel.Nome);
+
+                if (ideologiaExists)
+                {
+                    ModelState.AddModelError(nameof(ValidationErrorMessage.IdeologiaNomeJaCadastrado),
+                        ValidationErrorMessage.IdeologiaNomeJaCadastrado);
+                }
+                else
+                {
+                    _db.Ideologias.Add(new Ideologia { Nome = ideologiaViewModel.Nome });
+                    _db.SaveChanges();
+
+                    return RedirectToAction("Index", new { q = ideologiaViewModel.Nome, callbackAction = "Create" });
+                }
+            }
+            return View(ideologiaViewModel);
+        }
+
+        #endregion
     }
 }

@@ -12,7 +12,7 @@
 
 @Helpers.CallbackActionAlert(ViewBag.CallbackAction)
 
-@using (Html.BeginForm("Index", "Ideologias", FormMethod.Get, new {@class = "form-horizontal"}))
+@using (Html.BeginForm("Index", "Ideologias", FormMethod.Get, new { @class = "form-horizontal" }))
 {
     <div class="form-group">
         <div class="col-sm-7">
@@ -44,19 +44,19 @@
 <table class="table">
     <tr>
         <th>
-            @Html.ActionLink(Labels.IdeologiaNome, "Index", new {q = ViewBag.CurrentFilter, sort = ViewBag.SortNome})
+            @Html.ActionLink(Labels.IdeologiaNome, "Index", new { q = ViewBag.CurrentFilter, sort = ViewBag.SortNome })
         </th>
         <th class="text-center">
             @Html.LabelFor(m => m[0].Ideologia.Enabled)
         </th>
         <th class="text-center">
-            @Html.LabelFor(m => m[0].QtdePartidosAssociados)
+            @Html.ActionLink(Labels.IdeologiaQtdePartidosAssociados, "Index", new { q = ViewBag.CurrentFilter, sort = ViewBag.SortQtdePartidosAssociados })
         </th>
         <th>
-            @Html.ActionLink(Labels.CreatedAt, "Index", new {q = ViewBag.CurrentFilter, sort = ViewBag.SortCreatedAt})
+            @Html.ActionLink(Labels.CreatedAt, "Index", new { q = ViewBag.CurrentFilter, sort = ViewBag.SortCreatedAt })
         </th>
         <th>
-            @Html.ActionLink(Labels.UpdatedAt, "Index", new {q = ViewBag.CurrentFilter, sort = ViewBag.SortUpdatedAt})
+            @Html.ActionLink(Labels.UpdatedAt, "Index", new { q = ViewBag.CurrentFilter, sort = ViewBag.SortUpdatedAt })
         </th>
         <th class="text-right">
             @Labels.Acoes
@@ -82,9 +82,9 @@
                 @Html.DisplayFor(m => item.UpdatedAt)
             </td>
             <td class="text-right">
-                @Html.ActionLink(Labels.Editar, "Edit", new {id = item.Ideologia.IdeologiaId}) |
-                @Html.ActionLink(Labels.Visualizar, "Details", new {id = item.Ideologia.IdeologiaId}) |
-                @Html.ActionLink(Labels.Excluir, "Delete", new {id = item.Ideologia.IdeologiaId})
+                @Html.ActionLink(Labels.Editar, "Edit", new { id = item.Ideologia.IdeologiaId }) |
+                @Html.ActionLink(Labels.Visualizar, "Details", new { id = item.Ideologia.IdeologiaId }) |
+                @Html.ActionLink(Labels.Excluir, "Delete", new { id = item.Ideologia.IdeologiaId })
             </td>
         </tr>
     }
@@ -94,13 +94,13 @@
     Página @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) de @Model.PageCount
 
     @Html.PagedListPager(Model, page => Url.Action("Index",
-        new {q = ViewBag.CurrentFilter, sort = ViewBag.CurrentSort, page}))
+        new { q = ViewBag.CurrentFilter, sort = ViewBag.CurrentSort, page }))
 </div>
 
 @section scripts
 {
     <script>
-        $(function() {
+        $(function () {
             selectedTextFocus("q");
         });
     </script>

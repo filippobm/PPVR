@@ -226,10 +226,10 @@
     <value>Criar</value>
   </data>
   <data name="AppName" xml:space="preserve">
-    <value>PPVR</value>
+    <value>Propaganda Política e seu Valor Real</value>
   </data>
   <data name="AppNameFull" xml:space="preserve">
-    <value>PPVR - </value>
+    <value>PPVR - Propaganda Política e seu Valor Real</value>
   </data>
   <data name="Sobre" xml:space="preserve">
     <value>Sobre</value>
@@ -245,5 +245,14 @@
   </data>
   <data name="CampoObrigatorio" xml:space="preserve">
     <value>Campo Obrigatório</value>
+  </data>
+  <data name="AppNameAbbreviation" xml:space="preserve">
+    <value>PPVR</value>
+  </data>
+  <data name="PPVR" xml:space="preserve">
+    <value>PPVR</value>
+  </data>
+  <data name="PropagandaPolíticaValorReal" xml:space="preserve">
+    <value>Propaganda Política e seu Valor Real</value>
   </data>
 </root>

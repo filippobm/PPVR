@@ -33,6 +33,7 @@ namespace PPVR.WebApp.Controllers
             ViewBag.SortNome = "nome";
             ViewBag.SortCreatedAt = "created_at";
             ViewBag.SortUpdatedAt = "updated_at";
+            ViewBag.SortQtdePartidosAssociados = "qtde_partidos_associados";
 
             switch (sort)
             {
@@ -61,6 +62,15 @@ namespace PPVR.WebApp.Controllers
                 case "updated_at_desc":
                     ideologias = ideologias.OrderByDescending(i => i.UpdatedAt);
                     ViewBag.SortUpdatedAt = "updated_at";
+                    break;
+
+                case "qtde_partidos_associados":
+                    ideologias = ideologias.OrderBy(i => i.Partidos.Count);
+                    ViewBag.SortQtdePartidosAssociados = "qtde_partidos_associados_desc";
+                    break;
+                case "qtde_partidos_associados_desc":
+                    ideologias = ideologias.OrderByDescending(i => i.Partidos.Count);
+                    ViewBag.SortQtdePartidosAssociados = "qtde_partidos_associados";
                     break;
             }
 

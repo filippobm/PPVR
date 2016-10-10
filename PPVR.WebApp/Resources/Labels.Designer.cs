@@ -79,7 +79,7 @@ namespace PPVR.WebApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to PPVR.
+        ///   Looks up a localized string similar to Propaganda Política e seu Valor Real.
         /// </summary>
         public static string AppName {
             get {
@@ -88,7 +88,16 @@ namespace PPVR.WebApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to PPVR - .
+        ///   Looks up a localized string similar to PPVR.
+        /// </summary>
+        public static string AppNameAbbreviation {
+            get {
+                return ResourceManager.GetString("AppNameAbbreviation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PPVR - Propaganda Política e seu Valor Real.
         /// </summary>
         public static string AppNameFull {
             get {
@@ -399,6 +408,24 @@ namespace PPVR.WebApp.Resources {
         public static string Pesquisar {
             get {
                 return ResourceManager.GetString("Pesquisar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PPVR.
+        /// </summary>
+        public static string PPVR {
+            get {
+                return ResourceManager.GetString("PPVR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Propaganda Política e seu Valor Real.
+        /// </summary>
+        public static string PropagandaPolíticaValorReal {
+            get {
+                return ResourceManager.GetString("PropagandaPolíticaValorReal", resourceCulture);
             }
         }
         

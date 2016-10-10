@@ -8,22 +8,42 @@
 <h2>@ViewBag.Title</h2>
 
 <div>
-    <h4>@Labels.Ideologia - @Html.DisplayFor(model => model.Ideologia.Nome)</h4>
     <hr />
 
     <dl class="dl-horizontal">
+
+        @*Nome*@
         <dt>
-            @Html.DisplayNameFor(model => model.Ideologia.Nome)
+            @Html.DisplayNameFor(model => model.Ideologia.Nome):
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Ideologia.Nome)
         </dd>
+
+        @*Enabled*@
         <dt>
             @Html.DisplayNameFor(model => model.Ideologia.Enabled)
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Ideologia.Enabled)
         </dd>
+
+        @*CreatedAt*@
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedAt):
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CreatedAt)
+        </dd>
+
+        @*UpdatedAt*@
+        <dt>
+            @Html.DisplayNameFor(model => model.UpdatedAt):
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.UpdatedAt)
+        </dd>
+
     </dl>
 
     <h4>@Labels.PartidoTitleListaPartidosPoliticos</h4>

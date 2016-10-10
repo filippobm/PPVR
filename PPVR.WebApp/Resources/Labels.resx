@@ -255,4 +255,34 @@
   <data name="PropagandaPolíticaValorReal" xml:space="preserve">
     <value>Propaganda Política e seu Valor Real</value>
   </data>
+  <data name="CriarConta" xml:space="preserve">
+    <value>Criar uma conta</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>E-mail</value>
+  </data>
+  <data name="Logar" xml:space="preserve">
+    <value>Logar</value>
+  </data>
+  <data name="Registrar" xml:space="preserve">
+    <value>Registrar</value>
+  </data>
+  <data name="Senha" xml:space="preserve">
+    <value>Senha</value>
+  </data>
+  <data name="SenhaConfirmar" xml:space="preserve">
+    <value>Confirmar senha</value>
+  </data>
+  <data name="Entrar" xml:space="preserve">
+    <value>Entrar</value>
+  </data>
+  <data name="EntrarPPVR" xml:space="preserve">
+    <value>Connectar-se ao PPVR</value>
+  </data>
+  <data name="Sair" xml:space="preserve">
+    <value>Sair</value>
+  </data>
+  <data name="Copyright" xml:space="preserve">
+    <value>© 2016 - PPVR (Propaganda Política e seu Valor Real)</value>
+  </data>
 </root>

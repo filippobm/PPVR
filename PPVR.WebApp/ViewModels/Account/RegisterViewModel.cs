@@ -1,23 +1,28 @@
+using PPVR.WebApp.Resources;
 using System.ComponentModel.DataAnnotations;
 
 namespace PPVR.WebApp.ViewModels.Account
 {
     public class RegisterViewModel
     {
-        [Required]
+        [Display(Name = nameof(Labels.Email), ResourceType = typeof(Labels))]
+        [Required(ErrorMessageResourceType = typeof(ValidationErrorMessage),
+            ErrorMessageResourceName = nameof(ValidationErrorMessage.UsuarioEmailNotNull))]
         [EmailAddress]
-        [Display(Name = "Email")]
         public string Email { get; set; }
 
-        [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [Display(Name = nameof(Labels.Senha), ResourceType = typeof(Labels))]
+        [Required(ErrorMessageResourceType = typeof(ValidationErrorMessage),
+            ErrorMessageResourceName = nameof(ValidationErrorMessage.UsuarioSenhaNotNull))]
+        [StringLength(30, ErrorMessageResourceType = typeof(ValidationErrorMessage),
+            ErrorMessageResourceName = nameof(ValidationErrorMessage.UsuarioSenhaMinimumLength), MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirm password")]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        [Display(Name = nameof(Labels.SenhaConfirmar), ResourceType = typeof(Labels))]
+        [Compare("Password", ErrorMessageResourceType = typeof(ValidationErrorMessage),
+            ErrorMessageResourceName = nameof(ValidationErrorMessage.UsuarioSenhaCompareSenhaConfirmacao))]
         public string ConfirmPassword { get; set; }
     }
 }

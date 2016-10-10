@@ -12,19 +12,18 @@
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink(Labels.PPVR, "Index", "Home", null, new { @class = "navbar-brand" })
+                @Html.ActionLink(Labels.PPVR, "Index", "Home", null,
+                new { @class = "navbar-brand", title = Labels.PropagandaPolíticaValorReal })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink(Labels.Sobre, "Sobre", "Home")</li>
-                    <li>@Html.ActionLink(Labels.Candidatos, "Index", "Candidatos")</li>
-                    <li>@Html.ActionLink(Labels.Partidos, "Index", "Partidos")</li>
-                    <li>@Html.ActionLink(Labels.Ideologias, "Index", "Ideologias")</li>
+                    @if (Request.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink(Labels.Candidatos, "Index", "Candidatos")</li>
+                        <li>@Html.ActionLink(Labels.Partidos, "Index", "Partidos")</li>
+                        <li>@Html.ActionLink(Labels.Ideologias, "Index", "Ideologias")</li>
+                    }
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -32,9 +31,9 @@
     </div>
     <div class="container body-content">
         @RenderBody()
-        <hr />
+        <hr>
         <footer class="text-center">
-            <p>&copy; @DateTime.Now.Year - PPVR - Propaganda Política e seu Valor Real</p>
+            <p>@Labels.Copyright</p>
         </footer>
     </div>
     @Scripts.Render("~/bundles/jquery")

@@ -234,4 +234,16 @@
   <data name="PartidoSiglaNotNull" xml:space="preserve">
     <value>A sigla do partido não pode ser nula.</value>
   </data>
+  <data name="UsuarioEmailNotNull" xml:space="preserve">
+    <value>O e-mail não pode ser nulo.</value>
+  </data>
+  <data name="UsuarioSenhaCompareSenhaConfirmacao" xml:space="preserve">
+    <value>A senha e a confirmação da senha não coincidem.</value>
+  </data>
+  <data name="UsuarioSenhaMinimumLength" xml:space="preserve">
+    <value>A senha deve ter entre {2} e {1} caracteres.</value>
+  </data>
+  <data name="UsuarioSenhaNotNull" xml:space="preserve">
+    <value>A senha não pode ser nula.</value>
+  </data>
 </root>

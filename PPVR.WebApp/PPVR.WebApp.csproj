@@ -261,15 +261,11 @@
     </Compile>
     <Compile Include="Startup.cs" />
     <Compile Include="Utils\AssertionConcern.cs" />
-    <Compile Include="ViewModels\Account\ExternalLoginConfirmationViewModel.cs" />
-    <Compile Include="ViewModels\Account\ExternalLoginListViewModel.cs" />
     <Compile Include="ViewModels\Account\ForgotPasswordViewModel.cs" />
     <Compile Include="ViewModels\Account\ForgotViewModel.cs" />
     <Compile Include="ViewModels\Account\LoginViewModel.cs" />
     <Compile Include="ViewModels\Account\RegisterViewModel.cs" />
     <Compile Include="ViewModels\Account\ResetPasswordViewModel.cs" />
-    <Compile Include="ViewModels\Account\SendCodeViewModel.cs" />
-    <Compile Include="ViewModels\Account\VerifyCodeViewModel.cs" />
     <Compile Include="ViewModels\Ideologia\IdeologiaDetailsViewModel.cs" />
     <Compile Include="ViewModels\Ideologia\IdeologiaGridViewModel.cs" />
     <Compile Include="ViewModels\Ideologia\IdeologiaPartidoViewModel.cs" />

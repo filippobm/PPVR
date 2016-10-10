@@ -410,5 +410,41 @@ namespace PPVR.WebApp.Resources {
                 return ResourceManager.GetString("PartidoSiglaNotNull", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to O e-mail não pode ser nulo..
+        /// </summary>
+        internal static string UsuarioEmailNotNull {
+            get {
+                return ResourceManager.GetString("UsuarioEmailNotNull", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A senha e a confirmação da senha não coincidem..
+        /// </summary>
+        internal static string UsuarioSenhaCompareSenhaConfirmacao {
+            get {
+                return ResourceManager.GetString("UsuarioSenhaCompareSenhaConfirmacao", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A senha deve ter entre {2} e {1} caracteres..
+        /// </summary>
+        internal static string UsuarioSenhaMinimumLength {
+            get {
+                return ResourceManager.GetString("UsuarioSenhaMinimumLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A senha não pode ser nula..
+        /// </summary>
+        internal static string UsuarioSenhaNotNull {
+            get {
+                return ResourceManager.GetString("UsuarioSenhaNotNull", resourceCulture);
+            }
+        }
     }
 }

@@ -187,6 +187,15 @@ namespace PPVR.WebApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to © 2016 - PPVR (Propaganda Política e seu Valor Real).
+        /// </summary>
+        public static string Copyright {
+            get {
+                return ResourceManager.GetString("Copyright", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Data Criação.
         /// </summary>
         public static string CreatedAt {
@@ -205,6 +214,15 @@ namespace PPVR.WebApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Criar uma conta.
+        /// </summary>
+        public static string CriarConta {
+            get {
+                return ResourceManager.GetString("CriarConta", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Desabilitar.
         /// </summary>
         public static string Desabilitar {
@@ -219,6 +237,33 @@ namespace PPVR.WebApp.Resources {
         public static string Editar {
             get {
                 return ResourceManager.GetString("Editar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to E-mail.
+        /// </summary>
+        public static string Email {
+            get {
+                return ResourceManager.GetString("Email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Entrar.
+        /// </summary>
+        public static string Entrar {
+            get {
+                return ResourceManager.GetString("Entrar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Connectar-se ao PPVR.
+        /// </summary>
+        public static string EntrarPPVR {
+            get {
+                return ResourceManager.GetString("EntrarPPVR", resourceCulture);
             }
         }
         
@@ -340,6 +385,15 @@ namespace PPVR.WebApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Logar.
+        /// </summary>
+        public static string Logar {
+            get {
+                return ResourceManager.GetString("Logar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Nome.
         /// </summary>
         public static string PartidoNome {
@@ -430,11 +484,47 @@ namespace PPVR.WebApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Registrar.
+        /// </summary>
+        public static string Registrar {
+            get {
+                return ResourceManager.GetString("Registrar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sair.
+        /// </summary>
+        public static string Sair {
+            get {
+                return ResourceManager.GetString("Sair", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Salvar.
         /// </summary>
         public static string Salvar {
             get {
                 return ResourceManager.GetString("Salvar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Senha.
+        /// </summary>
+        public static string Senha {
+            get {
+                return ResourceManager.GetString("Senha", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Confirmar senha.
+        /// </summary>
+        public static string SenhaConfirmar {
+            get {
+                return ResourceManager.GetString("SenhaConfirmar", resourceCulture);
             }
         }
         

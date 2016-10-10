@@ -285,4 +285,16 @@
   <data name="Copyright" xml:space="preserve">
     <value>© 2016 - PPVR (Propaganda Política e seu Valor Real)</value>
   </data>
+  <data name="Lembrar" xml:space="preserve">
+    <value>Lembrar</value>
+  </data>
+  <data name="UsuarioConfirmacaoSenhaPlaceholder" xml:space="preserve">
+    <value>Confirme a senha informada.</value>
+  </data>
+  <data name="UsuarioEmailPlaceholder" xml:space="preserve">
+    <value>Informe o e-mail do usuário.</value>
+  </data>
+  <data name="UsuarioSenhaPlaceholder" xml:space="preserve">
+    <value>Informe a senha do usuário.</value>
+  </data>
 </root>

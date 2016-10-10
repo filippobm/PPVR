@@ -11,6 +11,7 @@ using X.PagedList;
 
 namespace PPVR.WebApp.Controllers
 {
+    [Authorize]
     public class IdeologiasController : Controller
     {
         private readonly AppDbContext _db = new AppDbContext();

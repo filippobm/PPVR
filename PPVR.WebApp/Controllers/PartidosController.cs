@@ -5,6 +5,7 @@ using X.PagedList;
 
 namespace PPVR.WebApp.Controllers
 {
+    [Authorize]
     public class PartidosController : Controller
     {
         private readonly AppDbContext _db = new AppDbContext();

@@ -5,6 +5,7 @@ using X.PagedList;
 
 namespace PPVR.WebApp.Controllers
 {
+    [Authorize]
     public class CandidatosController : Controller
     {
         private readonly AppDbContext _db = new AppDbContext();

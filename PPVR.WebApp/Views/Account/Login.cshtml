@@ -2,57 +2,81 @@
 @model PPVR.WebApp.ViewModels.Account.LoginViewModel
 
 @{
-    ViewBag.Title = Labels.EntrarPPVR;
+    ViewBag.Title = Labels.Entrar;
 }
 
 <h2>@ViewBag.Title</h2>
+<h4>Para connectar-se no sistema basta @Html.ActionLink("[" + Labels.CriarConta + "]", "Register") e informar o e-mail e a senha abaixo.</h4>
+<hr>
 
-<div class="row">
-    <div class="col-md-8">
-        <section id="loginForm">
-            @using (Html.BeginForm("Login", "Account", new { ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-            {
-                @Html.AntiForgeryToken()
-                <h4>Crie uma conta e connecte-se informando o e-mail e a senha abaixo.</h4>
-                <hr />
-                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-10">
-                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-10">
-                        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <div class="checkbox">
-                            @Html.CheckBoxFor(m => m.RememberMe)
-                            @Html.LabelFor(m => m.RememberMe)
-                        </div>
-                    </div>
-                </div>
+@using (Html.BeginForm("Login", "Account", new { ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form", id = "form" }))
+{
+    @Html.AntiForgeryToken()
 
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="@Labels.Entrar" class="btn btn-primary" />
-                    </div>
-                </div>
-
-                <p>
-                    @Html.ActionLink(Labels.CriarConta, "Register")
-                </p>
-            }
-        </section>
+    <div class="row">
+        <div class="col-md-6">
+            @Html.ValidationSummary(false, null,
+                new { id = "validation-summary", @class = "alert alert-danger", role = "alert", style = "display:none" })
+        </div>
     </div>
-</div>
+
+    <div class="row">
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-4 text-right">
+                <p>
+                    @Html.ValidationMessageFor(m => m.Email, "*", new { @class = "text-danger" }) <em>Campos obrigatórios</em>
+                </p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-2 text-right">
+                @Html.ValidationMessageFor(m => m.Email, "*",
+                    new { @class = "text-danger", title = Labels.CampoObrigatorio })
+
+                @Html.LabelFor(m => m.Email, new { @class = "control-label" }):
+            </div>
+            <div class="col-md-4">
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-2 text-right">
+                @Html.ValidationMessageFor(m => m.Email, "*",
+                    new { @class = "text-danger", title = Labels.CampoObrigatorio })
+
+                @Html.LabelFor(m => m.Password, new { @class = "control-label" }):
+            </div>
+            <div class="col-md-4">
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-4">
+                <div class="checkbox">
+                    @Html.CheckBoxFor(m => m.RememberMe)
+                    @Html.LabelFor(m => m.RememberMe)
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-4">
+                <input type="submit" value="@Labels.Entrar" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+        $(function () {
+            validateForm("form", "validation-summary");
+            endInputFocus("Email");
+        });
+    </script>
 }

@@ -385,6 +385,15 @@ namespace PPVR.WebApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Lembrar.
+        /// </summary>
+        public static string Lembrar {
+            get {
+                return ResourceManager.GetString("Lembrar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Logar.
         /// </summary>
         public static string Logar {
@@ -552,6 +561,33 @@ namespace PPVR.WebApp.Resources {
         public static string UpdatedAt {
             get {
                 return ResourceManager.GetString("UpdatedAt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Confirme a senha informada..
+        /// </summary>
+        public static string UsuarioConfirmacaoSenhaPlaceholder {
+            get {
+                return ResourceManager.GetString("UsuarioConfirmacaoSenhaPlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Informe o e-mail do usuário..
+        /// </summary>
+        public static string UsuarioEmailPlaceholder {
+            get {
+                return ResourceManager.GetString("UsuarioEmailPlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Informe a senha do usuário..
+        /// </summary>
+        public static string UsuarioSenhaPlaceholder {
+            get {
+                return ResourceManager.GetString("UsuarioSenhaPlaceholder", resourceCulture);
             }
         }
         

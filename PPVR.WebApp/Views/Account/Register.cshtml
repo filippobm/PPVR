@@ -6,52 +6,69 @@
 }
 
 <h2>@ViewBag.Title</h2>
+<h4>Preencha os campos abaixo para criar uma conta e utilizar o sistema.</h4>
+<hr>
 
 @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form", id = "form" }))
 {
     @Html.AntiForgeryToken()
-    <hr />
 
-    @Html.ValidationSummary(false, null,
-        new { id = "validation-summary", @class = "alert alert-danger", role = "alert", style = "display:none" })
-
-    <div class="form-group">
-        <div class="col-md-2 text-right">
-            @Html.ValidationMessageFor(m => m.Email, "*",
-                new { @class = "text-danger", title = Labels.CampoObrigatorio })
-
-            @Html.LabelFor(m => m.Email, new { @class = "control-label" }):
-        </div>
-        <div class="col-md-4">
-            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+    <div class="row">
+        <div class="col-md-6">
+            @Html.ValidationSummary(false, null,
+                new { id = "validation-summary", @class = "alert alert-danger", role = "alert", style = "display:none" })
         </div>
     </div>
 
-    <div class="form-group">
-        <div class="col-md-2 text-right">
-            @Html.ValidationMessageFor(m => m.Password, "*",
-                new { @class = "text-danger", title = Labels.CampoObrigatorio })
+    <div class="row">
 
-            @Html.LabelFor(m => m.Password, new { @class = "control-label" }):
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-4 text-right">
+                <p>
+                    @Html.ValidationMessageFor(m => m.Email, "*", new { @class = "text-danger" }) <em>Campos obrigatórios</em>
+                </p>
+            </div>
         </div>
-        <div class="col-md-4">
-            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-        </div>
-    </div>
 
-    <div class="form-group">
-        <div class="col-md-2 text-right">
-            @Html.LabelFor(m => m.ConfirmPassword, new { @class = "control-label" }):
-        </div>
-        <div class="col-md-4">
-            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
-        </div>
-    </div>
+        <div class="form-group">
+            <div class="col-md-2 text-right">
+                @Html.ValidationMessageFor(m => m.Email, "*",
+                    new { @class = "text-danger", title = Labels.CampoObrigatorio })
 
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-4">
-            <input type="submit" class="btn btn-default" value="@Labels.Registrar" />
+                @Html.LabelFor(m => m.Email, new { @class = "control-label" }):
+            </div>
+            <div class="col-md-4">
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = Labels.UsuarioEmailPlaceholder })
+            </div>
         </div>
+
+        <div class="form-group">
+            <div class="col-md-2 text-right">
+                @Html.ValidationMessageFor(m => m.Password, "*",
+                    new { @class = "text-danger", title = Labels.CampoObrigatorio })
+
+                @Html.LabelFor(m => m.Password, new { @class = "control-label" }):
+            </div>
+            <div class="col-md-4">
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = Labels.UsuarioSenhaPlaceholder })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-2 text-right">
+                @Html.LabelFor(m => m.ConfirmPassword, new { @class = "control-label" }):
+            </div>
+            <div class="col-md-4">
+                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", placeholder = Labels.UsuarioConfirmacaoSenhaPlaceholder })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-4">
+                <input type="submit" class="btn btn-primary" value="@Labels.CriarConta" />
+            </div>
+        </div>
+
     </div>
 }
 
@@ -62,7 +79,7 @@
     <script>
         $(function () {
             validateForm("form", "validation-summary");
-            endInputFocus("Nome");
+            endInputFocus("Email");
         });
     </script>
 }

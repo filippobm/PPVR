@@ -234,6 +234,15 @@
   <data name="PartidoSiglaNotNull" xml:space="preserve">
     <value>A sigla do partido não pode ser nula.</value>
   </data>
+  <data name="TipoPropagandaDescricaoInvalidLength" xml:space="preserve">
+    <value>A descrição do tipo da propaganda deve ter entre 1 e 30 caracteres.</value>
+  </data>
+  <data name="TipoPropagandaDescricaoNotNull" xml:space="preserve">
+    <value>A descrição do tipo da propaganda não pode ser nula.</value>
+  </data>
+  <data name="TipoPropagandaValorMedioInvalidValue" xml:space="preserve">
+    <value>O valor médio do tipo da propaganda deve ser maior do que zero.</value>
+  </data>
   <data name="UsuarioEmailNotNull" xml:space="preserve">
     <value>O e-mail não pode ser nulo.</value>
   </data>

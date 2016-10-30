@@ -412,6 +412,33 @@ namespace PPVR.WebApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to A descrição do tipo da propaganda deve ter entre 1 e 30 caracteres..
+        /// </summary>
+        internal static string TipoPropagandaDescricaoInvalidLength {
+            get {
+                return ResourceManager.GetString("TipoPropagandaDescricaoInvalidLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A descrição do tipo da propaganda não pode ser nula..
+        /// </summary>
+        internal static string TipoPropagandaDescricaoNotNull {
+            get {
+                return ResourceManager.GetString("TipoPropagandaDescricaoNotNull", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to O valor médio do tipo da propaganda deve ser maior do que zero..
+        /// </summary>
+        internal static string TipoPropagandaValorMedioInvalidValue {
+            get {
+                return ResourceManager.GetString("TipoPropagandaValorMedioInvalidValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to O e-mail não pode ser nulo..
         /// </summary>
         internal static string UsuarioEmailNotNull {

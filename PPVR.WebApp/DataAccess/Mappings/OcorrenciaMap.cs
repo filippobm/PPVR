@@ -15,13 +15,17 @@ namespace PPVR.WebApp.DataAccess.Mappings
                 .IsRequired()
                 .HasColumnType("image");
 
+            HasRequired(x => x.Candidato)
+                .WithMany(x => x.Ocorrencias)
+                .HasForeignKey(x => x.CandidatoId);
+
             HasRequired(x => x.Endereco)
                 .WithMany(x => x.Ocorrencias)
                 .HasForeignKey(x => x.EnderecoId);
 
-            HasRequired(x => x.Candidato)
+            HasRequired(x => x.TipoPropaganda)
                 .WithMany(x => x.Ocorrencias)
-                .HasForeignKey(x => x.CandidatoId);
+                .HasForeignKey(x => x.TipoPropagandaId);
         }
     }
 }

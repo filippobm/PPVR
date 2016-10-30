@@ -40,6 +40,7 @@ namespace PPVR.WebApp.DataAccess
             modelBuilder.Configurations.Add(new OcorrenciaMap());
             modelBuilder.Configurations.Add(new IdeologiaMap());
             modelBuilder.Configurations.Add(new PartidoMap());
+            modelBuilder.Configurations.Add(new TipoPropagandaMap());
         }
 
         public override int SaveChanges()

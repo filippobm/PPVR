@@ -37,7 +37,8 @@ namespace PPVR.WebApp.Controllers
                 file.SaveAs(filePath);
                 return RedirectToAction("Index");
             }
-            throw new Exception("AAAAA");
+            throw new Exception(
+                "O arquivo informado não tem um formato válido. Os formatos aceitos são: .jpg, .jpge e .png");
         }
     }
 }

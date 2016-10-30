@@ -15,13 +15,9 @@ namespace PPVR.WebApp.DataAccess.Mappings
                 .IsRequired()
                 .HasMaxLength(255);
 
-            HasRequired(x => x.Candidato)
-                .WithMany(x => x.Ocorrencias)
-                .HasForeignKey(x => x.CandidatoId);
+            HasOptional(x => x.Candidato);
 
-            HasRequired(x => x.Endereco)
-                .WithMany(x => x.Ocorrencias)
-                .HasForeignKey(x => x.EnderecoId);
+            HasOptional(x => x.Endereco);
 
             HasRequired(x => x.TipoPropaganda)
                 .WithMany(x => x.Ocorrencias)

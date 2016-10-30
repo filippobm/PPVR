@@ -32,7 +32,7 @@ namespace PPVR.WebApp.Controllers
             {
                 var path = Server.MapPath($"~/Content/images/santinhos/{User.Identity.Name}/");
                 Directory.CreateDirectory(path);
-                var filePath = $"{path}{Guid.NewGuid()}.{extension}";
+                var filePath = $"{path}{Guid.NewGuid()}{extension}";
                 ViewBag.FilePath = filePath;
                 file.SaveAs(filePath);
                 return RedirectToAction("Index");

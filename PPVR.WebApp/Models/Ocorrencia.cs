@@ -10,7 +10,7 @@ namespace PPVR.WebApp.Models
         public int? CandidatoId { get; set; }
         public long? EnderecoId { get; set; }
         public int TipoPropagandaId { get; set; }
-        public byte[] Foto { get; set; }
+        public string FotoPath { get; set; }
         public bool Verificada { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }

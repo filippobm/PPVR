@@ -11,9 +11,9 @@ namespace PPVR.WebApp.DataAccess.Mappings
 
             HasKey(x => x.OcorrenciaId);
 
-            Property(x => x.Foto)
+            Property(x => x.FotoPath)
                 .IsRequired()
-                .HasColumnType("image");
+                .HasMaxLength(255);
 
             HasRequired(x => x.Candidato)
                 .WithMany(x => x.Ocorrencias)

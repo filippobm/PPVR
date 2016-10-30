@@ -10,8 +10,13 @@
         <div class="col-md-3">
         </div>
         <div class="col-md-6" style="background-color: #ffffff;">
-            Aqui é Body Builder Ipsum PORRA! Vo derrubar tudo essas árvore do parque ibirapuera. AHHHHHHHHHHHHHHHHHHHHHH..., porra! Aqui nóis constrói fibra, não é água com músculo. Ó o homem ali porra!, é 13 porra! Vai subir árvore é o caralho porra! Bora caralho, você quer ver essa porra velho.
-            É esse que a gente quer, é ele que nóis vamo buscar. Ó o homem ali porra!, é 13 porra! Não vai dá não. Sai de casa comi pra caralho porra. Eita porra!, tá saindo da jaula o monstro! Vamo monstro!
+            @using (Html.BeginForm("UploadPicture", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <div class="btn btn-default">
+                    <input id="upload-picture" name="file" type="file" />
+                </div>
+                <input class="btn btn-primary" type="submit" value="@Labels.Salvar" />
+            }
         </div>
         <div class="col-md-3">
         </div>

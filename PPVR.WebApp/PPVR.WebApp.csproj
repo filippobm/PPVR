@@ -251,6 +251,10 @@
     <Compile Include="Migrations\201610301807481_AlterOcorrenciaCandidatoAndEnderecoFromRequiredToOptional.Designer.cs">
       <DependentUpon>201610301807481_AlterOcorrenciaCandidatoAndEnderecoFromRequiredToOptional.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201610302129392_AlterEnderecosLatitudeLongitudeNotRequired.cs" />
+    <Compile Include="Migrations\201610302129392_AlterEnderecosLatitudeLongitudeNotRequired.Designer.cs">
+      <DependentUpon>201610302129392_AlterEnderecosLatitudeLongitudeNotRequired.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\Candidato.cs" />
@@ -316,6 +320,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201610301807481_AlterOcorrenciaCandidatoAndEnderecoFromRequiredToOptional.resx">
       <DependentUpon>201610301807481_AlterOcorrenciaCandidatoAndEnderecoFromRequiredToOptional.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610302129392_AlterEnderecosLatitudeLongitudeNotRequired.resx">
+      <DependentUpon>201610302129392_AlterEnderecosLatitudeLongitudeNotRequired.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\dataset\consulta_cand_2016\consulta_cand_2016_MG.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

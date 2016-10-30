@@ -349,6 +349,15 @@ namespace PPVR.WebApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to O arquivo informato não possui um formato válido. Os formatos de imagem aceitos pelo sistema são: &quot;.jpg&quot;, &quot;.jpge&quot; e &quot;.png&quot;..
+        /// </summary>
+        internal static string OcorrenciaFotoInvalidFormat {
+            get {
+                return ResourceManager.GetString("OcorrenciaFotoInvalidFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to O espectro político informado não existe..
         /// </summary>
         internal static string PartidoEspectroPoliticoInvalidValue {

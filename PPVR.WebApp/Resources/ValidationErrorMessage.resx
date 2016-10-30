@@ -213,6 +213,9 @@
   <data name="IdeologiaNomeNotNull" xml:space="preserve">
     <value>O nome da ideologia não pode ser nulo.</value>
   </data>
+  <data name="OcorrenciaFotoInvalidFormat" xml:space="preserve">
+    <value>O arquivo informato não possui um formato válido. Os formatos de imagem aceitos pelo sistema são: ".jpg", ".jpge" e ".png".</value>
+  </data>
   <data name="PartidoEspectroPoliticoInvalidValue" xml:space="preserve">
     <value>O espectro político informado não existe.</value>
   </data>

@@ -239,6 +239,10 @@
     <Compile Include="Migrations\201610090610148_AddIdeologiasCreatedAtUpdatedAt.Designer.cs">
       <DependentUpon>201610090610148_AddIdeologiasCreatedAtUpdatedAt.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201610301737206_AddTableTiposPropaganda.cs" />
+    <Compile Include="Migrations\201610301737206_AddTableTiposPropaganda.Designer.cs">
+      <DependentUpon>201610301737206_AddTableTiposPropaganda.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\Candidato.cs" />
@@ -295,6 +299,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201610090610148_AddIdeologiasCreatedAtUpdatedAt.resx">
       <DependentUpon>201610090610148_AddIdeologiasCreatedAtUpdatedAt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610301737206_AddTableTiposPropaganda.resx">
+      <DependentUpon>201610301737206_AddTableTiposPropaganda.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\dataset\consulta_cand_2016\consulta_cand_2016_MG.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

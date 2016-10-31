@@ -17,8 +17,8 @@ namespace PPVR.Common.Helpers.OCR
             using (Stream imageStream = File.OpenRead(imageFilePath))
             {
                 var visionServiceClient = new VisionServiceClient(ApiKey1);
-
                 var ocrResults = await visionServiceClient.RecognizeTextAsync(imageStream, LanguageCode);
+
                 return GetTextOcrResults(ocrResults);
             }
         }
@@ -48,7 +48,12 @@ namespace PPVR.Common.Helpers.OCR
                     stringBuilder.AppendLine();
                 }
             }
-            return stringBuilder.ToString().Trim();
+            return
+                stringBuilder.ToString()
+                    .Replace(System.Environment.NewLine, string.Empty)
+                    .Replace(System.Environment.CommandLine, string.Empty)
+                    .ToUpper()
+                    .Trim();
         }
     }
 }

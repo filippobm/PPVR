@@ -1,12 +1,15 @@
 ﻿using Geocoding.Google;
 using PPVR.Common.Helpers.Geocoding;
+using PPVR.Common.Helpers.OCR;
 using PPVR.WebApp.DataAccess;
 using PPVR.WebApp.Models;
 using PPVR.WebApp.Resources;
 using System;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Configuration;
 using System.Web.Mvc;
@@ -29,7 +32,7 @@ namespace PPVR.WebApp.Controllers
         }
 
         [HttpPost]
-        public ActionResult UploadPicture(HttpPostedFileBase file)
+        public async Task<ActionResult> UploadPicture(HttpPostedFileBase file)
         {
             if (file == null || file.ContentLength <= 0)
                 return RedirectToAction("Index");
@@ -85,7 +88,26 @@ namespace PPVR.WebApp.Controllers
 
                     if (candidatos.Any())
                     {
+                        var imageText = await MicrosoftCognitiveServicesHelper.UploadAndRecognizeImage(filePath);
 
+                        var compareInfo = CultureInfo.InvariantCulture.CompareInfo;
+
+                        foreach (var candidato in candidatos)
+                        {
+                            var matchByNomeUrna = compareInfo.IndexOf(imageText, candidato.NomeUrna, CompareOptions.IgnoreNonSpace) > -1;
+                            var matchByNumeroEleitoral = compareInfo.IndexOf(imageText, candidato.NumeroEleitoral.ToString(), CompareOptions.IgnoreNonSpace) > -1;
+
+                            string matchType = "";
+
+                            if (matchByNomeUrna && matchByNumeroEleitoral)
+                                matchType = "NomeUrnaENumeroEleitoral";
+                            else if (matchByNomeUrna)
+                                matchType = "NomeUrna";
+                            else if (matchByNumeroEleitoral)
+                                matchType = "NumeroEleitoral";
+
+                            return new HttpStatusCodeResult(HttpStatusCode.OK, matchType);
+                        }
                     }
 
                     #endregion

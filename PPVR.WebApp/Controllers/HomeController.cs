@@ -39,84 +39,80 @@ namespace PPVR.WebApp.Controllers
 
             var extension = Path.GetExtension(file.FileName);
 
-            if (extension != null &&
-                (extension.ToLower().EndsWith(".png") || extension.ToLower().EndsWith(".jpg") ||
-                 extension.ToLower().EndsWith(".jpge")))
+            if (extension != null && (extension.ToLower().EndsWith(".png") || extension.ToLower().EndsWith(".jpg") || extension.ToLower().EndsWith(".jpge")))
             {
+                var filePath = "";
                 try
                 {
                     var geolocationInfo = new GeolocationInfoFileExtractor(file.InputStream);
-                    var path =
-                        Server.MapPath(
-                            $"{WebConfigurationManager.AppSettings["DiretorioFotosSantinhos"]}{User.Identity.Name}/");
+                    var path = Server.MapPath($"{WebConfigurationManager.AppSettings["DiretorioFotosSantinhos"]}{User.Identity.Name}/");
                     Directory.CreateDirectory(path);
-                    var filePath = $"{path}{Guid.NewGuid()}{extension}";
+                    filePath = $"{path}{Guid.NewGuid()}{extension}";
                     ViewBag.FilePath = filePath;
                     file.SaveAs(filePath);
 
-                    var ocorrencia = new Ocorrencia
-                    {
-                        FotoPath = filePath,
-                        Verificada = false,
-                        TipoPropagandaId = 1
-                    };
-
                     var googleGeocoder = new GoogleGeocoder(WebConfigurationManager.AppSettings["GoogleMapsAPIKey"]);
                     var enderecos = googleGeocoder.ReverseGeocode(geolocationInfo.Latitude, geolocationInfo.Longitude);
-
-                    ocorrencia.Endereco = enderecos
-                        .Where(
+                    var endereco =
+                        enderecos.Where(
                             e =>
                                 e.LocationType == GoogleLocationType.Rooftop ||
-                                e.LocationType == GoogleLocationType.RangeInterpolated)
-                        .Select(x => new Endereco
-                        {
-                            EnderecoFormatado = x.FormattedAddress,
-                            Latitude = x.Coordinates.Latitude,
-                            Longitude = x.Coordinates.Longitude,
-                            Estado = x[GoogleAddressType.AdministrativeAreaLevel1].ShortName,
-                            Cidade = x[GoogleAddressType.Locality].LongName,
-                            CEP = x[GoogleAddressType.PostalCode].LongName,
-                            Bairro = x[GoogleAddressType.SubLocality].LongName
-                        }).FirstOrDefault();
+                                e.LocationType == GoogleLocationType.RangeInterpolated).Select(x => new Endereco
+                                {
+                                    EnderecoFormatado = x.FormattedAddress,
+                                    Latitude = x.Coordinates.Latitude,
+                                    Longitude = x.Coordinates.Longitude,
+                                    Estado = x[GoogleAddressType.AdministrativeAreaLevel1].ShortName,
+                                    Cidade = x[GoogleAddressType.Locality].LongName,
+                                    CEP = x[GoogleAddressType.PostalCode].LongName,
+                                    Bairro = x[GoogleAddressType.SubLocality].LongName
+                                }).FirstOrDefault();
 
-                    #region Busca o(s) candidato(s) da foto
+                    var imageText = await MicrosoftCognitiveServicesHelper.UploadAndRecognizeImage(filePath);
 
-                    var candidatos = _db.Candidatos
-                        .Where(c => c.DescricaoUnidadeEleitoral == ocorrencia.Endereco.Cidade)
-                        .ToList();
+                    // Busca o(s) candidato(s) da cidade onde a foto foi tirada
+                    var candidatos = _db.Candidatos.Where(c => c.DescricaoUnidadeEleitoral == endereco.Cidade).ToList();
 
-                    if (candidatos.Any())
+                    var compareInfo = CultureInfo.InvariantCulture.CompareInfo;
+                    var match = false;
+
+                    foreach (var candidato in candidatos)
                     {
-                        var imageText = await MicrosoftCognitiveServicesHelper.UploadAndRecognizeImage(filePath);
+                        var matchByNomeUrna = compareInfo.IndexOf(imageText, candidato.NomeUrna, CompareOptions.IgnoreNonSpace) > -1;
+                        var matchByNumeroEleitoral = compareInfo.IndexOf(imageText, candidato.NumeroEleitoral.ToString(), CompareOptions.IgnoreNonSpace) > -1;
 
-                        var compareInfo = CultureInfo.InvariantCulture.CompareInfo;
+                        OcorrenciaTipoMatch? ocorrenciaTipoMatch = null;
 
-                        foreach (var candidato in candidatos)
+                        if (matchByNomeUrna && matchByNumeroEleitoral)
+                            ocorrenciaTipoMatch = OcorrenciaTipoMatch.NomeUrnaENumeroEleitoral;
+                        else if (matchByNomeUrna)
+                            ocorrenciaTipoMatch = OcorrenciaTipoMatch.NomeUrna;
+                        else if (matchByNumeroEleitoral)
+                            ocorrenciaTipoMatch = OcorrenciaTipoMatch.NumeroEleitoral;
+
+                        if (ocorrenciaTipoMatch.HasValue)
                         {
-                            var matchByNomeUrna = compareInfo.IndexOf(imageText, candidato.NomeUrna, CompareOptions.IgnoreNonSpace) > -1;
-                            var matchByNumeroEleitoral = compareInfo.IndexOf(imageText, candidato.NumeroEleitoral.ToString(), CompareOptions.IgnoreNonSpace) > -1;
+                            match = true;
 
-                            string matchType = "";
-
-                            if (matchByNomeUrna && matchByNumeroEleitoral)
-                                matchType = "NomeUrnaENumeroEleitoral";
-                            else if (matchByNomeUrna)
-                                matchType = "NomeUrna";
-                            else if (matchByNumeroEleitoral)
-                                matchType = "NumeroEleitoral";
-
-                            return new HttpStatusCodeResult(HttpStatusCode.OK, matchType);
+                            _db.Ocorrencias.Add(new Ocorrencia
+                            {
+                                FotoPath = filePath,
+                                TipoPropagandaId = 1,
+                                OcorrenciaTipoMatch = ocorrenciaTipoMatch,
+                                Endereco = endereco,
+                                CandidatoId = candidato.CandidatoId
+                            });
                         }
                     }
 
-                    #endregion
+                    if (!match)
+                        _db.Ocorrencias.Add(new Ocorrencia { FotoPath = filePath, TipoPropagandaId = 1, Endereco = endereco });
 
-                    _db.Ocorrencias.Add(ocorrencia);
                     _db.SaveChanges();
                 }
                 catch (Exception ex)
                 {
+                    System.IO.File.Delete(filePath);
                     return new HttpStatusCodeResult(HttpStatusCode.InternalServerError, ex.Message);
                 }
             }

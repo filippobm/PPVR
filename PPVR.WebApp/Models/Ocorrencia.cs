@@ -11,7 +11,7 @@ namespace PPVR.WebApp.Models
         public long? EnderecoId { get; set; }
         public int TipoPropagandaId { get; set; }
         public string FotoPath { get; set; }
-        public bool Verificada { get; set; }
+        public OcorrenciaTipoMatch? OcorrenciaTipoMatch { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
 

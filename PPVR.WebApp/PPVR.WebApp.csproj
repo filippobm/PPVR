@@ -255,6 +255,18 @@
     <Compile Include="Migrations\201610302129392_AlterEnderecosLatitudeLongitudeNotRequired.Designer.cs">
       <DependentUpon>201610302129392_AlterEnderecosLatitudeLongitudeNotRequired.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201610312331426_AddOcorrenciaTipoMatchToTableOcorrencias.cs" />
+    <Compile Include="Migrations\201610312331426_AddOcorrenciaTipoMatchToTableOcorrencias.Designer.cs">
+      <DependentUpon>201610312331426_AddOcorrenciaTipoMatchToTableOcorrencias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610312333154_AlterOcorrenciaTipoMatchTableOcorrenciasToNotRequired.cs" />
+    <Compile Include="Migrations\201610312333154_AlterOcorrenciaTipoMatchTableOcorrenciasToNotRequired.Designer.cs">
+      <DependentUpon>201610312333154_AlterOcorrenciaTipoMatchTableOcorrenciasToNotRequired.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611010012493_AlterOcorrenciaRemoveColumnVerificada.cs" />
+    <Compile Include="Migrations\201611010012493_AlterOcorrenciaRemoveColumnVerificada.Designer.cs">
+      <DependentUpon>201611010012493_AlterOcorrenciaRemoveColumnVerificada.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\Candidato.cs" />
@@ -264,6 +276,7 @@
     <Compile Include="Models\EspectroPolitico.cs" />
     <Compile Include="Models\Ideologia.cs" />
     <Compile Include="Models\Ocorrencia.cs" />
+    <Compile Include="Models\OcorrenciaTipoMatch.cs" />
     <Compile Include="Models\Partido.cs" />
     <Compile Include="Models\TipoPropaganda.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -323,6 +336,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201610302129392_AlterEnderecosLatitudeLongitudeNotRequired.resx">
       <DependentUpon>201610302129392_AlterEnderecosLatitudeLongitudeNotRequired.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610312331426_AddOcorrenciaTipoMatchToTableOcorrencias.resx">
+      <DependentUpon>201610312331426_AddOcorrenciaTipoMatchToTableOcorrencias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610312333154_AlterOcorrenciaTipoMatchTableOcorrenciasToNotRequired.resx">
+      <DependentUpon>201610312333154_AlterOcorrenciaTipoMatchTableOcorrenciasToNotRequired.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611010012493_AlterOcorrenciaRemoveColumnVerificada.resx">
+      <DependentUpon>201611010012493_AlterOcorrenciaRemoveColumnVerificada.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\dataset\consulta_cand_2016\consulta_cand_2016_MG.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

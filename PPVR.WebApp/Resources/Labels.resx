@@ -304,7 +304,7 @@
     <value>Selecione o tipo da propaganda</value>
   </data>
   <data name="TipoPropagandaDescricao" xml:space="preserve">
-    <value>Tipo Propaganda</value>
+    <value>Descrição</value>
   </data>
   <data name="TipoPropagandaValorMedio" xml:space="preserve">
     <value>Valor Médio</value>
@@ -320,5 +320,14 @@
   </data>
   <data name="TipoPropagandaTotalTiposPropaganda" xml:space="preserve">
     <value>Tipos de Propaganda encontradas</value>
+  </data>
+  <data name="TipoPropagandaDescricaoPlaceholder" xml:space="preserve">
+    <value>Informe a descrição do tipo da propaganda.</value>
+  </data>
+  <data name="TipoPropagandaValorMedioPlaceholder" xml:space="preserve">
+    <value>Informe o valor médio do tipo da propaganda.</value>
+  </data>
+  <data name="TiposPropagandaAdicionar" xml:space="preserve">
+    <value>Adicionar Tipo de Propaganda</value>
   </data>
 </root>

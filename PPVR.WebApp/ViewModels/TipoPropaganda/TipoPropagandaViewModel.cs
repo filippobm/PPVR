@@ -15,6 +15,8 @@ namespace PPVR.WebApp.ViewModels.TipoPropaganda
             ErrorMessageResourceName = nameof(ValidationErrorMessage.TipoPropagandaDescricaoInvalidLength))]
         public string Descricao { get; set; }
 
+        [Required(ErrorMessageResourceType = typeof(ValidationErrorMessage),
+            ErrorMessageResourceName = nameof(ValidationErrorMessage.TipoPropagandaValorMedioNotNull))]
         [Display(Name = nameof(Labels.TipoPropagandaValorMedio), ResourceType = typeof(Labels))]
         public decimal ValorMedio { get; set; }
     }

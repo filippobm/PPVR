@@ -1,4 +1,6 @@
 ﻿using PPVR.WebApp.DataAccess;
+using PPVR.WebApp.Models;
+using PPVR.WebApp.Resources;
 using PPVR.WebApp.ViewModels.TipoPropaganda;
 using System.Linq;
 using System.Web.Mvc;
@@ -19,7 +21,10 @@ namespace PPVR.WebApp.Controllers
             var tiposPropaganda = _db.TiposPropaganda.Select(tp => tp);
 
             if (!string.IsNullOrEmpty(q))
-                tiposPropaganda = tiposPropaganda.Where(tp => tp.Descricao.Contains(q));
+                if (callbackAction == "Create" || callbackAction == "Edit")
+                    tiposPropaganda = tiposPropaganda.Where(tp => tp.Descricao == q);
+                else
+                    tiposPropaganda = tiposPropaganda.Where(tp => tp.Descricao.Contains(q));
 
             #region Order By
 
@@ -37,6 +42,7 @@ namespace PPVR.WebApp.Controllers
                     tiposPropaganda = tiposPropaganda.OrderByDescending(tp => tp.Descricao);
                     ViewBag.SortDescricao = "descricao";
                     break;
+
                 case "valor_medio":
                     tiposPropaganda = tiposPropaganda.OrderBy(tp => tp.ValorMedio);
                     ViewBag.SortValorMedio = "valor_medio_desc";
@@ -44,6 +50,10 @@ namespace PPVR.WebApp.Controllers
                 case "valor_medio_desc":
                     tiposPropaganda = tiposPropaganda.OrderByDescending(tp => tp.ValorMedio);
                     ViewBag.SortValorMedio = "valor_medio";
+                    break;
+
+                default:
+                    tiposPropaganda = tiposPropaganda.OrderBy(tp => tp.Descricao);
                     break;
             }
 
@@ -63,5 +73,47 @@ namespace PPVR.WebApp.Controllers
 
             return View(pagedViewModel);
         }
+
+        #region Create
+
+        // GET: TiposPropaganda/Create
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        // POST: TiposPropaganda/Create
+        [HttpPost]
+        public ActionResult Create(
+            [Bind(Include = "Descricao, ValorMedio")] TipoPropagandaViewModel tipoPropagandaViewModel)
+        {
+            if (ModelState.IsValid)
+            {
+                var tipoPropagandaExists =
+                    _db.TiposPropaganda.Any(tp => tp.Descricao == tipoPropagandaViewModel.Descricao);
+
+                if (tipoPropagandaExists)
+                {
+                    ModelState.AddModelError(nameof(ValidationErrorMessage.TipoPropagandaJaCadastrada),
+                        ValidationErrorMessage.IdeologiaNomeJaCadastrado);
+                }
+                else
+                {
+                    _db.TiposPropaganda.Add(new TipoPropaganda
+                    {
+                        Descricao = tipoPropagandaViewModel.Descricao,
+                        ValorMedio = tipoPropagandaViewModel.ValorMedio
+                    });
+
+                    _db.SaveChanges();
+
+                    return RedirectToAction("Index",
+                        new { q = tipoPropagandaViewModel.Descricao, callbackAction = "Create" });
+                }
+            }
+            return View(tipoPropagandaViewModel);
+        }
+
+        #endregion
     }
 }

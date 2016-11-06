@@ -457,11 +457,29 @@ namespace PPVR.WebApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Já existe um tipo de propaganda cadastrada com esta descrição, informe outra..
+        /// </summary>
+        internal static string TipoPropagandaJaCadastrada {
+            get {
+                return ResourceManager.GetString("TipoPropagandaJaCadastrada", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to O valor médio do tipo da propaganda deve ser maior do que zero..
         /// </summary>
         internal static string TipoPropagandaValorMedioInvalidValue {
             get {
                 return ResourceManager.GetString("TipoPropagandaValorMedioInvalidValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to O valor médio do tipo da propaganda não pode ser nulo..
+        /// </summary>
+        internal static string TipoPropagandaValorMedioNotNull {
+            get {
+                return ResourceManager.GetString("TipoPropagandaValorMedioNotNull", resourceCulture);
             }
         }
         

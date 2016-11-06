@@ -348,6 +348,7 @@
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.mask.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -389,6 +390,7 @@
     <Content Include="App_Code\Helpers.cshtml" />
     <Content Include="Scripts\ppvr.common.js" />
     <Content Include="Views\TiposPropaganda\Index.cshtml" />
+    <Content Include="Views\TiposPropaganda\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

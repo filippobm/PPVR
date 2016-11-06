@@ -358,6 +358,24 @@ namespace PPVR.WebApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to A foto deve ser selecionada..
+        /// </summary>
+        internal static string OcorrenciaFotoNotNull {
+            get {
+                return ResourceManager.GetString("OcorrenciaFotoNotNull", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to O tipo da propaganda deve ser informado..
+        /// </summary>
+        internal static string OcorrenciaTipoPropagandaNotNull {
+            get {
+                return ResourceManager.GetString("OcorrenciaTipoPropagandaNotNull", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to O espectro político informado não existe..
         /// </summary>
         internal static string PartidoEspectroPoliticoInvalidValue {

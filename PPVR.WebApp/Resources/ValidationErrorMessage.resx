@@ -216,6 +216,12 @@
   <data name="OcorrenciaFotoInvalidFormat" xml:space="preserve">
     <value>O arquivo informato não possui um formato válido. Os formatos de imagem aceitos pelo sistema são: ".jpg", ".jpge" e ".png".</value>
   </data>
+  <data name="OcorrenciaFotoNotNull" xml:space="preserve">
+    <value>A foto deve ser selecionada.</value>
+  </data>
+  <data name="OcorrenciaTipoPropagandaNotNull" xml:space="preserve">
+    <value>O tipo da propaganda deve ser informado.</value>
+  </data>
   <data name="PartidoEspectroPoliticoInvalidValue" xml:space="preserve">
     <value>O espectro político informado não existe.</value>
   </data>

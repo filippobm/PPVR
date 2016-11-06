@@ -4,13 +4,14 @@ using PPVR.Common.Helpers.OCR;
 using PPVR.WebApp.DataAccess;
 using PPVR.WebApp.Models;
 using PPVR.WebApp.Resources;
+using PPVR.WebApp.ViewModels.Home;
+using PPVR.WebApp.ViewModels.Ocorrencia;
 using System;
 using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Configuration;
 using System.Web.Mvc;
 
@@ -23,33 +24,41 @@ namespace PPVR.WebApp.Controllers
         [Authorize]
         public ActionResult Index()
         {
-            return View();
-        }
+            var uploadFotoViewModel = new UploadFotoViewModel
+            {
+                TiposPropaganda = _db.TiposPropaganda.Select(x => new TipoPropagandaViewModel()
+                {
+                    TipoPropagandaId = x.TipoPropagandaId,
+                    Descricao = x.Descricao
+                }).ToList()
+            };
 
-        public ActionResult Sobre()
-        {
-            return View();
+            return View(uploadFotoViewModel);
         }
 
         [HttpPost]
-        public async Task<ActionResult> UploadPicture(HttpPostedFileBase file)
+        public async Task<ActionResult> Index(UploadFotoViewModel viewModel)
         {
-            if (file == null || file.ContentLength <= 0)
-                return RedirectToAction("Index");
+            var validImageTypes = new string[] { "image/jpeg", "image/pjpeg", "image/png" };
 
-            var extension = Path.GetExtension(file.FileName);
+            if (viewModel.ImageUpload == null || viewModel.ImageUpload.ContentLength == 0)
+                ModelState.AddModelError("ImageUpload", ValidationErrorMessage.OcorrenciaFotoNotNull);
+            else if (!validImageTypes.Contains(viewModel.ImageUpload.ContentType))
+                ModelState.AddModelError("ImageUpload", ValidationErrorMessage.OcorrenciaFotoInvalidFormat);
 
-            if (extension != null && (extension.ToLower().EndsWith(".png") || extension.ToLower().EndsWith(".jpg") || extension.ToLower().EndsWith(".jpge")))
+            if (ModelState.IsValid)
             {
+                var extension = Path.GetExtension(viewModel.ImageUpload.FileName);
                 var filePath = "";
+
                 try
                 {
-                    var geolocationInfo = new GeolocationInfoFileExtractor(file.InputStream);
+                    var geolocationInfo = new GeolocationInfoFileExtractor(viewModel.ImageUpload.InputStream);
                     var path = Server.MapPath($"{WebConfigurationManager.AppSettings["DiretorioFotosSantinhos"]}{User.Identity.Name}/");
                     Directory.CreateDirectory(path);
                     filePath = $"{path}{Guid.NewGuid()}{extension}";
                     ViewBag.FilePath = filePath;
-                    file.SaveAs(filePath);
+                    viewModel.ImageUpload.SaveAs(filePath);
 
                     var googleGeocoder = new GoogleGeocoder(WebConfigurationManager.AppSettings["GoogleMapsAPIKey"]);
                     var enderecos = googleGeocoder.ReverseGeocode(geolocationInfo.Latitude, geolocationInfo.Longitude);
@@ -97,7 +106,7 @@ namespace PPVR.WebApp.Controllers
                             _db.Ocorrencias.Add(new Ocorrencia
                             {
                                 FotoPath = filePath,
-                                TipoPropagandaId = 1,
+                                TipoPropagandaId = viewModel.TipoPropaganda,
                                 OcorrenciaTipoMatch = ocorrenciaTipoMatch,
                                 Endereco = endereco,
                                 CandidatoId = candidato.CandidatoId
@@ -106,9 +115,16 @@ namespace PPVR.WebApp.Controllers
                     }
 
                     if (!match)
-                        _db.Ocorrencias.Add(new Ocorrencia { FotoPath = filePath, TipoPropagandaId = 1, Endereco = endereco });
-
+                    {
+                        _db.Ocorrencias.Add(new Ocorrencia
+                        {
+                            FotoPath = filePath,
+                            TipoPropagandaId = viewModel.TipoPropaganda,
+                            Endereco = endereco
+                        });
+                    }
                     _db.SaveChanges();
+                    ViewBag.Status = "Salvo com sucesso";
                 }
                 catch (Exception ex)
                 {
@@ -116,12 +132,18 @@ namespace PPVR.WebApp.Controllers
                     return new HttpStatusCodeResult(HttpStatusCode.InternalServerError, ex.Message);
                 }
             }
-            else
+
+            viewModel.TiposPropaganda = _db.TiposPropaganda.Select(x => new TipoPropagandaViewModel()
             {
-                return new HttpStatusCodeResult(HttpStatusCode.InternalServerError,
-                    ValidationErrorMessage.OcorrenciaFotoInvalidFormat);
-            }
-            return new HttpStatusCodeResult(HttpStatusCode.OK);
+                TipoPropagandaId = x.TipoPropagandaId,
+                Descricao = x.Descricao
+            }).ToList();
+            return View(viewModel);
+        }
+
+        public ActionResult Sobre()
+        {
+            return View();
         }
     }
 }

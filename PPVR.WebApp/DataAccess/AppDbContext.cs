@@ -78,6 +78,7 @@ namespace PPVR.WebApp.DataAccess
         public DbSet<Ideologia> Ideologias { get; set; }
         public DbSet<Ocorrencia> Ocorrencias { get; set; }
         public DbSet<Partido> Partidos { get; set; }
+        public DbSet<TipoPropaganda> TiposPropaganda { get; set; }
 
         #endregion
     }

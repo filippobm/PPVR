@@ -268,6 +268,15 @@ namespace PPVR.WebApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Enviar Foto.
+        /// </summary>
+        public static string EnviarFoto {
+            get {
+                return ResourceManager.GetString("EnviarFoto", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Excluir.
         /// </summary>
         public static string Excluir {
@@ -552,6 +561,15 @@ namespace PPVR.WebApp.Resources {
         public static string Status {
             get {
                 return ResourceManager.GetString("Status", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Selecione o tipo da propaganda.
+        /// </summary>
+        public static string TipoPropagandaSelecionar {
+            get {
+                return ResourceManager.GetString("TipoPropagandaSelecionar", resourceCulture);
             }
         }
         

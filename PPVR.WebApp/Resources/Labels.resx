@@ -297,4 +297,10 @@
   <data name="UsuarioSenhaPlaceholder" xml:space="preserve">
     <value>Informe a senha do usuário.</value>
   </data>
+  <data name="EnviarFoto" xml:space="preserve">
+    <value>Enviar Foto</value>
+  </data>
+  <data name="TipoPropagandaSelecionar" xml:space="preserve">
+    <value>Selecione o tipo da propaganda</value>
+  </data>
 </root>

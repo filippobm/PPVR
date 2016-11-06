@@ -1,5 +1,5 @@
 ﻿@using PPVR.WebApp.Resources
-@model PPVR.WebApp.ViewModels.Account.LoginViewModel
+@model PPVR.WebApp.ViewModels.Home.UploadFotoViewModel
 
 @{
     ViewBag.Title = Labels.PropagandaPolíticaValorReal;
@@ -7,18 +7,65 @@
 
 <div class="jumbotron">
     <div class="row">
-        <div class="col-md-3">
+
+        <div class="col-md-4">
         </div>
-        <div class="col-md-6" style="background-color: #ffffff;">
-            @using (Html.BeginForm("UploadPicture", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+
+        <div class="col-md-4" style="background-color: #ffffff; padding: 10px">
+
+            @if (ViewBag.Status != null)
             {
-                <div class="btn btn-default">
-                    <input id="upload-picture" name="file" type="file" />
+                <span id="status" class="alert alert-success">
+                    @ViewBag.Status
+                </span>
+            }
+
+            @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { id = "form", enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(false, null,
+                    new { id = "validation-summary", @class = "alert alert-danger", role = "alert", style = "display:none;font-size:14px;" })
+
+                <div class="text-center">
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <div class="btn btn-default">
+                                @Html.TextBoxFor(m => m.ImageUpload, new { type = "file", htmlAttributes = new { @class = "form-control" } })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            @Html.DropDownListFor(m => m.TipoPropaganda,
+                                new SelectList(Model.TiposPropaganda, "TipoPropagandaId", "Descricao"), Labels.TipoPropagandaSelecionar,
+                                new { @class = "form-control" })
+                        </div>
+                    </div>
+
+                    <div>
+                        <input id="enviar-foto" class="btn btn-primary " type="submit" style="width: 100%" value="@Labels.EnviarFoto.ToUpper()" />
+                    </div>
                 </div>
-                <input class="btn btn-primary" type="submit" value="@Labels.Salvar" />
             }
         </div>
-        <div class="col-md-3">
+        <div class="col-md-4">
         </div>
     </div>
 </div>
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+        $(function () {
+            validateForm("form", "validation-summary");
+
+            $("#enviar-foto").click(function () {
+                $("#status").hide();
+            });
+        });
+
+    </script>
+}

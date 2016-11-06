@@ -592,6 +592,15 @@ namespace PPVR.WebApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Tipos de Propaganda encontradas.
+        /// </summary>
+        public static string TipoPropagandaTotalTiposPropaganda {
+            get {
+                return ResourceManager.GetString("TipoPropagandaTotalTiposPropaganda", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Valor Médio.
         /// </summary>
         public static string TipoPropagandaValorMedio {
@@ -606,6 +615,15 @@ namespace PPVR.WebApp.Resources {
         public static string TiposPropaganda {
             get {
                 return ResourceManager.GetString("TiposPropaganda", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pesquisar pela descrição do tipo da propaganda....
+        /// </summary>
+        public static string TiposPropagandaPesquisarPlaceholder {
+            get {
+                return ResourceManager.GetString("TiposPropagandaPesquisarPlaceholder", resourceCulture);
             }
         }
         

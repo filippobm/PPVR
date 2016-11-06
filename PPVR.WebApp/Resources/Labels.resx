@@ -315,4 +315,10 @@
   <data name="TiposPropaganda" xml:space="preserve">
     <value>Tipos Propaganda</value>
   </data>
+  <data name="TiposPropagandaPesquisarPlaceholder" xml:space="preserve">
+    <value>Pesquisar pela descrição do tipo da propaganda...</value>
+  </data>
+  <data name="TipoPropagandaTotalTiposPropaganda" xml:space="preserve">
+    <value>Tipos de Propaganda encontradas</value>
+  </data>
 </root>

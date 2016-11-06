@@ -7,7 +7,6 @@
 }
 
 <h2>@ViewBag.Title</h2>
-
 <hr>
 
 @Helpers.CallbackActionAlert(ViewBag.CallbackAction)
@@ -18,7 +17,7 @@
         <div class="col-sm-7">
             <div class="input-group">
                 <input id="q" class="form-control" name="q" type="text"
-                       placeholder="@Labels.IdeologiaPesquisarPlaceholder"
+                       placeholder="@Labels.TiposPropagandaPesquisarPlaceholder"
                        value="@((string) ViewBag.CurrentFilter)">
                 <span class="input-group-btn">
                     <button class="btn btn-primary" type="submit" title="@Labels.Pesquisar">
@@ -32,16 +31,22 @@
 
 <div class="row">
     <div class="col-sm-12">
+        <a href="@Url.Action("Add", "TiposPropaganda")" class="btn btn-success" title="@Labels.Adicionar">
+            @Labels.Adicionar
+            <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+        </a>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
         <div class="pull-right">
-            <b>
-                @Labels.IdeologiaTotalIdeologias:
-            </b>
+            <b>@Labels.TipoPropagandaTotalTiposPropaganda: </b>
             @Model.TotalItemCount
         </div>
     </div>
 </div>
 
-<table class="table">
+<table class="table table-striped">
     <tr>
         <th>
             @Html.ActionLink(Labels.TipoPropagandaDescricao, "Index", new { q = ViewBag.CurrentFilter, sort = ViewBag.SortDescricao })
@@ -64,8 +69,12 @@
                 @item.ValorMedio
             </td>
             <td class="text-right">
-                @Html.ActionLink(Labels.Editar, "Edit", new { id = item.TipoPropagandaId }) |
-                @Html.ActionLink(Labels.Excluir, "Delete", new { id = item.TipoPropagandaId })
+                <a href="@Url.Action("Edit", "TiposPropaganda", new {id = item.TipoPropagandaId})" class="btn btn-primary" , title="@Labels.Editar">
+                    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                </a>
+                <a href="@Url.Action("Delete", "TiposPropaganda", new {id = item.TipoPropagandaId})" class="btn btn-danger" title="@Labels.Excluir">
+                    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                </a>
             </td>
         </tr>
     }

@@ -24,7 +24,6 @@ namespace PPVR.WebApp.Controllers
             #region Order By
 
             ViewBag.CurrentSort = sort;
-
             ViewBag.SortDescricao = "descricao";
             ViewBag.SortValorMedio = "valor_medio";
 
@@ -38,7 +37,6 @@ namespace PPVR.WebApp.Controllers
                     tiposPropaganda = tiposPropaganda.OrderByDescending(tp => tp.Descricao);
                     ViewBag.SortDescricao = "descricao";
                     break;
-
                 case "valor_medio":
                     tiposPropaganda = tiposPropaganda.OrderBy(tp => tp.ValorMedio);
                     ViewBag.SortValorMedio = "valor_medio_desc";
@@ -55,6 +53,7 @@ namespace PPVR.WebApp.Controllers
 
             var tipoPropagandaViewModel = pagedTiposPropaganda.Select(tp => new TipoPropagandaViewModel
             {
+                TipoPropagandaId = tp.TipoPropagandaId,
                 Descricao = tp.Descricao,
                 ValorMedio = tp.ValorMedio
             });

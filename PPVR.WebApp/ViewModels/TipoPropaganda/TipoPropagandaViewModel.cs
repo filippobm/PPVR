@@ -6,7 +6,7 @@ namespace PPVR.WebApp.ViewModels.TipoPropaganda
     public class TipoPropagandaViewModel
     {
         [Key]
-        public short TipoPropagandaId { get; set; }
+        public int TipoPropagandaId { get; set; }
 
         [Display(Name = nameof(Labels.TipoPropagandaDescricao), ResourceType = typeof(Labels))]
         [Required(ErrorMessageResourceType = typeof(ValidationErrorMessage),

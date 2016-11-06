@@ -1,0 +1,87 @@
+﻿@using PPVR.WebApp.Resources
+@using X.PagedList.Mvc
+@model X.PagedList.StaticPagedList<PPVR.WebApp.ViewModels.TipoPropaganda.TipoPropagandaViewModel>
+
+@{
+    ViewBag.Title = Labels.TipoPropagandaTitleListaTiposPropaganda;
+}
+
+<h2>@ViewBag.Title</h2>
+
+<hr>
+
+@Helpers.CallbackActionAlert(ViewBag.CallbackAction)
+
+@using (Html.BeginForm("Index", "TiposPropaganda", FormMethod.Get, new { @class = "form-horizontal" }))
+{
+    <div class="form-group">
+        <div class="col-sm-7">
+            <div class="input-group">
+                <input id="q" class="form-control" name="q" type="text"
+                       placeholder="@Labels.IdeologiaPesquisarPlaceholder"
+                       value="@((string) ViewBag.CurrentFilter)">
+                <span class="input-group-btn">
+                    <button class="btn btn-primary" type="submit" title="@Labels.Pesquisar">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                    </button>
+                </span>
+            </div>
+        </div>
+    </div>
+}
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="pull-right">
+            <b>
+                @Labels.IdeologiaTotalIdeologias:
+            </b>
+            @Model.TotalItemCount
+        </div>
+    </div>
+</div>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.ActionLink(Labels.TipoPropagandaDescricao, "Index", new { q = ViewBag.CurrentFilter, sort = ViewBag.SortDescricao })
+        </th>
+        <th class="text-center">
+            @Html.ActionLink(Labels.TipoPropagandaValorMedio, "Index", new { q = ViewBag.CurrentFilter, sort = ViewBag.SortValorMedio })
+        </th>
+        <th class="text-right">
+            @Labels.Acoes
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @item.Descricao
+            </td>
+            <td class="text-center">
+                @item.ValorMedio
+            </td>
+            <td class="text-right">
+                @Html.ActionLink(Labels.Editar, "Edit", new { id = item.TipoPropagandaId }) |
+                @Html.ActionLink(Labels.Excluir, "Delete", new { id = item.TipoPropagandaId })
+            </td>
+        </tr>
+    }
+</table>
+
+<div class="text-right">
+    Página @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) de @Model.PageCount
+
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { q = ViewBag.CurrentFilter, sort = ViewBag.CurrentSort, page }))
+</div>
+
+@section scripts
+{
+    <script>
+        $(function () {
+            selectedTextFocus("q");
+        });
+    </script>
+}

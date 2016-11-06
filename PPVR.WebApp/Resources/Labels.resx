@@ -303,4 +303,16 @@
   <data name="TipoPropagandaSelecionar" xml:space="preserve">
     <value>Selecione o tipo da propaganda</value>
   </data>
+  <data name="TipoPropagandaDescricao" xml:space="preserve">
+    <value>Tipo Propaganda</value>
+  </data>
+  <data name="TipoPropagandaValorMedio" xml:space="preserve">
+    <value>Valor Médio</value>
+  </data>
+  <data name="TipoPropagandaTitleListaTiposPropaganda" xml:space="preserve">
+    <value>Lista de Tipos de Propaganda</value>
+  </data>
+  <data name="TiposPropaganda" xml:space="preserve">
+    <value>Tipos Propaganda</value>
+  </data>
 </root>

@@ -194,6 +194,7 @@
     <Compile Include="Controllers\IdeologiasController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PartidosController.cs" />
+    <Compile Include="Controllers\TiposPropagandaController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="DataAccess\AppDbContext.cs" />
     <Compile Include="DataAccess\InitConfig\ContextInitializer.cs" />
@@ -287,6 +288,7 @@
     <Compile Include="ViewModels\Manage\VerifyPhoneNumberViewModel.cs" />
     <Compile Include="ViewModels\Ocorrencia\TipoPropagandaViewModel.cs" />
     <Compile Include="ViewModels\Partido\PartidoViewModel.cs" />
+    <Compile Include="ViewModels\TipoPropaganda\TipoPropagandaViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -386,6 +388,7 @@
     <Content Include="Views\Ideologias\Edit.cshtml" />
     <Content Include="App_Code\Helpers.cshtml" />
     <Content Include="Scripts\ppvr.common.js" />
+    <Content Include="Views\TiposPropaganda\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

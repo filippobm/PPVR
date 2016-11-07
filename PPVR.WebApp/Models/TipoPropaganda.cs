@@ -44,6 +44,8 @@ namespace PPVR.WebApp.Models
             }
         }
 
+        public bool Enabled { get; set; }
+
         #endregion
 
         #region Navigation Properties

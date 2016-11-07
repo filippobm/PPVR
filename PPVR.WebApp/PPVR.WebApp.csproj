@@ -244,6 +244,10 @@
     <Compile Include="Migrations\201611010012493_AlterOcorrenciaRemoveColumnVerificada.Designer.cs">
       <DependentUpon>201611010012493_AlterOcorrenciaRemoveColumnVerificada.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611070016587_AlterTableTipoPropagandaAddEnabledColumn.cs" />
+    <Compile Include="Migrations\201611070016587_AlterTableTipoPropagandaAddEnabledColumn.Designer.cs">
+      <DependentUpon>201611070016587_AlterTableTipoPropagandaAddEnabledColumn.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\Candidato.cs" />
@@ -325,6 +329,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611010012493_AlterOcorrenciaRemoveColumnVerificada.resx">
       <DependentUpon>201611010012493_AlterOcorrenciaRemoveColumnVerificada.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611070016587_AlterTableTipoPropagandaAddEnabledColumn.resx">
+      <DependentUpon>201611070016587_AlterTableTipoPropagandaAddEnabledColumn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\dataset\consulta_cand_2016\consulta_cand_2016_MG.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

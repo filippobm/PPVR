@@ -49,10 +49,17 @@
 <table class="table table-striped">
     <tr>
         <th>
-            @Html.ActionLink(Labels.TipoPropagandaDescricao, "Index", new { q = ViewBag.CurrentFilter, sort = ViewBag.SortDescricao })
+            <a href="@Url.Action("Index", new {q = ViewBag.CurrentFilter, sort = ViewBag.SortDescricao})">
+                @Html.LabelFor(m => m[0].Descricao)
+            </a>
         </th>
         <th class="text-center">
-            @Html.ActionLink(Labels.TipoPropagandaValorMedio, "Index", new { q = ViewBag.CurrentFilter, sort = ViewBag.SortValorMedio })
+            <a href="@Url.Action("Index", new {q = ViewBag.CurrentFilter, sort = ViewBag.SortValorMedio})">
+                @Html.LabelFor(m => m[0].ValorMedio)
+            </a>
+        </th>
+        <th class="text-center">
+            @Html.LabelFor(m => m[0].Enabled)
         </th>
         <th class="text-right">
             @Labels.Acoes
@@ -68,13 +75,16 @@
             <td class="text-center">
                 @item.ValorMedio
             </td>
+            <td class="text-center">
+                @Html.DisplayFor(m => item.Enabled)
+            </td>
             <td class="text-right">
                 <a href="@Url.Action("Edit", "TiposPropaganda", new {id = item.TipoPropagandaId})" class="btn btn-default" , title="@Labels.Editar">
                     <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                 </a>
-                <a href="@Url.Action("Delete", "TiposPropaganda", new {id = item.TipoPropagandaId})" class="btn btn-default" title="@Labels.Excluir">
+                @*<a href="@Url.Action("Delete", "TiposPropaganda", new {id = item.TipoPropagandaId})" class="btn btn-default" title="@Labels.Excluir">
                     <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-                </a>
+                </a>*@
             </td>
         </tr>
     }

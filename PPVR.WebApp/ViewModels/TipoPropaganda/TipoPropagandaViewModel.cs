@@ -19,5 +19,9 @@ namespace PPVR.WebApp.ViewModels.TipoPropaganda
             ErrorMessageResourceName = nameof(ValidationErrorMessage.TipoPropagandaValorMedioNotNull))]
         [Display(Name = nameof(Labels.TipoPropagandaValorMedio), ResourceType = typeof(Labels))]
         public decimal ValorMedio { get; set; }
+
+
+        [Display(Name = nameof(Labels.Ativo), ResourceType = typeof(Labels))]
+        public bool Enabled { get; set; }
     }
 }

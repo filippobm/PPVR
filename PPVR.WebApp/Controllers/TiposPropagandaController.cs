@@ -68,7 +68,8 @@ namespace PPVR.WebApp.Controllers
             {
                 TipoPropagandaId = tp.TipoPropagandaId,
                 Descricao = tp.Descricao,
-                ValorMedio = tp.ValorMedio
+                ValorMedio = tp.ValorMedio,
+                Enabled = tp.Enabled
             });
 
             var pagedViewModel = new StaticPagedList<TipoPropagandaViewModel>(tipoPropagandaViewModel,
@@ -136,7 +137,8 @@ namespace PPVR.WebApp.Controllers
             {
                 TipoPropagandaId = tipoPropaganda.TipoPropagandaId,
                 Descricao = tipoPropaganda.Descricao,
-                ValorMedio = tipoPropaganda.ValorMedio
+                ValorMedio = tipoPropaganda.ValorMedio,
+                Enabled = tipoPropaganda.Enabled
             };
 
             return View(tipoPropagandaViewModel);
@@ -146,7 +148,8 @@ namespace PPVR.WebApp.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(
-            [Bind(Include = "TipoPropagandaId, Descricao, ValorMedio")] TipoPropagandaViewModel tipoPropagandaViewModel)
+            [Bind(Include = "TipoPropagandaId, Descricao, ValorMedio, Enabled")] TipoPropagandaViewModel
+                tipoPropagandaViewModel)
         {
             try
             {
@@ -171,6 +174,7 @@ namespace PPVR.WebApp.Controllers
                         {
                             tipoPropaganda.Descricao = tipoPropagandaViewModel.Descricao;
                             tipoPropaganda.ValorMedio = tipoPropagandaViewModel.ValorMedio;
+                            tipoPropaganda.Enabled = tipoPropagandaViewModel.Enabled;
 
                             _db.Entry(tipoPropaganda).State = EntityState.Modified;
                             _db.SaveChanges();

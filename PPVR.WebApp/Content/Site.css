@@ -69,3 +69,8 @@ h2 {
 a label {
     cursor: pointer;
 }
+
+.pagination {
+    margin: 0;
+    padding: 0;
+}

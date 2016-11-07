@@ -2,7 +2,7 @@
 @model PPVR.WebApp.ViewModels.TipoPropaganda.TipoPropagandaViewModel
 
 @{
-    ViewBag.Title = Labels.TiposPropagandaAdicionar;
+    ViewBag.Title = $"{Labels.Adicionar} {Labels.TipoPropaganda}";
 }
 
 <h2>@ViewBag.Title</h2>
@@ -64,7 +64,7 @@
     </div>
 
     <div>
-        @Html.ActionLink(Labels.TipoPropagandaTitleListaTiposPropaganda, "Index")
+        @Html.ActionLink(Labels.TiposPropaganda, "Index")
     </div>
 }
 

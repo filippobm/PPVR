@@ -213,8 +213,8 @@
   <data name="UpdatedAt" xml:space="preserve">
     <value>Última Atualização</value>
   </data>
-  <data name="Visualizar" xml:space="preserve">
-    <value>Visualizar</value>
+  <data name="TotalDe" xml:space="preserve">
+    <value>Total de</value>
   </data>
   <data name="IdeologiaNenhumPartidoAssociado" xml:space="preserve">
     <value>Não existe nenhum partido associado a ideologia.</value>
@@ -309,11 +309,11 @@
   <data name="TipoPropagandaValorMedio" xml:space="preserve">
     <value>Valor Médio</value>
   </data>
-  <data name="TipoPropagandaTitleListaTiposPropaganda" xml:space="preserve">
+  <data name="TipoPropagandaTituloListaTiposPropaganda" xml:space="preserve">
     <value>Lista de Tipos de Propaganda</value>
   </data>
   <data name="TiposPropaganda" xml:space="preserve">
-    <value>Tipos Propaganda</value>
+    <value>Tipos de Propaganda</value>
   </data>
   <data name="TiposPropagandaPesquisarPlaceholder" xml:space="preserve">
     <value>Pesquisar pela descrição do tipo da propaganda...</value>
@@ -328,6 +328,15 @@
     <value>Informe o valor médio do tipo da propaganda.</value>
   </data>
   <data name="TiposPropagandaAdicionar" xml:space="preserve">
+    <value>Adicionar Tipo de Propaganda</value>
+  </data>
+  <data name="TipoPropagandaTituloEditar" xml:space="preserve">
+    <value>Editar Tipo de Propaganda</value>
+  </data>
+  <data name="TipoPropaganda" xml:space="preserve">
+    <value>Tipo de Propaganda</value>
+  </data>
+  <data name="TipoPropagandaTituloAdicionar" xml:space="preserve">
     <value>Adicionar Tipo de Propaganda</value>
   </data>
 </root>

@@ -391,6 +391,7 @@
     <Content Include="Scripts\ppvr.common.js" />
     <Content Include="Views\TiposPropaganda\Index.cshtml" />
     <Content Include="Views\TiposPropaganda\Create.cshtml" />
+    <Content Include="Views\TiposPropaganda\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

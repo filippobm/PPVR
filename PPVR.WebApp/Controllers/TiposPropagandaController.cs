@@ -2,7 +2,10 @@
 using PPVR.WebApp.Models;
 using PPVR.WebApp.Resources;
 using PPVR.WebApp.ViewModels.TipoPropaganda;
+using System;
+using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Web.Mvc;
 using X.PagedList;
 
@@ -95,7 +98,7 @@ namespace PPVR.WebApp.Controllers
                 if (tipoPropagandaExists)
                 {
                     ModelState.AddModelError(nameof(ValidationErrorMessage.TipoPropagandaJaCadastrada),
-                        ValidationErrorMessage.IdeologiaNomeJaCadastrado);
+                        ValidationErrorMessage.TipoPropagandaJaCadastrada);
                 }
                 else
                 {
@@ -111,6 +114,77 @@ namespace PPVR.WebApp.Controllers
                         new { q = tipoPropagandaViewModel.Descricao, callbackAction = "Create" });
                 }
             }
+            return View(tipoPropagandaViewModel);
+        }
+
+        #endregion
+
+        #region Edit
+
+        // GET: TiposPropaganda/Edit/5
+        public ActionResult Edit(int? id)
+        {
+            if (id == null)
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
+            var tipoPropaganda = _db.TiposPropaganda.Find(id);
+
+            if (tipoPropaganda == null)
+                return HttpNotFound();
+
+            var tipoPropagandaViewModel = new TipoPropagandaViewModel
+            {
+                TipoPropagandaId = tipoPropaganda.TipoPropagandaId,
+                Descricao = tipoPropaganda.Descricao,
+                ValorMedio = tipoPropaganda.ValorMedio
+            };
+
+            return View(tipoPropagandaViewModel);
+        }
+
+        // POST: TiposPropaganda/Edit/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(
+            [Bind(Include = "TipoPropagandaId, Descricao, ValorMedio")] TipoPropagandaViewModel tipoPropagandaViewModel)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    var tipoPropagandaExists =
+                        _db.TiposPropaganda.Any(
+                            tp =>
+                                tp.TipoPropagandaId != tipoPropagandaViewModel.TipoPropagandaId &&
+                                tp.Descricao == tipoPropagandaViewModel.Descricao);
+
+                    if (tipoPropagandaExists)
+                    {
+                        ModelState.AddModelError(nameof(ValidationErrorMessage.TipoPropagandaJaCadastrada),
+                            ValidationErrorMessage.TipoPropagandaJaCadastrada);
+                    }
+                    else
+                    {
+                        var tipoPropaganda = _db.TiposPropaganda.Find(tipoPropagandaViewModel.TipoPropagandaId);
+
+                        if (tipoPropaganda != null)
+                        {
+                            tipoPropaganda.Descricao = tipoPropagandaViewModel.Descricao;
+                            tipoPropaganda.ValorMedio = tipoPropagandaViewModel.ValorMedio;
+
+                            _db.Entry(tipoPropaganda).State = EntityState.Modified;
+                            _db.SaveChanges();
+
+                            return RedirectToAction("Index", new { q = tipoPropaganda.Descricao, callbackAction = "Edit" });
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", ex.Message);
+            }
+
             return View(tipoPropagandaViewModel);
         }
 

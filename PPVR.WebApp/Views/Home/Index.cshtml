@@ -6,12 +6,9 @@
 }
 
 <div class="jumbotron">
+
     <div class="row">
-
-        <div class="col-md-4">
-        </div>
-
-        <div class="col-md-4" style="background-color: #ffffff; padding: 10px">
+        <div class="col-md-offset-3 col-md-6" style="background-color: #ffffff; padding: 10px">
 
             @if (ViewBag.Status != null)
             {
@@ -28,8 +25,8 @@
 
                 <div class="text-center">
                     <div class="form-group">
-                        <div class="col-md-12">
-                            <div class="btn btn-default">
+                        <div class="col-sm-12">
+                            <div class="btn btn-default" style="width: 100%">
                                 @Html.TextBoxFor(m => m.ImageUpload, new { type = "file", htmlAttributes = new { @class = "form-control" } })
                             </div>
                         </div>
@@ -39,7 +36,7 @@
                         <div class="col-md-12">
                             @Html.DropDownListFor(m => m.TipoPropaganda,
                                 new SelectList(Model.TiposPropaganda, "TipoPropagandaId", "Descricao"), Labels.TipoPropagandaSelecionar,
-                                new { @class = "form-control" })
+                                new { @class = "form-control", style = "width:100%" })
                         </div>
                     </div>
 
@@ -48,8 +45,6 @@
                     </div>
                 </div>
             }
-        </div>
-        <div class="col-md-4">
         </div>
     </div>
 </div>
@@ -62,10 +57,10 @@
         $(function () {
             validateForm("form", "validation-summary");
 
-            $("#enviar-foto").click(function () {
-                $("#status").hide();
-            });
+            $("#enviar-foto")
+                .click(function () {
+                    $("#status").hide();
+                });
         });
-
     </script>
 }

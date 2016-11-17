@@ -55,6 +55,16 @@
         <th class="text-center">
             @Html.LabelFor(m => m[0].Enabled)
         </th>
+        <th class="text-center">
+            <a href="@Url.Action("Index", new {q = ViewBag.CurrentFilter, sort = ViewBag.SortCreatedAt})">
+                @Html.LabelFor(m => m[0].CreatedAt)
+            </a>
+        </th>
+        <th class="text-center">
+            <a href="@Url.Action("Index", new {q = ViewBag.CurrentFilter, sort = ViewBag.SortUpdatedAt})">
+                @Html.LabelFor(m => m[0].UpdatedAt)
+            </a>
+        </th>
         <th class="text-right">
             @Labels.Acoes
         </th>
@@ -71,6 +81,12 @@
             </td>
             <td class="text-center">
                 @Html.DisplayFor(m => item.Enabled)
+            </td>
+            <td class="text-center">
+                @Html.DisplayFor(m => item.CreatedAt)
+            </td>
+            <td class="text-center">
+                @Html.DisplayFor(m => item.UpdatedAt)
             </td>
             <td class="text-right">
                 <a href="@Url.Action("Edit", "TiposPropaganda", new {id = item.TipoPropagandaId})" c class="btn btn-default" , title="@Labels.Editar">

@@ -5,7 +5,7 @@ using PPVR.WebApp.DataAccess;
 using PPVR.WebApp.Models;
 using PPVR.WebApp.Resources;
 using PPVR.WebApp.ViewModels.Home;
-using PPVR.WebApp.ViewModels.Ocorrencia;
+using PPVR.WebApp.ViewModels.TipoPropaganda;
 using System;
 using System.Globalization;
 using System.IO;
@@ -28,11 +28,13 @@ namespace PPVR.WebApp.Controllers
             {
                 TiposPropaganda = _db.TiposPropaganda
                     .Where(tp => tp.Enabled)
-                    .Select(x => new TipoPropagandaViewModel
+                    .Select(tp => new TipoPropagandaViewModel
                     {
-                        TipoPropagandaId = x.TipoPropagandaId,
-                        Descricao = x.Descricao
-                    }).ToList()
+                        TipoPropagandaId = tp.TipoPropagandaId,
+                        Descricao = tp.Descricao
+                    })
+                    .OrderBy(tp => tp.Descricao)
+                    .ToList()
             };
 
             return View(uploadFotoViewModel);

@@ -34,6 +34,8 @@ namespace PPVR.WebApp.Controllers
             ViewBag.CurrentSort = sort;
             ViewBag.SortDescricao = "descricao";
             ViewBag.SortValorMedio = "valor_medio";
+            ViewBag.SortCreatedAt = "created_at";
+            ViewBag.SortUpdatedAt = "updated_at";
 
             switch (sort)
             {
@@ -55,6 +57,24 @@ namespace PPVR.WebApp.Controllers
                     ViewBag.SortValorMedio = "valor_medio";
                     break;
 
+                case "created_at":
+                    tiposPropaganda = tiposPropaganda.OrderBy(tp => tp.CreatedAt);
+                    ViewBag.SortCreatedAt = "created_at_desc";
+                    break;
+                case "created_at_desc":
+                    tiposPropaganda = tiposPropaganda.OrderByDescending(tp => tp.CreatedAt);
+                    ViewBag.SortCreatedAt = "created_at";
+                    break;
+
+                case "updated_at":
+                    tiposPropaganda = tiposPropaganda.OrderBy(tp => tp.UpdatedAt);
+                    ViewBag.SortUpdatedAt = "updated_at_desc";
+                    break;
+                case "updated_at_desc":
+                    tiposPropaganda = tiposPropaganda.OrderByDescending(tp => tp.UpdatedAt);
+                    ViewBag.SortUpdatedAt = "updated_at";
+                    break;
+
                 default:
                     tiposPropaganda = tiposPropaganda.OrderBy(tp => tp.Descricao);
                     break;
@@ -69,7 +89,9 @@ namespace PPVR.WebApp.Controllers
                 TipoPropagandaId = tp.TipoPropagandaId,
                 Descricao = tp.Descricao,
                 ValorMedio = tp.ValorMedio,
-                Enabled = tp.Enabled
+                Enabled = tp.Enabled,
+                CreatedAt = tp.CreatedAt,
+                UpdatedAt = tp.UpdatedAt
             });
 
             var pagedViewModel = new StaticPagedList<TipoPropagandaViewModel>(tipoPropagandaViewModel,

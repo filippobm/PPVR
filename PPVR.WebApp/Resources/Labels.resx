@@ -342,4 +342,7 @@
   <data name="Visualizar" xml:space="preserve">
     <value>Visualizar</value>
   </data>
+  <data name="FotoSalva" xml:space="preserve">
+    <value>Foto salva com sucesso!</value>
+  </data>
 </root>

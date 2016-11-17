@@ -26,11 +26,13 @@ namespace PPVR.WebApp.Controllers
         {
             var uploadFotoViewModel = new UploadFotoViewModel
             {
-                TiposPropaganda = _db.TiposPropaganda.Select(x => new TipoPropagandaViewModel()
-                {
-                    TipoPropagandaId = x.TipoPropagandaId,
-                    Descricao = x.Descricao
-                }).ToList()
+                TiposPropaganda = _db.TiposPropaganda
+                    .Where(tp => tp.Enabled)
+                    .Select(x => new TipoPropagandaViewModel
+                    {
+                        TipoPropagandaId = x.TipoPropagandaId,
+                        Descricao = x.Descricao
+                    }).ToList()
             };
 
             return View(uploadFotoViewModel);
@@ -39,7 +41,7 @@ namespace PPVR.WebApp.Controllers
         [HttpPost]
         public async Task<ActionResult> Index(UploadFotoViewModel viewModel)
         {
-            var validImageTypes = new string[] { "image/jpeg", "image/pjpeg", "image/png" };
+            var validImageTypes = new[] { "image/jpeg", "image/pjpeg", "image/png" };
 
             if (viewModel.ImageUpload == null || viewModel.ImageUpload.ContentLength == 0)
                 ModelState.AddModelError("ImageUpload", ValidationErrorMessage.OcorrenciaFotoNotNull);
@@ -54,7 +56,9 @@ namespace PPVR.WebApp.Controllers
                 try
                 {
                     var geolocationInfo = new GeolocationInfoFileExtractor(viewModel.ImageUpload.InputStream);
-                    var path = Server.MapPath($"{WebConfigurationManager.AppSettings["DiretorioFotosSantinhos"]}{User.Identity.Name}/");
+                    var path =
+                        Server.MapPath(
+                            $"{WebConfigurationManager.AppSettings["DiretorioFotosSantinhos"]}{User.Identity.Name}/");
                     Directory.CreateDirectory(path);
                     filePath = $"{path}{Guid.NewGuid()}{extension}";
                     ViewBag.FilePath = filePath;
@@ -123,8 +127,9 @@ namespace PPVR.WebApp.Controllers
                             Endereco = endereco
                         });
                     }
+
                     _db.SaveChanges();
-                    ViewBag.Status = "Salvo com sucesso";
+                    ViewBag.Status = Labels.FotoSalva;
                 }
                 catch (Exception ex)
                 {
@@ -133,11 +138,12 @@ namespace PPVR.WebApp.Controllers
                 }
             }
 
-            viewModel.TiposPropaganda = _db.TiposPropaganda.Select(x => new TipoPropagandaViewModel()
+            viewModel.TiposPropaganda = _db.TiposPropaganda.Select(x => new TipoPropagandaViewModel
             {
                 TipoPropagandaId = x.TipoPropagandaId,
                 Descricao = x.Descricao
             }).ToList();
+
             return View(viewModel);
         }
 

@@ -725,5 +725,14 @@ namespace PPVR.WebApp.Resources {
                 return ResourceManager.GetString("UsuarioSenhaPlaceholder", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Visualizar.
+        /// </summary>
+        public static string Visualizar {
+            get {
+                return ResourceManager.GetString("Visualizar", resourceCulture);
+            }
+        }
     }
 }

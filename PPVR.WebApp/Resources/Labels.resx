@@ -339,4 +339,7 @@
   <data name="TipoPropagandaTituloAdicionar" xml:space="preserve">
     <value>Adicionar Tipo de Propaganda</value>
   </data>
+  <data name="Visualizar" xml:space="preserve">
+    <value>Visualizar</value>
+  </data>
 </root>

@@ -25,7 +25,10 @@ namespace PPVR.WebApp.Controllers
             var ideologias = _db.Ideologias.Include(i => i.Partidos);
 
             if (!string.IsNullOrEmpty(q))
-                ideologias = ideologias.Where(i => i.Nome.Contains(q));
+                if (callbackAction == "Create" || callbackAction == "Edit")
+                    ideologias = ideologias.Where(i => i.Nome == q);
+                else
+                    ideologias = ideologias.Where(i => i.Nome.Contains(q));
 
             #region Order By
 

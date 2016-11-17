@@ -3,11 +3,10 @@
 @model X.PagedList.StaticPagedList<PPVR.WebApp.ViewModels.Ideologia.IdeologiaGridViewModel>
 
 @{
-    ViewBag.Title = Labels.IdeologiaTitleListaIdeologias;
+    ViewBag.Title = Labels.Ideologias;
 }
 
 <h2>@ViewBag.Title</h2>
-
 <hr>
 
 @Helpers.CallbackActionAlert(ViewBag.CallbackAction)
@@ -32,16 +31,16 @@
 
 <div class="row">
     <div class="col-sm-12">
-        <div class="pull-right">
-            <b>
-                @Labels.IdeologiaTotalIdeologias:
-            </b>
-            @Model.TotalItemCount
+        <div class="pull-right" style="margin-bottom: 10px;">
+            <a href="@Url.Action("Create", "Ideologias")" clas class="btn btn-success" title="@Labels.Adicionar">
+                @Labels.Adicionar
+                <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+            </a>
         </div>
     </div>
 </div>
 
-<table class="table">
+<table class="table table-striped table-condensed">
     <tr>
         <th>
             @Html.ActionLink(Labels.IdeologiaNome, "Index", new { q = ViewBag.CurrentFilter, sort = ViewBag.SortNome })
@@ -82,19 +81,33 @@
                 @Html.DisplayFor(m => item.UpdatedAt)
             </td>
             <td class="text-right">
-                @Html.ActionLink(Labels.Editar, "Edit", new { id = item.Ideologia.IdeologiaId }) |
-                @Html.ActionLink(Labels.Visualizar, "Details", new { id = item.Ideologia.IdeologiaId }) |
-                @Html.ActionLink(Labels.Excluir, "Delete", new { id = item.Ideologia.IdeologiaId })
+                <a href="@Url.Action("Edit", "Ideologias", new {id = item.Ideologia.IdeologiaId})" class="btn btn-default" title="@Labels.Editar">
+                    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                </a>
+                <a href="@Url.Action("Details", "Ideologias", new {id = item.Ideologia.IdeologiaId})" class="btn btn-default" title="@Labels.Editar">
+                    <span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span>
+                </a>
             </td>
         </tr>
     }
 </table>
 
-<div class="text-right">
-    Página @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) de @Model.PageCount
-
-    @Html.PagedListPager(Model, page => Url.Action("Index",
-        new { q = ViewBag.CurrentFilter, sort = ViewBag.CurrentSort, page }))
+<div class="row">
+    <div class="col-sm-3">
+        <div class="pull-left">
+            Página @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) de @Model.PageCount
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="text-center">
+            @Html.PagedListPager(Model, page => Url.Action("Index", new { q = ViewBag.CurrentFilter, sort = ViewBag.CurrentSort, page }))
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="pull-right">
+            @{ WriteLiteral($"{Labels.TotalDe} {Labels.Ideologias}: {Model.TotalItemCount}"); }
+        </div>
+    </div>
 </div>
 
 @section scripts

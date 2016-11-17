@@ -47,6 +47,15 @@ namespace PPVR.WebApp.Controllers
                     ViewBag.SortNome = "nome";
                     break;
 
+                case "qtde_partidos_associados":
+                    ideologias = ideologias.OrderBy(i => i.Partidos.Count);
+                    ViewBag.SortQtdePartidosAssociados = "qtde_partidos_associados_desc";
+                    break;
+                case "qtde_partidos_associados_desc":
+                    ideologias = ideologias.OrderByDescending(i => i.Partidos.Count);
+                    ViewBag.SortQtdePartidosAssociados = "qtde_partidos_associados";
+                    break;
+
                 case "created_at":
                     ideologias = ideologias.OrderBy(i => i.CreatedAt);
                     ViewBag.SortCreatedAt = "created_at_desc";
@@ -65,13 +74,8 @@ namespace PPVR.WebApp.Controllers
                     ViewBag.SortUpdatedAt = "updated_at";
                     break;
 
-                case "qtde_partidos_associados":
-                    ideologias = ideologias.OrderBy(i => i.Partidos.Count);
-                    ViewBag.SortQtdePartidosAssociados = "qtde_partidos_associados_desc";
-                    break;
-                case "qtde_partidos_associados_desc":
-                    ideologias = ideologias.OrderByDescending(i => i.Partidos.Count);
-                    ViewBag.SortQtdePartidosAssociados = "qtde_partidos_associados";
+                default:
+                    ideologias = ideologias.OrderBy(i => i.Nome);
                     break;
             }
 
@@ -132,6 +136,40 @@ namespace PPVR.WebApp.Controllers
 
             return View(ideologia);
         }
+
+        #region Create
+
+        // GET: Ideologias/Create
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        // POST: Ideologias/Create
+        [HttpPost]
+        public ActionResult Create([Bind(Include = "Nome")] IdeologiaViewModel ideologiaViewModel)
+        {
+            if (ModelState.IsValid)
+            {
+                var ideologiaExists = _db.Ideologias.Any(i => i.Nome == ideologiaViewModel.Nome);
+
+                if (ideologiaExists)
+                {
+                    ModelState.AddModelError(nameof(ValidationErrorMessage.IdeologiaNomeJaCadastrado),
+                        ValidationErrorMessage.IdeologiaNomeJaCadastrado);
+                }
+                else
+                {
+                    _db.Ideologias.Add(new Ideologia { Nome = ideologiaViewModel.Nome });
+                    _db.SaveChanges();
+
+                    return RedirectToAction("Index", new { q = ideologiaViewModel.Nome, callbackAction = "Create" });
+                }
+            }
+            return View(ideologiaViewModel);
+        }
+
+        #endregion
 
         #region Edit
 
@@ -196,40 +234,6 @@ namespace PPVR.WebApp.Controllers
                 ModelState.AddModelError("", ex.Message);
             }
 
-            return View(ideologiaViewModel);
-        }
-
-        #endregion
-
-        #region Create
-
-        // GET: Ideologias/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Ideologias/Create
-        [HttpPost]
-        public ActionResult Create([Bind(Include = "Nome")] IdeologiaViewModel ideologiaViewModel)
-        {
-            if (ModelState.IsValid)
-            {
-                var ideologiaExists = _db.Ideologias.Any(i => i.Nome == ideologiaViewModel.Nome);
-
-                if (ideologiaExists)
-                {
-                    ModelState.AddModelError(nameof(ValidationErrorMessage.IdeologiaNomeJaCadastrado),
-                        ValidationErrorMessage.IdeologiaNomeJaCadastrado);
-                }
-                else
-                {
-                    _db.Ideologias.Add(new Ideologia { Nome = ideologiaViewModel.Nome });
-                    _db.SaveChanges();
-
-                    return RedirectToAction("Index", new { q = ideologiaViewModel.Nome, callbackAction = "Create" });
-                }
-            }
             return View(ideologiaViewModel);
         }
 

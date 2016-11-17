@@ -32,6 +32,7 @@ namespace PPVR.WebApp.Controllers
             #region Order By
 
             ViewBag.CurrentSort = sort;
+
             ViewBag.SortDescricao = "descricao";
             ViewBag.SortValorMedio = "valor_medio";
             ViewBag.SortCreatedAt = "created_at";

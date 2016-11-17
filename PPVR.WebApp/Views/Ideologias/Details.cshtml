@@ -2,59 +2,57 @@
 @model PPVR.WebApp.ViewModels.Ideologia.IdeologiaDetailsViewModel
 
 @{
-    ViewBag.Title = Labels.IdeologiaDetalhes;
+    ViewBag.Title = $"{Labels.Visualizar} {Labels.Ideologia}";
 }
 
 <h2>@ViewBag.Title</h2>
+<hr />
 
-<div>
-    <hr />
+<div class="form-horizontal">
 
-    <dl class="dl-horizontal">
-
-        @*Nome*@
-        <dt>
-            @Html.DisplayNameFor(model => model.Ideologia.Nome):
-        </dt>
-        <dd>
+    <div class="form-group">
+        <div class="col-md-2 text-right">
+            <b>@Html.DisplayNameFor(model => model.Ideologia.Nome):</b>
+        </div>
+        <div class="col-md-4">
             @Html.DisplayFor(model => model.Ideologia.Nome)
-        </dd>
+        </div>
+    </div>
 
-        @*Enabled*@
-        <dt>
-            @Html.DisplayNameFor(model => model.Ideologia.Enabled)
-        </dt>
-        <dd>
+    <div class="form-group">
+        <div class="col-md-2 text-right">
+            <b>@Html.DisplayNameFor(model => model.Ideologia.Enabled)</b>
+        </div>
+        <div class="col-md-4">
             @Html.DisplayFor(model => model.Ideologia.Enabled)
-        </dd>
+        </div>
+    </div>
 
-        @*CreatedAt*@
-        <dt>
-            @Html.DisplayNameFor(model => model.CreatedAt):
-        </dt>
-        <dd>
+    <div class="form-group">
+        <div class="col-md-2 text-right">
+            <b>@Html.DisplayNameFor(model => model.CreatedAt):</b>
+        </div>
+        <div class="col-md-4">
             @Html.DisplayFor(model => model.CreatedAt)
-        </dd>
+        </div>
+    </div>
 
-        @*UpdatedAt*@
-        <dt>
-            @Html.DisplayNameFor(model => model.UpdatedAt):
-        </dt>
-        <dd>
+    <div class="form-group">
+        <div class="col-md-2 text-right">
+            <b>@Html.DisplayNameFor(model => model.UpdatedAt):</b>
+        </div>
+        <div class="col-md-4">
             @Html.DisplayFor(model => model.UpdatedAt)
-        </dd>
+        </div>
+    </div>
+</div>
 
-    </dl>
-
-    <h4>@Labels.PartidoTitleListaPartidosPoliticos</h4>
+<div class="panel panel-default">
+    <div class="panel-heading">Partidos Associados a Ideologia</div>
 
     @{
         if (Model.Partidos.Any())
         {
-            <div class="pull-right">
-                <b>@Labels.IdeologiaQtdePartidosAssociados:</b>
-                @Html.DisplayFor(model => model.QtdePartidosAssociados)
-            </div>
             <table class="table">
                 <tr>
                     <th>
@@ -79,12 +77,12 @@
         }
         else
         {
-            <p>@Labels.IdeologiaNenhumPartidoAssociado</p>
+            <div class="panel-body">
+                <i>@Labels.IdeologiaNenhumPartidoAssociado</i>
+            </div>
         }
     }
+
 </div>
 
-<p>
-    @Html.ActionLink(Labels.Editar, "Edit", new { id = Model.Ideologia.IdeologiaId }) |
-    @Html.ActionLink(Labels.IdeologiaTitleListaIdeologias, "Index")
-</p>
+@Html.ActionLink(Labels.IdeologiaTitleListaIdeologias, "Index")

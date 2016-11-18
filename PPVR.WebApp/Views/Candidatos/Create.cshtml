@@ -1,0 +1,54 @@
+﻿@using PPVR.WebApp.Resources
+@model PPVR.WebApp.ViewModels.Candidato.CandidatoViewModel
+
+@{
+    ViewBag.Title = $"{Labels.Adicionar} {Labels.Candidato}";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "form" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        <hr>
+
+        @Html.ValidationSummary(false, null,
+            new { id = "validation-summary", @class = "alert alert-danger", role = "alert", style = "display:none" })
+
+        <div class="form-group">
+            <div class="col-md-2 text-right">
+                @Html.ValidationMessageFor(model => model.Nome, "*",
+                    new { @class = "text-danger", title = Labels.CampoObrigatorio })
+
+                @Html.LabelFor(model => model.Nome, new { @class = "control-label" }):
+            </div>
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.Nome,
+                    new { htmlAttributes = new { @class = "form-control", maxlength = "30", placeholder = Labels.IdeologiaNomePlaceholder } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-4">
+                <input type="submit" value="@Labels.Salvar" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink(Labels.IdeologiaTitleListaIdeologias, "Index")
+</div>
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+        $(function () {
+            validateForm("form", "validation-summary");
+            endInputFocus("Nome");
+        });
+    </script>
+}

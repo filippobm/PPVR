@@ -124,6 +124,15 @@ namespace PPVR.WebApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Candidato.
+        /// </summary>
+        public static string Candidato {
+            get {
+                return ResourceManager.GetString("Candidato", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Nome.
         /// </summary>
         public static string CandidatoNome {
@@ -183,6 +192,24 @@ namespace PPVR.WebApp.Resources {
         public static string CandidatoTotalPartidos {
             get {
                 return ResourceManager.GetString("CandidatoTotalPartidos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unidade Eleitoral.
+        /// </summary>
+        public static string CandidatoUnidadeEleitoral {
+            get {
+                return ResourceManager.GetString("CandidatoUnidadeEleitoral", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unidade Federação.
+        /// </summary>
+        public static string CandidatoUnidadeFederacao {
+            get {
+                return ResourceManager.GetString("CandidatoUnidadeFederacao", resourceCulture);
             }
         }
         
@@ -417,6 +444,15 @@ namespace PPVR.WebApp.Resources {
         public static string Logar {
             get {
                 return ResourceManager.GetString("Logar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Partido.
+        /// </summary>
+        public static string Partido {
+            get {
+                return ResourceManager.GetString("Partido", resourceCulture);
             }
         }
         

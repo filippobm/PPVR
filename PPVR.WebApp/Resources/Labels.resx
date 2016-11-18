@@ -345,4 +345,16 @@
   <data name="FotoSalva" xml:space="preserve">
     <value>Foto salva com sucesso!</value>
   </data>
+  <data name="Candidato" xml:space="preserve">
+    <value>Candidato</value>
+  </data>
+  <data name="CandidatoUnidadeEleitoral" xml:space="preserve">
+    <value>Unidade Eleitoral</value>
+  </data>
+  <data name="CandidatoUnidadeFederacao" xml:space="preserve">
+    <value>Unidade Federação</value>
+  </data>
+  <data name="Partido" xml:space="preserve">
+    <value>Partido</value>
+  </data>
 </root>

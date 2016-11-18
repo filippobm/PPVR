@@ -28,22 +28,13 @@ namespace PPVR.WebApp.Controllers
 
             ViewBag.CurrentSort = sort;
 
-            ViewBag.SortNome = "nome";
             ViewBag.SortNomeUrna = "nome_urna";
             ViewBag.SortNumeroEleitoral = "numero_eleitoral";
             ViewBag.SortSiglaPartido = "sigla_partido";
+            ViewBag.SortUnidadeEleitoral = "unidade_eleitoral";
 
             switch (sort)
             {
-                case "nome":
-                    candidatos = candidatos.OrderBy(c => c.Nome);
-                    ViewBag.SortNome = "nome_desc";
-                    break;
-                case "nome_desc":
-                    candidatos = candidatos.OrderByDescending(c => c.Nome);
-                    ViewBag.SortNome = "nome";
-                    break;
-
                 case "nome_urna":
                     candidatos = candidatos.OrderBy(c => c.NomeUrna);
                     ViewBag.SortNomeUrna = "nome_urna_desc";
@@ -71,8 +62,17 @@ namespace PPVR.WebApp.Controllers
                     ViewBag.SortSiglaPartido = "sigla_partido";
                     break;
 
+                case "unidade_eleitoral":
+                    candidatos = candidatos.OrderBy(c => c.DescricaoUnidadeEleitoral);
+                    ViewBag.SortUnidadeEleitoral = "unidade_eleitoral_desc";
+                    break;
+                case "unidade_eleitoral_desc":
+                    candidatos = candidatos.OrderByDescending(c => c.DescricaoUnidadeEleitoral);
+                    ViewBag.SortUnidadeEleitoral = "unidade_eleitoral";
+                    break;
+
                 default:
-                    candidatos = candidatos.OrderBy(p => p.Nome);
+                    candidatos = candidatos.OrderBy(p => p.NomeUrna);
                     break;
             }
 
@@ -87,7 +87,8 @@ namespace PPVR.WebApp.Controllers
                 NomeUrna = c.NomeUrna,
                 NumeroEleitoral = c.NumeroEleitoral,
                 Enabled = c.Enabled,
-                PartidoSigla = c.Partido.Sigla
+                PartidoSigla = c.Partido.Sigla,
+                UnidadeEleitoral = c.DescricaoUnidadeEleitoral
             });
 
             var pagedViewModel = new StaticPagedList<CandidatoViewModel>(candidatoViewModel,

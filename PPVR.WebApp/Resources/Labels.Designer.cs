@@ -133,7 +133,7 @@ namespace PPVR.WebApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Pesquisar pelo nome do candidato, nome da urna ou número eleitoral....
+        ///   Looks up a localized string similar to Pesquisar pelo nome da urna do candidato ou número eleitoral....
         /// </summary>
         public static string CandidatoPesquisarPlaceholder {
             get {

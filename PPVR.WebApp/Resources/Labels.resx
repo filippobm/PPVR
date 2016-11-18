@@ -136,7 +136,7 @@
     <value>Número Eleitoral</value>
   </data>
   <data name="CandidatoPesquisarPlaceholder" xml:space="preserve">
-    <value>Pesquisar pelo nome do candidato, nome da urna ou número eleitoral...</value>
+    <value>Pesquisar pelo nome da urna do candidato ou número eleitoral...</value>
   </data>
   <data name="Candidatos" xml:space="preserve">
     <value>Candidatos</value>

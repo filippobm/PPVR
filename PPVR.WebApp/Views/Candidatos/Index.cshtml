@@ -32,13 +32,18 @@
 <table class="table table-striped" style="margin-top: 50px">
     <tr>
         <th>
-            <a href="@Url.Action("Index", new {q = ViewBag.CurrentFilter, sort = ViewBag.SortNome})">
-                @Html.LabelFor(m => m[0].Nome)
-            </a>
-        </th>
-        <th>
             <a href="@Url.Action("Index", new {q = ViewBag.CurrentFilter, sort = ViewBag.SortNomeUrna})">
                 @Html.LabelFor(m => m[0].NomeUrna)
+            </a>
+        </th>
+        <th class="text-left">
+            <a href="@Url.Action("Index", new {q = ViewBag.CurrentFilter, sort = ViewBag.SortUnidadeEleitoral})">
+                @Html.LabelFor(m => m[0].UnidadeEleitoral)
+            </a>
+        </th>
+        <th class="text-left">
+            <a href="@Url.Action("Index", new {q = ViewBag.CurrentFilter, sort = ViewBag.SortSiglaPartido})">
+                @Html.LabelFor(m => m[0].PartidoSigla)
             </a>
         </th>
         <th class="text-center">
@@ -46,13 +51,6 @@
                 @Html.LabelFor(m => m[0].NumeroEleitoral)
             </a>
         </th>
-
-        <th class="text-center">
-            <a href="@Url.Action("Index", new {q = ViewBag.CurrentFilter, sort = ViewBag.SortSiglaPartido})">
-                @Html.LabelFor(m => m[0].PartidoSigla)
-            </a>
-        </th>
-
         <th class="text-center">
             @Html.LabelFor(m => m[0].Enabled)
         </th>
@@ -65,16 +63,16 @@
     {
         <tr>
             <td>
-                @candidato.Nome
+                @candidato.NomeUrna
             </td>
             <td>
-                @candidato.NomeUrna
+                @candidato.UnidadeEleitoral
+            </td>
+            <td>
+                @candidato.PartidoSigla
             </td>
             <td class="text-center">
                 @candidato.NumeroEleitoral
-            </td>
-            <td class="text-center">
-                @candidato.PartidoSigla
             </td>
             <td class="text-center">
                 @Html.DisplayFor(m => candidato.Enabled)

@@ -406,7 +406,6 @@
     <Content Include="Views\TiposPropaganda\Index.cshtml" />
     <Content Include="Views\TiposPropaganda\Create.cshtml" />
     <Content Include="Views\TiposPropaganda\Edit.cshtml" />
-    <Content Include="Views\Candidatos\Create.cshtml" />
     <Content Include="Views\Candidatos\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>

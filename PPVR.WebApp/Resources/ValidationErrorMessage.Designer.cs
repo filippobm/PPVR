@@ -61,15 +61,6 @@ namespace PPVR.WebApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to O arquivo importado com a lista dos candidatos não possui o formato esperado..
-        /// </summary>
-        internal static string ArquivoImportacaoCandidatosInvalidFormat {
-            get {
-                return ResourceManager.GetString("ArquivoImportacaoCandidatosInvalidFormat", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to A Descrição da Unidade Eleitoral da Eleição à qual o Candidato está participando deve ter entre 1 e 255 caracteres..
         /// </summary>
         internal static string CandidatoDescricaoUnidadeEleitoralInvalidLength {
@@ -196,33 +187,6 @@ namespace PPVR.WebApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to A Descrição do Cargo Eletivo deve ter entre 1 e 255 caracteres..
-        /// </summary>
-        internal static string CargoEletivoDescricaoInvalidLength {
-            get {
-                return ResourceManager.GetString("CargoEletivoDescricaoInvalidLength", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to O Nome do Cargo Eletivo deve ter entre 1 e 30 caracteres..
-        /// </summary>
-        internal static string CargoEletivoNomeInvalidLength {
-            get {
-                return ResourceManager.GetString("CargoEletivoNomeInvalidLength", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to O Nome do Cargo Letivo não pode ser nulo..
-        /// </summary>
-        internal static string CargoEletivoNomeNotNull {
-            get {
-                return ResourceManager.GetString("CargoEletivoNomeNotNull", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to A descrição da eleição deve ter entre 1 e 100 caracteres..
         /// </summary>
         internal static string EleicaoDescricaoInvalidLength {
@@ -282,42 +246,6 @@ namespace PPVR.WebApp.Resources {
         internal static string EnderecoFormatadoInvalidLength {
             get {
                 return ResourceManager.GetString("EnderecoFormatadoInvalidLength", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to A Descrição do Espectro Político deve ter no máximo 255 caracteres..
-        /// </summary>
-        internal static string EspectroPoliticoDescricaoInvalidLength {
-            get {
-                return ResourceManager.GetString("EspectroPoliticoDescricaoInvalidLength", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to O nome do espectro político deve ter entre 1 e 30 caracteres..
-        /// </summary>
-        internal static string EspectroPoliticoNomeInvalidLength {
-            get {
-                return ResourceManager.GetString("EspectroPoliticoNomeInvalidLength", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to O nome do espectro político não pode ser nulo..
-        /// </summary>
-        internal static string EspectroPoliticoNomeNotNull {
-            get {
-                return ResourceManager.GetString("EspectroPoliticoNomeNotNull", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to A foto não possui as informações de geolocalização..
-        /// </summary>
-        internal static string ExifTagsGeolocationNull {
-            get {
-                return ResourceManager.GetString("ExifTagsGeolocationNull", resourceCulture);
             }
         }
         

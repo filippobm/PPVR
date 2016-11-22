@@ -300,4 +300,25 @@
   <data name="Partido" xml:space="preserve">
     <value>Partido</value>
   </data>
+  <data name="EleicaoAno" xml:space="preserve">
+    <value>Ano</value>
+  </data>
+  <data name="EleicaoDescricao" xml:space="preserve">
+    <value>Descrição</value>
+  </data>
+  <data name="EleicaoTurno" xml:space="preserve">
+    <value>Turno</value>
+  </data>
+  <data name="Eleicoes" xml:space="preserve">
+    <value>Eleições</value>
+  </data>
+  <data name="EleicoesPesquisarPlaceholder" xml:space="preserve">
+    <value>Pesquisar pela descrição da eleição...</value>
+  </data>
+  <data name="Eleicao" xml:space="preserve">
+    <value>Eleição</value>
+  </data>
+  <data name="EleicaoDescricaoPlaceholder" xml:space="preserve">
+    <value>Informe a descrição da eleição</value>
+  </data>
 </root>

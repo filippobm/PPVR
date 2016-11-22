@@ -1,0 +1,112 @@
+﻿@using PPVR.WebApp.Resources
+@model PPVR.WebApp.ViewModels.Eleicao.EleicaoViewModel
+
+@{
+    ViewBag.Title = $"{Labels.Editar} {Labels.Eleicao}";
+}
+
+<h2>@ViewBag.Title</h2>
+<hr>
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "form" }))
+{
+    @Html.HiddenFor(model => model.EleicaoId)
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        @Html.ValidationSummary(false, null,
+            new { id = "validation-summary", @class = "alert alert-danger", role = "alert", style = "display:none" })
+
+        @*Descrição*@
+        <div class="form-group">
+            <div class="col-md-2 text-right">
+                @Html.LabelFor(model => model.Descricao, new { @class = "control-label" }):
+            </div>
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.Descricao,
+                    new { htmlAttributes = new { @class = "form-control", disabled = "disabled", maxlength = "100", placeholder = Labels.IdeologiaNomePlaceholder } })
+            </div>
+        </div>
+
+        @*Ano*@
+        <div class="form-group">
+            <div class="col-md-2 text-right">
+                @Html.LabelFor(model => model.Ano, new { @class = "control-label" }):
+            </div>
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.Ano,
+                    new { htmlAttributes = new { @class = "form-control", disabled = "disabled", maxlength = "4" } })
+            </div>
+        </div>
+
+        @*Turno*@
+        <div class="form-group">
+            <div class="col-md-2 text-right">
+                @Html.LabelFor(model => model.Turno, new { @class = "control-label" }):
+            </div>
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.Turno,
+                    new { htmlAttributes = new { @class = "form-control", disabled = "disabled", maxlength = "1" } })
+            </div>
+        </div>
+
+        @*Created At*@
+        <div class="form-group">
+            <div class="col-md-2 text-right">
+                @Html.LabelFor(model => model.CreatedAt, new { @class = "control-label" }):
+            </div>
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.CreatedAt,
+                    new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+            </div>
+        </div>
+
+        @*Updated At*@
+        <div class="form-group">
+            <div class="col-md-2 text-right">
+                @Html.LabelFor(model => model.UpdatedAt, new { @class = "control-label" }):
+            </div>
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.UpdatedAt,
+                    new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+            </div>
+        </div>
+
+        @*Enabled*@
+        <div class="form-group">
+            <div class="col-md-2 text-right">
+                @Html.LabelFor(model => model.Enabled, new { @class = "control-label" })
+            </div>
+            <div class="col-md-4">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.Enabled)
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-4 col-md-offset-2">
+                <input type="submit" value="@Labels.Salvar" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+
+    <div>
+        @Html.ActionLink(Labels.Eleicoes, "Index")
+    </div>
+}
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jquerymask")
+
+    <script>
+        $(function () {
+            validateForm("form", "validation-summary");
+            endInputFocus("Descricao");
+            $("#txt_valorMedio").mask("###0.00", { reverse: true });
+        });
+    </script>
+}

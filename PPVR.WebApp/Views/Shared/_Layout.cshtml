@@ -12,8 +12,7 @@
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
-                @Html.ActionLink(Labels.PPVR, "Index", "Home", null,
-                new { @class = "navbar-brand", title = Labels.PropagandaPolíticaValorReal })
+                @Html.ActionLink(Labels.PPVR, "Index", "Home", null, new { @class = "navbar-brand", title = Labels.PropagandaPolíticaValorReal })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -24,6 +23,7 @@
                         <li>@Html.ActionLink(Labels.Partidos, "Index", "Partidos")</li>
                         <li>@Html.ActionLink(Labels.Ideologias, "Index", "Ideologias")</li>
                         <li>@Html.ActionLink(Labels.TiposPropaganda, "Index", "TiposPropaganda")</li>
+                        <li>@Html.ActionLink(Labels.Eleicoes, "Index", "Eleicoes")</li>
                     }
                 </ul>
                 @Html.Partial("_LoginPartial")

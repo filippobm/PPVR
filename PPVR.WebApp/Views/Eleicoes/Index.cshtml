@@ -1,0 +1,122 @@
+﻿@using PPVR.WebApp.Resources
+@using X.PagedList.Mvc
+@model X.PagedList.StaticPagedList<PPVR.WebApp.ViewModels.Eleicao.EleicaoViewModel>
+
+@{
+    ViewBag.Title = Labels.Eleicoes;
+}
+
+<h2>@ViewBag.Title</h2>
+<hr>
+
+@Helpers.CallbackActionAlert(ViewBag.CallbackAction)
+
+@using (Html.BeginForm("Index", "Eleicoes", FormMethod.Get, new { @class = "form-horizontal" }))
+{
+    <div class="form-group">
+        <div class="col-sm-7">
+            <div class="input-group">
+                <input id="q" class="form-control" name="q" type="text"
+                       placeholder="@Labels.EleicoesPesquisarPlaceholder"
+                       value="@((string) ViewBag.CurrentFilter)">
+                <span class="input-group-btn">
+                    <button class="btn btn-primary" type="submit" title="@Labels.Pesquisar">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                    </button>
+                </span>
+            </div>
+        </div>
+    </div>
+}
+
+<table class="table table-striped table-condensed">
+    <tr>
+        <th>
+            <a href="@Url.Action("Index", new {q = ViewBag.CurrentFilter, sort = ViewBag.SortDescricao})">
+                @Html.LabelFor(m => m[0].Descricao)
+            </a>
+        </th>
+        <th class="text-center">
+            <a href="@Url.Action("Index", new {q = ViewBag.CurrentFilter, sort = ViewBag.SortAno})">
+                @Html.LabelFor(m => m[0].Ano)
+            </a>
+        </th>
+        <th class="text-center">
+            <a href="@Url.Action("Index", new {q = ViewBag.CurrentFilter, sort = ViewBag.SortTurno})">
+                @Html.LabelFor(m => m[0].Turno)
+            </a>
+        </th>
+        <th class="text-center">
+            <a href="@Url.Action("Index", new {q = ViewBag.CurrentFilter, sort = ViewBag.SortCreatedAt})">
+                @Html.LabelFor(m => m[0].CreatedAt)
+            </a>
+        </th>
+        <th class="text-center">
+            <a href="@Url.Action("Index", new {q = ViewBag.CurrentFilter, sort = ViewBag.SortUpdatedAt})">
+                @Html.LabelFor(m => m[0].UpdatedAt)
+            </a>
+        </th>
+        <th class="text-center">
+            @Html.LabelFor(m => m[0].Enabled)
+        </th>
+        <th class="text-right">
+            @Labels.Acoes
+        </th>
+    </tr>
+
+    @foreach (var eleicao in Model)
+    {
+        <tr>
+            <td>
+                @eleicao.Descricao
+            </td>
+            <td class="text-center">
+                @eleicao.Ano
+            </td>
+            <td class="text-center">
+                @eleicao.Turno
+            </td>
+            <td class="text-center">
+                @eleicao.CreatedAt
+            </td>
+            <td class="text-center">
+                @eleicao.UpdatedAt
+            </td>
+            <td class="text-center">
+                @Html.DisplayFor(m => eleicao.Enabled)
+            </td>
+            <td class="text-right">
+                <a href="@Url.Action("Edit", "Eleicoes", new {id = eleicao.EleicaoId})" class="btn btn-default" title="@Labels.Editar">
+                    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                </a>
+            </td>
+        </tr>
+    }
+</table>
+
+<div class="row">
+    <div class="col-sm-3">
+        <div class="pull-left">
+            Página @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) de @Model.PageCount
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="text-center">
+            @Html.PagedListPager(Model, page => Url.Action("Index", new { q = ViewBag.CurrentFilter, sort = ViewBag.CurrentSort, page }))
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="pull-right">
+            @{ WriteLiteral($"{Labels.TotalDe} {Labels.Eleicoes}: {Model.TotalItemCount}"); }
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script>
+        $(function () {
+            selectedTextFocus("q");
+        });
+    </script>
+}

@@ -190,6 +190,7 @@
     <Compile Include="Configs\Providers\ApplicationOAuthProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CandidatosController.cs" />
+    <Compile Include="Controllers\EleicoesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IdeologiasController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -283,6 +284,7 @@
     <Compile Include="ViewModels\Account\RegisterViewModel.cs" />
     <Compile Include="ViewModels\Account\ResetPasswordViewModel.cs" />
     <Compile Include="ViewModels\Candidato\CandidatoViewModel.cs" />
+    <Compile Include="ViewModels\Eleicao\EleicaoViewModel.cs" />
     <Compile Include="ViewModels\Home\UploadFotoViewModel.cs" />
     <Compile Include="ViewModels\Ideologia\IdeologiaDetailsViewModel.cs" />
     <Compile Include="ViewModels\Ideologia\IdeologiaGridViewModel.cs" />
@@ -407,6 +409,8 @@
     <Content Include="Views\TiposPropaganda\Create.cshtml" />
     <Content Include="Views\TiposPropaganda\Edit.cshtml" />
     <Content Include="Views\Candidatos\Details.cshtml" />
+    <Content Include="Views\Eleicoes\Index.cshtml" />
+    <Content Include="Views\Eleicoes\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

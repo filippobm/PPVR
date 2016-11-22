@@ -214,6 +214,69 @@ namespace PPVR.WebApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Eleição.
+        /// </summary>
+        public static string Eleicao {
+            get {
+                return ResourceManager.GetString("Eleicao", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ano.
+        /// </summary>
+        public static string EleicaoAno {
+            get {
+                return ResourceManager.GetString("EleicaoAno", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Descrição.
+        /// </summary>
+        public static string EleicaoDescricao {
+            get {
+                return ResourceManager.GetString("EleicaoDescricao", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Informe a descrição da eleição.
+        /// </summary>
+        public static string EleicaoDescricaoPlaceholder {
+            get {
+                return ResourceManager.GetString("EleicaoDescricaoPlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Turno.
+        /// </summary>
+        public static string EleicaoTurno {
+            get {
+                return ResourceManager.GetString("EleicaoTurno", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Eleições.
+        /// </summary>
+        public static string Eleicoes {
+            get {
+                return ResourceManager.GetString("Eleicoes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pesquisar pela descrição da eleição....
+        /// </summary>
+        public static string EleicoesPesquisarPlaceholder {
+            get {
+                return ResourceManager.GetString("EleicoesPesquisarPlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to E-mail.
         /// </summary>
         public static string Email {

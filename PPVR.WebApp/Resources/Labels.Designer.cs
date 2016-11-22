@@ -250,15 +250,6 @@ namespace PPVR.WebApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Informe a descrição da eleição.
-        /// </summary>
-        public static string EleicaoDescricaoPlaceholder {
-            get {
-                return ResourceManager.GetString("EleicaoDescricaoPlaceholder", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Turno.
         /// </summary>
         public static string EleicaoTurno {
@@ -318,15 +309,6 @@ namespace PPVR.WebApp.Resources {
         public static string Excluir {
             get {
                 return ResourceManager.GetString("Excluir", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Foto salva com sucesso!.
-        /// </summary>
-        public static string FotoSalva {
-            get {
-                return ResourceManager.GetString("FotoSalva", resourceCulture);
             }
         }
         
@@ -435,15 +417,6 @@ namespace PPVR.WebApp.Resources {
         public static string ListaPartidosAssociadosIdeologia {
             get {
                 return ResourceManager.GetString("ListaPartidosAssociadosIdeologia", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Ocorrências por Valor da Propaganda.
-        /// </summary>
-        public static string OcorrenciasTipoPropaganda {
-            get {
-                return ResourceManager.GetString("OcorrenciasTipoPropaganda", resourceCulture);
             }
         }
         

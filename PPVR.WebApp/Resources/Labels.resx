@@ -282,9 +282,6 @@
   <data name="Visualizar" xml:space="preserve">
     <value>Visualizar</value>
   </data>
-  <data name="FotoSalva" xml:space="preserve">
-    <value>Foto salva com sucesso!</value>
-  </data>
   <data name="Candidato" xml:space="preserve">
     <value>Candidato</value>
   </data>
@@ -314,12 +311,6 @@
   </data>
   <data name="Eleicao" xml:space="preserve">
     <value>Eleição</value>
-  </data>
-  <data name="EleicaoDescricaoPlaceholder" xml:space="preserve">
-    <value>Informe a descrição da eleição</value>
-  </data>
-  <data name="OcorrenciasTipoPropaganda" xml:space="preserve">
-    <value>Ocorrências por Valor da Propaganda</value>
   </data>
   <data name="Relatorios" xml:space="preserve">
     <value>Relatórios</value>

@@ -301,6 +301,7 @@
     <Compile Include="ViewModels\Manage\VerifyPhoneNumberViewModel.cs" />
     <Compile Include="ViewModels\Partido\PartidoViewModel.cs" />
     <Compile Include="ViewModels\Relatorios\OcorrenciasTipoPropagandaViewModel.cs" />
+    <Compile Include="ViewModels\Relatorios\ValoresGastosTipoOcorrenciaViewModel.cs" />
     <Compile Include="ViewModels\TipoPropaganda\TipoPropagandaViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,5 +1,6 @@
 ﻿using PPVR.WebApp.DataAccess;
 using PPVR.WebApp.ViewModels.Relatorios;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
@@ -53,16 +54,18 @@ namespace PPVR.WebApp.Controllers
         // GET: Relatorios/ValoresGastosTipoOcorrenciaJson
         public JsonResult ValoresGastosTipoOcorrenciaJson()
         {
-            var ocorrenciasTipoPropaganda = _db.Ocorrencias.Select(o => o)
-                .Include(o => o.TipoPropaganda)
-                .GroupBy(g => g.TipoPropaganda.Descricao)
-                .Select(o => new OcorrenciasTipoPropagandaViewModel
-                {
-                    name = o.Key,
-                    y = o.Count()
-                }).ToList();
+            var valoresGastosTipoOcorrenciaViewModel = new List<ValoresGastosTipoOcorrenciaViewModel>
+            {
+                new ValoresGastosTipoOcorrenciaViewModel {name = "Teste 1", data = new[] {1}},
+                new ValoresGastosTipoOcorrenciaViewModel {name = "Teste 2", data = new[] {2}},
+                new ValoresGastosTipoOcorrenciaViewModel {name = "Teste 3", data = new[] {150}},
+                new ValoresGastosTipoOcorrenciaViewModel {name = "Teste 4", data = new[] {7}},
+                new ValoresGastosTipoOcorrenciaViewModel {name = "Teste 5", data = new[] {9}},
+                new ValoresGastosTipoOcorrenciaViewModel {name = "Teste 6", data = new[] {7}},
+                new ValoresGastosTipoOcorrenciaViewModel {name = "Teste 7", data = new[] {5}}
+            };
 
-            return Json(ocorrenciasTipoPropaganda, JsonRequestBehavior.AllowGet);
+            return Json(valoresGastosTipoOcorrenciaViewModel, JsonRequestBehavior.AllowGet);
         }
 
         #endregion

@@ -195,6 +195,7 @@
     <Compile Include="Controllers\IdeologiasController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PartidosController.cs" />
+    <Compile Include="Controllers\RelatoriosController.cs" />
     <Compile Include="Controllers\TiposPropagandaController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="DataAccess\AppDbContext.cs" />
@@ -412,6 +413,7 @@
     <Content Include="Views\Candidatos\Details.cshtml" />
     <Content Include="Views\Eleicoes\Index.cshtml" />
     <Content Include="Views\Eleicoes\Edit.cshtml" />
+    <Content Include="Views\Relatorios\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

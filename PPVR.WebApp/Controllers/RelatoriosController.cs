@@ -16,6 +16,8 @@ namespace PPVR.WebApp.Controllers
             return View();
         }
 
+        #region Relatório Ocorrências por Tipo de Propaganda
+
         // GET: Relatorios/OcorrenciasTipoPropaganda
         public ActionResult OcorrenciasTipoPropaganda()
         {
@@ -36,5 +38,7 @@ namespace PPVR.WebApp.Controllers
 
             return Json(ocorrenciasTipoPropaganda, JsonRequestBehavior.AllowGet);
         }
+
+        #endregion
     }
 }

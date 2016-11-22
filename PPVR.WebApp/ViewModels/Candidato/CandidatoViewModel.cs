@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Web.Mvc;
 
 namespace PPVR.WebApp.ViewModels.Candidato
 {
@@ -50,15 +49,6 @@ namespace PPVR.WebApp.ViewModels.Candidato
         [Display(Name = nameof(Labels.Ativo), ResourceType = typeof(Labels))]
         public bool Enabled { get; set; }
 
-        public List<SelectListItem> ListaEstados()
-        {
-            var selectListItems = new List<SelectListItem>
-            {
-                new SelectListItem {Value = "MG", Text = "Minas Gerais"},
-                new SelectListItem {Value = "RJ", Text = "Rio de Janeiro"}
-            };
-
-            return selectListItems;
-        }
+        public List<GastoCandidatoViewModel> Gastos { get; set; }
     }
 }

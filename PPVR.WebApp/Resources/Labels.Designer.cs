@@ -106,6 +106,15 @@ namespace PPVR.WebApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Não existe nenhuma ocorrência registrada para este candidato..
+        /// </summary>
+        public static string CandidatoNenhumRegistroOcorrencia {
+            get {
+                return ResourceManager.GetString("CandidatoNenhumRegistroOcorrencia", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Nome.
         /// </summary>
         public static string CandidatoNome {
@@ -403,6 +412,24 @@ namespace PPVR.WebApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Lista de Partidos que estão Associados a Ideologia.
+        /// </summary>
+        public static string ListaPartidosAssociadosIdeologia {
+            get {
+                return ResourceManager.GetString("ListaPartidosAssociadosIdeologia", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ocorrências por Valor da Propaganda.
+        /// </summary>
+        public static string OcorrenciasTipoPropaganda {
+            get {
+                return ResourceManager.GetString("OcorrenciasTipoPropaganda", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Partido.
         /// </summary>
         public static string Partido {
@@ -498,6 +525,24 @@ namespace PPVR.WebApp.Resources {
         public static string PropagandaPolíticaValorReal {
             get {
                 return ResourceManager.GetString("PropagandaPolíticaValorReal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Qtde. Ocorrências.
+        /// </summary>
+        public static string QtdeOcorrencias {
+            get {
+                return ResourceManager.GetString("QtdeOcorrencias", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Relatórios.
+        /// </summary>
+        public static string Relatorios {
+            get {
+                return ResourceManager.GetString("Relatorios", resourceCulture);
             }
         }
         
@@ -619,11 +664,20 @@ namespace PPVR.WebApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Total de.
+        ///   Looks up a localized string similar to Total de .
         /// </summary>
         public static string TotalDe {
             get {
                 return ResourceManager.GetString("TotalDe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total Gasto.
+        /// </summary>
+        public static string TotalGasto {
+            get {
+                return ResourceManager.GetString("TotalGasto", resourceCulture);
             }
         }
         
@@ -660,6 +714,15 @@ namespace PPVR.WebApp.Resources {
         public static string UsuarioSenhaPlaceholder {
             get {
                 return ResourceManager.GetString("UsuarioSenhaPlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Valores Gastos pelo Candidato.
+        /// </summary>
+        public static string ValoresGastosCandidato {
+            get {
+                return ResourceManager.GetString("ValoresGastosCandidato", resourceCulture);
             }
         }
         

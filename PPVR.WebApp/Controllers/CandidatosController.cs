@@ -19,10 +19,16 @@ namespace PPVR.WebApp.Controllers
             ViewBag.CallbackAction = callbackAction;
             ViewBag.CurrentFilter = q;
 
-            var candidatos = _db.Candidatos.Select(c => c).Include(c => c.Partido);
+            var candidatos =
+                _db.Candidatos.Select(c => c)
+                    .Include(c => c.Partido)
+                    .Include(c => c.Eleicao)
+                    .Where(c => c.Enabled && c.Eleicao.Enabled);
 
             if (!string.IsNullOrEmpty(q))
-                candidatos = candidatos.Where(c => c.NumeroEleitoral.ToString() == q || c.Nome.Contains(q) || c.NomeUrna.Contains(q));
+                candidatos =
+                    candidatos.Where(
+                        c => c.NumeroEleitoral.ToString() == q || c.Nome.Contains(q) || c.NomeUrna.Contains(q));
 
             #region Order By
 
@@ -106,6 +112,7 @@ namespace PPVR.WebApp.Controllers
             var candidato =
                 _db.Candidatos.Where(c => c.CandidatoId == id)
                     .Include(c => c.Partido)
+                    .Include(c => c.Ocorrencias.Select(o => o.TipoPropaganda))
                     .Select(c => new CandidatoViewModel
                     {
                         CandidatoId = c.CandidatoId,
@@ -117,7 +124,14 @@ namespace PPVR.WebApp.Controllers
                         Enabled = c.Enabled,
                         CreatedAt = c.CreatedAt,
                         UpdatedAt = c.UpdatedAt,
-                        Partido = c.Partido.Nome
+                        Partido = c.Partido.Nome,
+                        Gastos = c.Ocorrencias.GroupBy(g => g.TipoPropagandaId).Select(o => new GastoCandidatoViewModel
+                        {
+                            TipoPropagandaId = o.Key,
+                            TipoPropagandaDescricao = o.Select(x => x.TipoPropaganda.Descricao).FirstOrDefault(),
+                            QtdeOcorrencias = o.Count(),
+                            ValorMedio = o.Select(x => x.TipoPropaganda.ValorMedio).FirstOrDefault()
+                        }).ToList()
                     }).SingleOrDefault();
 
             if (candidato == null)

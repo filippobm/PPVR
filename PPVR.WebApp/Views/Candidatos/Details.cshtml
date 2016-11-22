@@ -92,4 +92,53 @@
     </div>
 </div>
 
+<div class="panel panel-primary">
+    <div class="panel-heading">@Labels.ValoresGastosCandidato</div>
+    @{
+        if (Model.Gastos.Any())
+        {
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.LabelFor(m => m.Gastos[0].TipoPropagandaDescricao)
+                    </th>
+                    <th class="text-center">
+                        @Html.LabelFor(m => m.Gastos[0].QtdeOcorrencias)
+                    </th>
+                    <th class="text-center">
+                        @Html.LabelFor(m => m.Gastos[0].ValorMedio)
+                    </th>
+                    <th class="text-center">
+                        @Html.LabelFor(m => m.Gastos[0].TotalGasto)
+                    </th>
+                </tr>
+                @foreach (var gasto in Model.Gastos)
+                {
+                    <tr>
+                        <td>
+                            @gasto.TipoPropagandaDescricao
+                        </td>
+                        <td class="text-center">
+                            @gasto.QtdeOcorrencias
+                        </td>
+                        <td class="text-center">
+                            @gasto.ValorMedio
+                        </td>
+                        <td class="text-center">
+                            @gasto.TotalGasto
+                        </td>
+                    </tr>
+                }
+            </table>
+        }
+        else
+        {
+            <div class="panel-body">
+                <i>@Labels.CandidatoNenhumRegistroOcorrencia</i>
+            </div>
+        }
+    }
+
+</div>
+
 @Html.ActionLink(Labels.CandidatoTitleListaCandidatos, "Index")

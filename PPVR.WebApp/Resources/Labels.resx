@@ -198,9 +198,6 @@
   <data name="UpdatedAt" xml:space="preserve">
     <value>Última Atualização</value>
   </data>
-  <data name="TotalDe" xml:space="preserve">
-    <value>Total de</value>
-  </data>
   <data name="IdeologiaNenhumPartidoAssociado" xml:space="preserve">
     <value>Não existe nenhum partido associado a ideologia.</value>
   </data>
@@ -320,5 +317,29 @@
   </data>
   <data name="EleicaoDescricaoPlaceholder" xml:space="preserve">
     <value>Informe a descrição da eleição</value>
+  </data>
+  <data name="OcorrenciasTipoPropaganda" xml:space="preserve">
+    <value>Ocorrências por Valor da Propaganda</value>
+  </data>
+  <data name="Relatorios" xml:space="preserve">
+    <value>Relatórios</value>
+  </data>
+  <data name="ValoresGastosCandidato" xml:space="preserve">
+    <value>Valores Gastos pelo Candidato</value>
+  </data>
+  <data name="ListaPartidosAssociadosIdeologia" xml:space="preserve">
+    <value>Lista de Partidos que estão Associados a Ideologia</value>
+  </data>
+  <data name="CandidatoNenhumRegistroOcorrencia" xml:space="preserve">
+    <value>Não existe nenhuma ocorrência registrada para este candidato.</value>
+  </data>
+  <data name="QtdeOcorrencias" xml:space="preserve">
+    <value>Qtde. Ocorrências</value>
+  </data>
+  <data name="TotalGasto" xml:space="preserve">
+    <value>Total Gasto</value>
+  </data>
+  <data name="TotalDe" xml:space="preserve">
+    <value>Total de </value>
   </data>
 </root>

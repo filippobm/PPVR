@@ -284,6 +284,7 @@
     <Compile Include="ViewModels\Account\RegisterViewModel.cs" />
     <Compile Include="ViewModels\Account\ResetPasswordViewModel.cs" />
     <Compile Include="ViewModels\Candidato\CandidatoViewModel.cs" />
+    <Compile Include="ViewModels\Candidato\GastoCandidatoViewModel.cs" />
     <Compile Include="ViewModels\Eleicao\EleicaoViewModel.cs" />
     <Compile Include="ViewModels\Home\UploadFotoViewModel.cs" />
     <Compile Include="ViewModels\Ideologia\IdeologiaDetailsViewModel.cs" />

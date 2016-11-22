@@ -47,9 +47,8 @@
     </div>
 </div>
 
-<div class="panel panel-default">
-    <div class="panel-heading">Partidos Associados a Ideologia</div>
-
+<div class="panel panel-primary">
+    <div class="panel-heading">@Labels.ListaPartidosAssociadosIdeologia</div>
     @{
         if (Model.Partidos.Any())
         {
@@ -82,7 +81,6 @@
             </div>
         }
     }
-
 </div>
 
 @Html.ActionLink(Labels.IdeologiaTitleListaIdeologias, "Index")

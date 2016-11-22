@@ -1,0 +1,59 @@
+﻿@using PPVR.WebApp.Resources
+@{
+    ViewBag.Title = Labels.RelatorioOcorrenciasTipoPropaganda;
+}
+
+<div id="container" style="-moz-min-width: 310px; -ms-min-width: 310px; -o-min-width: 310px; -webkit-min-width: 310px; height: 400px; margin: 0 auto; max-width: 600px; min-width: 310px; padding-top: 60px;">
+</div>
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/highcharts")
+
+    <script>
+        $(function () {
+
+            $.getJSON("https://localhost:44356/Relatorios/OcorrenciasTipoPropagandaJson",
+                function (data) {
+
+                    Highcharts.chart('container',
+                    {
+                        chart: {
+                            plotBackgroundColor: null,
+                            plotBorderWidth: null,
+                            plotShadow: false,
+                            type: 'pie'
+                        },
+                        title: {
+                            text: 'Ocorrências por Tipo de Propaganda'
+                        },
+                        tooltip: {
+                            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                        },
+                        plotOptions: {
+                            pie: {
+                                allowPointSelect: true,
+                                cursor: 'pointer',
+                                dataLabels: {
+                                    enabled: true,
+                                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                                    style: {
+                                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                                    }
+                                }
+                            }
+                        },
+                        series: [
+                            {
+                                name: 'Ocorrências',
+                                colorByPoint: true,
+                                data: data
+                            }
+                        ]
+                    });
+
+                }
+            );
+        });
+    </script>
+}

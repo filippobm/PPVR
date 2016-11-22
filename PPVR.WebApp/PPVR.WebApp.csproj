@@ -300,6 +300,7 @@
     <Compile Include="ViewModels\Manage\SetPasswordViewModel.cs" />
     <Compile Include="ViewModels\Manage\VerifyPhoneNumberViewModel.cs" />
     <Compile Include="ViewModels\Partido\PartidoViewModel.cs" />
+    <Compile Include="ViewModels\Relatorios\OcorrenciasTipoPropagandaViewModel.cs" />
     <Compile Include="ViewModels\TipoPropaganda\TipoPropagandaViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -416,6 +417,7 @@
     <Content Include="Views\Eleicoes\Index.cshtml" />
     <Content Include="Views\Eleicoes\Edit.cshtml" />
     <Content Include="Views\Relatorios\Index.cshtml" />
+    <Content Include="Views\Relatorios\OcorrenciasTipoPropaganda.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

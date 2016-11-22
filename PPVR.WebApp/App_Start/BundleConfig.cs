@@ -30,6 +30,10 @@ namespace PPVR.WebApp
                 "~/Content/bootstrap.css",
                 "~/Content/site.css"));
 
+            bundles.Add(new ScriptBundle("~/bundles/highcharts").Include(
+                "~/Scripts/highcharts/highcharts.js",
+                "~/Scripts/highcharts/modules/exporting.js"));
+
             BundleTable.EnableOptimizations = true;
         }
     }

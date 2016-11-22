@@ -556,6 +556,15 @@ namespace PPVR.WebApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ocorrências por Tipo de Propaganda.
+        /// </summary>
+        public static string RelatorioOcorrenciasTipoPropaganda {
+            get {
+                return ResourceManager.GetString("RelatorioOcorrenciasTipoPropaganda", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Relatórios.
         /// </summary>
         public static string Relatorios {

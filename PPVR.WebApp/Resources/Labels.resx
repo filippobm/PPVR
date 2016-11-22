@@ -348,4 +348,7 @@
   <data name="FotoSalvaNenhumCandidatoEncontrado" xml:space="preserve">
     <value>A foto foi salva, porém nenhum candidato foi encontrado.</value>
   </data>
+  <data name="RelatorioOcorrenciasTipoPropaganda" xml:space="preserve">
+    <value>Ocorrências por Tipo de Propaganda</value>
+  </data>
 </root>

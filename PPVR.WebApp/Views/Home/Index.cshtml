@@ -10,11 +10,29 @@
     <div class="row">
         <div class="col-md-offset-3 col-md-6" style="background-color: #ffffff; padding: 10px">
 
-            @if (ViewBag.Status != null)
+            @if (ViewBag.FotoSalva != null)
             {
-                <span id="status" class="alert alert-success">
-                    @ViewBag.Status
-                </span>
+                if (ViewBag.FotoSalva)
+                {
+                    if (Model.CandidatosEncontrados.Any())
+                    {
+                        <div id="status" class="alert alert-success">
+                            <span>@Labels.FotoSalvaCandidatosEncontrados</span>
+                            <ul style="font-size: 14px">
+                                @foreach (var candidato in Model.CandidatosEncontrados)
+                                {
+                                    <li>@candidato</li>
+                                }
+                            </ul>
+                        </div>
+                    }
+                    else
+                    {
+                        <div id="status" class="alert alert-warning text-center">
+                            <span>@Labels.FotoSalvaNenhumCandidatoEncontrado</span>
+                        </div>
+                    }
+                }
             }
 
             @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { id = "form", enctype = "multipart/form-data" }))
@@ -41,7 +59,7 @@
                     </div>
 
                     <div>
-                        <input id="enviar-foto" class="btn btn-primary " type="submit" style="width: 100%" value="@Labels.EnviarFoto.ToUpper()" />
+                        <input id="enviar-foto" class="btn btn-primary" type="submit" style="width: 100%" value="@Labels.EnviarFoto.ToUpper()" />
                     </div>
                 </div>
             }

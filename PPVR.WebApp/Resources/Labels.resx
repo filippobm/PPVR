@@ -342,4 +342,10 @@
   <data name="TotalDe" xml:space="preserve">
     <value>Total de </value>
   </data>
+  <data name="FotoSalvaCandidatosEncontrados" xml:space="preserve">
+    <value>Foto salva. Candidatos encontrados:</value>
+  </data>
+  <data name="FotoSalvaNenhumCandidatoEncontrado" xml:space="preserve">
+    <value>A foto foi salva, porém nenhum candidato foi encontrado.</value>
+  </data>
 </root>

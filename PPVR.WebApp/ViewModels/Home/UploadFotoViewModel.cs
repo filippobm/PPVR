@@ -18,5 +18,7 @@ namespace PPVR.WebApp.ViewModels.Home
             ErrorMessageResourceName = nameof(ValidationErrorMessage.OcorrenciaFotoNotNull))]
         [DataType(DataType.Upload)]
         public HttpPostedFileBase ImageUpload { get; set; }
+
+        public List<string> CandidatosEncontrados { get; set; } = new List<string>();
     }
 }

@@ -331,6 +331,24 @@ namespace PPVR.WebApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Foto salva. Candidatos encontrados:.
+        /// </summary>
+        public static string FotoSalvaCandidatosEncontrados {
+            get {
+                return ResourceManager.GetString("FotoSalvaCandidatosEncontrados", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A foto foi salva, porém nenhum candidato foi encontrado..
+        /// </summary>
+        public static string FotoSalvaNenhumCandidatoEncontrado {
+            get {
+                return ResourceManager.GetString("FotoSalvaNenhumCandidatoEncontrado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ideologia.
         /// </summary>
         public static string Ideologia {

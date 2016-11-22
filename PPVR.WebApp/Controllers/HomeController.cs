@@ -7,6 +7,7 @@ using PPVR.WebApp.Resources;
 using PPVR.WebApp.ViewModels.Home;
 using PPVR.WebApp.ViewModels.TipoPropaganda;
 using System;
+using System.Data.Entity;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -58,9 +59,7 @@ namespace PPVR.WebApp.Controllers
                 try
                 {
                     var geolocationInfo = new GeolocationInfoFileExtractor(viewModel.ImageUpload.InputStream);
-                    var path =
-                        Server.MapPath(
-                            $"{WebConfigurationManager.AppSettings["DiretorioFotosSantinhos"]}{User.Identity.Name}/");
+                    var path = Server.MapPath($"{WebConfigurationManager.AppSettings["DiretorioFotosSantinhos"]}{User.Identity.Name}/");
                     Directory.CreateDirectory(path);
                     filePath = $"{path}{Guid.NewGuid()}{extension}";
                     ViewBag.FilePath = filePath;
@@ -86,7 +85,9 @@ namespace PPVR.WebApp.Controllers
                     var imageText = await MicrosoftCognitiveServicesHelper.UploadAndRecognizeImage(filePath);
 
                     // Busca o(s) candidato(s) da cidade onde a foto foi tirada
-                    var candidatos = _db.Candidatos.Where(c => c.DescricaoUnidadeEleitoral == endereco.Cidade).ToList();
+                    var candidatos = _db.Candidatos.Include(c => c.Eleicao)
+                        .Where(c => c.DescricaoUnidadeEleitoral == endereco.Cidade && c.Eleicao.Enabled)
+                        .ToList();
 
                     var compareInfo = CultureInfo.InvariantCulture.CompareInfo;
                     var match = false;
@@ -108,6 +109,7 @@ namespace PPVR.WebApp.Controllers
                         if (ocorrenciaTipoMatch.HasValue)
                         {
                             match = true;
+                            viewModel.CandidatosEncontrados.Add(candidato.NomeUrna);
 
                             _db.Ocorrencias.Add(new Ocorrencia
                             {
@@ -131,7 +133,7 @@ namespace PPVR.WebApp.Controllers
                     }
 
                     _db.SaveChanges();
-                    ViewBag.Status = Labels.FotoSalva;
+                    ViewBag.FotoSalva = true;
                 }
                 catch (Exception ex)
                 {
@@ -145,6 +147,8 @@ namespace PPVR.WebApp.Controllers
                 TipoPropagandaId = x.TipoPropagandaId,
                 Descricao = x.Descricao
             }).ToList();
+
+            viewModel.CandidatosEncontrados = viewModel.CandidatosEncontrados.OrderBy(c => c).ToList();
 
             return View(viewModel);
         }

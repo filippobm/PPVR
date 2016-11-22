@@ -9,6 +9,7 @@ using X.PagedList;
 
 namespace PPVR.WebApp.Controllers
 {
+    [Authorize]
     public class EleicoesController : Controller
     {
         private readonly AppDbContext _db = new AppDbContext();

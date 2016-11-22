@@ -547,6 +547,15 @@ namespace PPVR.WebApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Valores Gastos por Tipo de Ocorrência.
+        /// </summary>
+        public static string RelatorioValoresGastosTipoOcorrencia {
+            get {
+                return ResourceManager.GetString("RelatorioValoresGastosTipoOcorrencia", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Sair.
         /// </summary>
         public static string Sair {
@@ -723,6 +732,15 @@ namespace PPVR.WebApp.Resources {
         public static string ValoresGastosCandidato {
             get {
                 return ResourceManager.GetString("ValoresGastosCandidato", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Valores Gastos por Tipo de Ocorrência.
+        /// </summary>
+        public static string ValoresGastosTipoOcorrencia {
+            get {
+                return ResourceManager.GetString("ValoresGastosTipoOcorrencia", resourceCulture);
             }
         }
         

@@ -32,6 +32,7 @@ namespace PPVR.WebApp
 
             bundles.Add(new ScriptBundle("~/bundles/highcharts").Include(
                 "~/Scripts/highcharts/highcharts.js",
+                "~/Scripts/highcharts/highcharts-3d.js",
                 "~/Scripts/highcharts/modules/exporting.js"));
 
             BundleTable.EnableOptimizations = true;

@@ -364,6 +364,7 @@
     </EmbeddedResource>
     <Content Include="fonts\VT323\VT323-Regular.ttf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\highcharts\highcharts-3d.js" />
     <Content Include="Scripts\highcharts\highcharts.js" />
     <Content Include="Scripts\highcharts\modules\exporting.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -418,6 +419,7 @@
     <Content Include="Views\Eleicoes\Edit.cshtml" />
     <Content Include="Views\Relatorios\Index.cshtml" />
     <Content Include="Views\Relatorios\OcorrenciasTipoPropaganda.cshtml" />
+    <Content Include="Views\Relatorios\ValoresGastosTipoOcorrencia.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

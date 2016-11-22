@@ -11,6 +11,7 @@ using X.PagedList;
 
 namespace PPVR.WebApp.Controllers
 {
+    [Authorize]
     public class TiposPropagandaController : Controller
     {
         private readonly AppDbContext _db = new AppDbContext();
@@ -135,7 +136,7 @@ namespace PPVR.WebApp.Controllers
                     _db.SaveChanges();
 
                     return RedirectToAction("Index",
-                        new { q = tipoPropagandaViewModel.Descricao, callbackAction = "Create" });
+                        new {q = tipoPropagandaViewModel.Descricao, callbackAction = "Create"});
                 }
             }
             return View(tipoPropagandaViewModel);
@@ -202,7 +203,7 @@ namespace PPVR.WebApp.Controllers
                             _db.Entry(tipoPropaganda).State = EntityState.Modified;
                             _db.SaveChanges();
 
-                            return RedirectToAction("Index", new { q = tipoPropaganda.Descricao, callbackAction = "Edit" });
+                            return RedirectToAction("Index", new {q = tipoPropaganda.Descricao, callbackAction = "Edit"});
                         }
                     }
                 }

@@ -1,0 +1,76 @@
+﻿@using PPVR.WebApp.Resources
+@{
+    ViewBag.Title = Labels.RelatorioOcorrenciasTipoPropaganda;
+}
+
+<div id="container" style="padding-top: 60px;">
+</div>
+
+<div id="sliders">
+    <table>
+        <tr>
+            <td>Alpha Angle</td>
+            <td>
+                <input id="alpha" type="range" min="0" max="45" value="15" />
+                <span id="alpha-value" class="value"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>Beta Angle</td>
+            <td>
+                <input id="beta" type="range" min="-45" max="45" value="15" />
+                <span id="beta-value" class="value"></span>
+            </td>
+        </tr>        
+    </table>
+</div>
+
+<style type="text/css">
+    #container, #sliders {
+        margin: 0 auto;
+        max-width: 800px;
+        min-width: 310px;
+    }
+
+    #container {
+        height: 400px;
+    }
+</style>
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/highcharts")
+
+    <script>
+        $(function () {
+
+            // Set up the chart
+            var chart = new Highcharts.Chart({
+                chart: {
+                    renderTo: 'container',
+                    type: 'column',
+                    options3d: {
+                        enabled: true,
+                        alpha: 0,
+                        beta: 0,
+                        depth: 20,
+                        viewDistance: 25
+                    }
+                },
+                title: {
+                    text: 'Valores Gastos por Tipo de Ocorrência'
+                },
+                plotOptions: {
+                    column: {
+                        depth: 25
+                    }
+                },
+                series: [
+                    {
+                        data: [29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
+                    }
+                ]
+            });            
+        });
+    </script>
+}

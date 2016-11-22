@@ -3,7 +3,7 @@
     ViewBag.Title = Labels.RelatorioOcorrenciasTipoPropaganda;
 }
 
-<div id="container" style="-moz-min-width: 310px; -ms-min-width: 310px; -o-min-width: 310px; -webkit-min-width: 310px; height: 400px; margin: 0 auto; max-width: 600px; min-width: 310px; padding-top: 60px;">
+<div id="container" style="height: 400px; margin: 0 auto; max-width: 600px; min-width: 310px; padding-top: 60px;">
 </div>
 
 @section scripts
@@ -11,10 +11,10 @@
     @Scripts.Render("~/bundles/highcharts")
 
     <script>
-        $(function () {
+        $(function() {
 
             $.getJSON("https://localhost:44356/Relatorios/OcorrenciasTipoPropagandaJson",
-                function (data) {
+                function(data) {
 
                     Highcharts.chart('container',
                     {

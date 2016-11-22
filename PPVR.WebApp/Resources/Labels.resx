@@ -342,4 +342,10 @@
   <data name="RelatorioOcorrenciasTipoPropaganda" xml:space="preserve">
     <value>Ocorrências por Tipo de Propaganda</value>
   </data>
+  <data name="RelatorioValoresGastosTipoOcorrencia" xml:space="preserve">
+    <value>Valores Gastos por Tipo de Ocorrência</value>
+  </data>
+  <data name="ValoresGastosTipoOcorrencia" xml:space="preserve">
+    <value>Valores Gastos por Tipo de Ocorrência</value>
+  </data>
 </root>

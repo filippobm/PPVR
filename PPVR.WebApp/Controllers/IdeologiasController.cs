@@ -24,11 +24,15 @@ namespace PPVR.WebApp.Controllers
 
             var ideologias = _db.Ideologias.Include(i => i.Partidos);
 
+            #region Filters
+
             if (!string.IsNullOrEmpty(q))
                 if (callbackAction == "Create" || callbackAction == "Edit")
                     ideologias = ideologias.Where(i => i.Nome == q);
                 else
                     ideologias = ideologias.Where(i => i.Nome.Contains(q));
+
+            #endregion
 
             #region Order By
 
@@ -79,6 +83,7 @@ namespace PPVR.WebApp.Controllers
 
                 default:
                     ideologias = ideologias.OrderBy(i => i.Nome);
+                    ViewBag.SortNome = "nome_desc";
                     break;
             }
 

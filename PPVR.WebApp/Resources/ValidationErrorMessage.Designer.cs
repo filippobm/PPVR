@@ -412,6 +412,15 @@ namespace PPVR.WebApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ocorreu um erro ao processar o pedido de geocodificação..
+        /// </summary>
+        internal static string UploadFotoGoogleGeocodingException {
+            get {
+                return ResourceManager.GetString("UploadFotoGoogleGeocodingException", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to O e-mail não pode ser nulo..
         /// </summary>
         internal static string UsuarioEmailNotNull {

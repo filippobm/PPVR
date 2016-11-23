@@ -1,8 +1,10 @@
-﻿namespace PPVR.WebApp.ViewModels.Relatorios
+﻿using System.Collections.Generic;
+
+namespace PPVR.WebApp.ViewModels.Relatorios
 {
     public class ValoresGastosTipoOcorrenciaViewModel
     {
         public string name { get; set; }
-        public int[] data { get; set; }
+        public List<decimal> data { get; set; } = new List<decimal>();
     }
 }

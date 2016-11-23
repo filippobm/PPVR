@@ -234,6 +234,9 @@
   <data name="TipoPropagandaValorMedioNotNull" xml:space="preserve">
     <value>O valor médio do tipo da propaganda não pode ser nulo.</value>
   </data>
+  <data name="UploadFotoGoogleGeocodingException" xml:space="preserve">
+    <value>Ocorreu um erro ao processar o pedido de geocodificação.</value>
+  </data>
   <data name="UsuarioEmailNotNull" xml:space="preserve">
     <value>O e-mail não pode ser nulo.</value>
   </data>

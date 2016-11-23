@@ -11,7 +11,6 @@ using System.Data.Entity;
 using System.Globalization;
 using System.IO;
 using System.Linq;
-using System.Net;
 using System.Threading.Tasks;
 using System.Web.Configuration;
 using System.Web.Mvc;
@@ -50,6 +49,12 @@ namespace PPVR.WebApp.Controllers
                 ModelState.AddModelError("ImageUpload", ValidationErrorMessage.OcorrenciaFotoNotNull);
             else if (!validImageTypes.Contains(viewModel.ImageUpload.ContentType))
                 ModelState.AddModelError("ImageUpload", ValidationErrorMessage.OcorrenciaFotoInvalidFormat);
+
+            viewModel.TiposPropaganda = _db.TiposPropaganda.Select(x => new TipoPropagandaViewModel
+            {
+                TipoPropagandaId = x.TipoPropagandaId,
+                Descricao = x.Descricao
+            }).ToList();
 
             if (ModelState.IsValid)
             {
@@ -135,21 +140,21 @@ namespace PPVR.WebApp.Controllers
                     _db.SaveChanges();
                     ViewBag.FotoSalva = true;
                 }
+                catch (GoogleGeocodingException)
+                {
+                    System.IO.File.Delete(filePath);
+                    ViewBag.ErrorMessage = ValidationErrorMessage.UploadFotoGoogleGeocodingException;
+                    return View(viewModel);
+                }
                 catch (Exception ex)
                 {
                     System.IO.File.Delete(filePath);
-                    return new HttpStatusCodeResult(HttpStatusCode.InternalServerError, ex.Message);
+                    ViewBag.ErrorMessage = ex.Message;
+                    return View(viewModel);
                 }
             }
 
-            viewModel.TiposPropaganda = _db.TiposPropaganda.Select(x => new TipoPropagandaViewModel
-            {
-                TipoPropagandaId = x.TipoPropagandaId,
-                Descricao = x.Descricao
-            }).ToList();
-
             viewModel.CandidatosEncontrados = viewModel.CandidatosEncontrados.OrderBy(c => c).ToList();
-
             return View(viewModel);
         }
 

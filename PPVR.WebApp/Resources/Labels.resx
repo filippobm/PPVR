@@ -348,4 +348,19 @@
   <data name="ValoresGastosTipoOcorrencia" xml:space="preserve">
     <value>Valores Gastos por Tipo de Ocorrência</value>
   </data>
+  <data name="ListaCandidatos" xml:space="preserve">
+    <value>Lista de Candidatos</value>
+  </data>
+  <data name="ListaEleicoes" xml:space="preserve">
+    <value>Lista de Eleições</value>
+  </data>
+  <data name="ListaIdeologias" xml:space="preserve">
+    <value>Lista de Ideologias</value>
+  </data>
+  <data name="ListaPartidos" xml:space="preserve">
+    <value>Lista de Partidos</value>
+  </data>
+  <data name="PartidoQtdeCandidatosAssociados" xml:space="preserve">
+    <value>Qtde. Candidatos Associados</value>
+  </data>
 </root>

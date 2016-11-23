@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PPVR.WebApp.Resources;
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace PPVR.WebApp.ViewModels.Partido
@@ -8,26 +9,39 @@ namespace PPVR.WebApp.ViewModels.Partido
         [Key]
         public byte PartidoId { get; set; }
 
-        [Required(ErrorMessageResourceType = typeof(Resources.ValidationErrorMessage), ErrorMessageResourceName = "PartidoNomeNotNull")]
-        [MaxLength(60, ErrorMessageResourceType = typeof(Resources.ValidationErrorMessage), ErrorMessageResourceName = "PartidoNomeInvalidLength")]
+        [Display(Name = nameof(Labels.PartidoNome), ResourceType = typeof(Labels))]
+        [Required(ErrorMessageResourceType = typeof(ValidationErrorMessage),
+            ErrorMessageResourceName = nameof(ValidationErrorMessage.PartidoNomeNotNull))]
+        [MaxLength(60, ErrorMessageResourceType = typeof(ValidationErrorMessage),
+            ErrorMessageResourceName = nameof(ValidationErrorMessage.PartidoNomeInvalidLength))]
         public string Nome { get; set; }
 
-        [Required(ErrorMessageResourceType = typeof(Resources.ValidationErrorMessage), ErrorMessageResourceName = "PartidoSiglaNotNull")]
-        [MaxLength(10, ErrorMessageResourceType = typeof(Resources.ValidationErrorMessage), ErrorMessageResourceName = "PartidoSiglaInvalidLength")]
+        [Display(Name = nameof(Labels.PartidoSigla), ResourceType = typeof(Labels))]
+        [Required(ErrorMessageResourceType = typeof(ValidationErrorMessage),
+            ErrorMessageResourceName = nameof(ValidationErrorMessage.PartidoSiglaNotNull))]
+        [MaxLength(10, ErrorMessageResourceType = typeof(ValidationErrorMessage),
+            ErrorMessageResourceName = nameof(ValidationErrorMessage.PartidoSiglaInvalidLength))]
         public string Sigla { get; set; }
 
-        [Required(ErrorMessageResourceType = typeof(Resources.ValidationErrorMessage), ErrorMessageResourceName = "PartidoNumeroEleitoralNotNull")]
-        [Range(10, 99, ErrorMessageResourceType = typeof(Resources.ValidationErrorMessage), ErrorMessageResourceName = "PartidoNumeroEleitoralInvalidRange")]
+        [Display(Name = nameof(Labels.PartidoNumeroEleitoral), ResourceType = typeof(Labels))]
+        [Required(ErrorMessageResourceType = typeof(ValidationErrorMessage),
+            ErrorMessageResourceName = nameof(ValidationErrorMessage.PartidoNumeroEleitoralNotNull))]
+        [Range(10, 99, ErrorMessageResourceType = typeof(ValidationErrorMessage),
+            ErrorMessageResourceName = nameof(ValidationErrorMessage.PartidoNumeroEleitoralInvalidRange))]
         public byte NumeroEleitoral { get; set; }
 
+        [Display(Name = nameof(Labels.PartidoQtdeCandidatosAssociados), ResourceType = typeof(Labels))]
+        public int QtdeCandidatosAssociados { get; set; }
+
+        [Display(Name = nameof(Labels.Ativo), ResourceType = typeof(Labels))]
         [Required]
         public bool Enabled { get; set; }
 
-        [Display(Name = "CreatedAt", ResourceType = typeof(Resources.Labels))]
+        [Display(Name = nameof(Labels.CreatedAt), ResourceType = typeof(Labels))]
         [ScaffoldColumn(false)]
         public DateTime CreatedAt { get; set; }
 
-        [Display(Name = "UpdatedAt", ResourceType = typeof(Resources.Labels))]
+        [Display(Name = nameof(Labels.UpdatedAt), ResourceType = typeof(Labels))]
         [ScaffoldColumn(false)]
         public DateTime? UpdatedAt { get; set; }
     }

@@ -46,9 +46,6 @@
             @Html.ActionLink(Labels.IdeologiaNome, "Index", new { q = ViewBag.CurrentFilter, sort = ViewBag.SortNome })
         </th>
         <th class="text-center">
-            @Html.LabelFor(m => m[0].Ideologia.Enabled)
-        </th>
-        <th class="text-center">
             @Html.ActionLink(Labels.IdeologiaQtdePartidosAssociados, "Index", new { q = ViewBag.CurrentFilter, sort = ViewBag.SortQtdePartidosAssociados })
         </th>
         <th>
@@ -56,6 +53,9 @@
         </th>
         <th>
             @Html.ActionLink(Labels.UpdatedAt, "Index", new { q = ViewBag.CurrentFilter, sort = ViewBag.SortUpdatedAt })
+        </th>
+        <th class="text-center">
+            @Html.LabelFor(m => m[0].Ideologia.Enabled)
         </th>
         <th class="text-right">
             @Labels.Acoes
@@ -69,9 +69,6 @@
                 @item.Ideologia.Nome
             </td>
             <td class="text-center">
-                @Html.DisplayFor(m => item.Ideologia.Enabled)
-            </td>
-            <td class="text-center">
                 @Html.DisplayFor(m => item.QtdePartidosAssociados)
             </td>
             <td>
@@ -80,11 +77,14 @@
             <td>
                 @Html.DisplayFor(m => item.UpdatedAt)
             </td>
+            <td class="text-center">
+                @Html.DisplayFor(m => item.Ideologia.Enabled)
+            </td>
             <td class="text-right">
-                <a href="@Url.Action("Edit", "Ideologias", new {id = item.Ideologia.IdeologiaId})" class="btn btn-default" title="@Labels.Editar">
+                <a href="@Url.Action("Edit", new {id = item.Ideologia.IdeologiaId})" class="btn btn-default" title="@Labels.Editar">
                     <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                 </a>
-                <a href="@Url.Action("Details", "Ideologias", new {id = item.Ideologia.IdeologiaId})" class="btn btn-default" title="@Labels.Visualizar">
+                <a href="@Url.Action("Details", new {id = item.Ideologia.IdeologiaId})" class="btn btn-default" title="@Labels.Visualizar">
                     <span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span>
                 </a>
             </td>

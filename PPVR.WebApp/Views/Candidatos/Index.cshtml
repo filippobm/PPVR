@@ -9,8 +9,6 @@
 <h2>@ViewBag.Title</h2>
 <hr>
 
-@Helpers.CallbackActionAlert(ViewBag.CallbackAction)
-
 @using (Html.BeginForm("Index", "Candidatos", FormMethod.Get, new { @class = "form-horizontal" }))
 {
     <div class="form-group">

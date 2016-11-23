@@ -412,6 +412,42 @@ namespace PPVR.WebApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Lista de Candidatos.
+        /// </summary>
+        public static string ListaCandidatos {
+            get {
+                return ResourceManager.GetString("ListaCandidatos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lista de Eleições.
+        /// </summary>
+        public static string ListaEleicoes {
+            get {
+                return ResourceManager.GetString("ListaEleicoes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lista de Ideologias.
+        /// </summary>
+        public static string ListaIdeologias {
+            get {
+                return ResourceManager.GetString("ListaIdeologias", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lista de Partidos.
+        /// </summary>
+        public static string ListaPartidos {
+            get {
+                return ResourceManager.GetString("ListaPartidos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Lista de Partidos que estão Associados a Ideologia.
         /// </summary>
         public static string ListaPartidosAssociadosIdeologia {
@@ -453,6 +489,15 @@ namespace PPVR.WebApp.Resources {
         public static string PartidoPesquisarPlaceholder {
             get {
                 return ResourceManager.GetString("PartidoPesquisarPlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Qtde. Candidatos Associados.
+        /// </summary>
+        public static string PartidoQtdeCandidatosAssociados {
+            get {
+                return ResourceManager.GetString("PartidoQtdeCandidatosAssociados", resourceCulture);
             }
         }
         

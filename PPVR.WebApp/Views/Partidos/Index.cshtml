@@ -1,19 +1,20 @@
 ﻿@using PPVR.WebApp.Resources
 @using X.PagedList.Mvc
-@model X.PagedList.IPagedList<PPVR.WebApp.Models.Partido>
+@model X.PagedList.IPagedList<PPVR.WebApp.ViewModels.Partido.PartidoViewModel>
 
 @{
-    ViewBag.Title = Labels.PartidoTitleListaPartidosPoliticos;
+    ViewBag.Title = Labels.Partidos;
 }
 
 <h2>@ViewBag.Title</h2>
+<hr>
 
 @using (Html.BeginForm("Index", "Partidos", FormMethod.Get, new { @class = "form-horizontal" }))
 {
     <div class="form-group">
         <div class="col-sm-7">
             <div class="input-group">
-                <input id="SearchString" class="form-control" name="SearchString" type="text"
+                <input id="q" class="form-control" name="q" type="text"
                        placeholder="@Labels.PartidoPesquisarPlaceholder"
                        value="@((string) ViewBag.CurrentFilter)">
                 <span class="input-group-btn">
@@ -26,32 +27,32 @@
     </div>
 }
 
-<div class="row">
-    <div class="col-sm-12">
-        <div class="pull-right">
-            <b>
-                @Labels.PartidoTotalPartidos:
-            </b>
-            @Model.TotalItemCount
-        </div>
-    </div>
-</div>
-
-<table class="table">
+<table class="table table-striped table-condensed" style="margin-top: 50px">
     <tr>
         <th>
-            @Html.ActionLink(Labels.PartidoNome, "Index", new { orderBy = ViewBag.NomeSortParm })
+            <a href="@Url.Action("Index", new {q = ViewBag.CurrentFilter, sort = ViewBag.SortNome})">
+                @Html.LabelFor(m => m[0].Nome)
+            </a>
         </th>
         <th>
-            @Html.ActionLink(Labels.PartidoSigla, "Index", new { orderBy = ViewBag.SiglaSortParm })
+            <a href="@Url.Action("Index", new {q = ViewBag.CurrentFilter, sort = ViewBag.SortSigla})">
+                @Html.LabelFor(m => m[0].Sigla)
+            </a>
         </th>
-        <th>
-            @Html.ActionLink(Labels.PartidoNumeroEleitoral, "Index", new { orderBy = ViewBag.NumeroEleitoralSortParm })
+        <th class="text-center">
+            <a href="@Url.Action("Index", new {q = ViewBag.CurrentFilter, sort = ViewBag.SortNumeroEleitoral})">
+                @Html.LabelFor(m => m[0].NumeroEleitoral)
+            </a>
         </th>
-        <th>
-            @Labels.Ativo
+        <th class="text-center">
+            <a href="@Url.Action("Index", new {q = ViewBag.CurrentFilter, sort = ViewBag.SortQtdeCandidatosAssociados})">
+                @Html.LabelFor(m => m[0].QtdeCandidatosAssociados)
+            </a>
         </th>
-        <th>
+        <th class="text-center">
+            @Html.LabelFor(m => m[0].Enabled)
+        </th>
+        <th class="text-right">
             @Labels.Acoes
         </th>
     </tr>
@@ -65,41 +66,50 @@
             <td>
                 @item.Sigla
             </td>
-            <td>
+            <td class="text-center">
                 @item.NumeroEleitoral
             </td>
-            <td>
+            <td class="text-center">
+                @item.QtdeCandidatosAssociados
+            </td>
+            <td class="text-center">
                 @Html.DisplayFor(modelItem => item.Enabled)
             </td>
-            <td>
-                @Html.ActionLink(Labels.Editar, "Edit", new { id = item.PartidoId }) |
-                @Html.ActionLink(Labels.Visualizar, "Details", new { id = item.PartidoId }) |
-                @Html.ActionLink(Labels.Excluir, "Delete", new { id = item.PartidoId })
+            <td class="text-right">
+                <a href="@Url.Action("Edit", new {id = item.PartidoId})" class="btn btn-default" title="@Labels.Editar">
+                    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                </a>
+                <a href="@Url.Action("Details", new {id = item.PartidoId})" class="btn btn-default" title="@Labels.Visualizar">
+                    <span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span>
+                </a>
             </td>
         </tr>
     }
 </table>
 
-
-<div class="text-right">
-    Página @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) de @Model.PageCount
-    @Html.PagedListPager(Model, page => Url.Action("Index",
-        new { page, orderBy = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+<div class="row">
+    <div class="col-sm-2">
+        <div class="pull-left">
+            Página @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) de @Model.PageCount
+        </div>
+    </div>
+    <div class="col-sm-8">
+        <div class="text-center">
+            @Html.PagedListPager(Model, page => Url.Action("Index", new { q = ViewBag.CurrentFilter, sort = ViewBag.CurrentSort, page }))
+        </div>
+    </div>
+    <div class="col-sm-2">
+        <div class="pull-right">
+            @{ WriteLiteral($"{Labels.TotalDe} {Labels.Partidos}: {Model.TotalItemCount}"); }
+        </div>
+    </div>
 </div>
-
 
 @section scripts
 {
     <script>
         $(function () {
-            var searchInput = $("#SearchString");
-
-            // Multiply by 2 to ensure the cursor always ends up at the end;
-            // Opera sometimes sees a carriage return as 2 characters.
-            var strLength = searchInput.val().length * 2;
-
-            searchInput.focus();
-            searchInput[0].setSelectionRange(0, strLength);
+            selectedTextFocus("q");
         });
     </script>
 }

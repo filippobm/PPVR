@@ -322,7 +322,7 @@ namespace PPVR.WebApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Centro-direita.
+        ///   Looks up a localized string similar to Centro-esquerda.
         /// </summary>
         public static string EspectroPoliticoCentroEsquerda {
             get {

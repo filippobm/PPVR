@@ -1,4 +1,5 @@
 ﻿using Geocoding.Google;
+using PPVR.Common.Extensions;
 using PPVR.Common.Helpers.Geocoding;
 using PPVR.Common.Helpers.OCR;
 using PPVR.WebApp.DataAccess;
@@ -11,6 +12,7 @@ using System.Data.Entity;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Web.Configuration;
 using System.Web.Mvc;
@@ -64,7 +66,9 @@ namespace PPVR.WebApp.Controllers
                 try
                 {
                     var geolocationInfo = new GeolocationInfoFileExtractor(viewModel.ImageUpload.InputStream);
-                    var path = Server.MapPath($"{WebConfigurationManager.AppSettings["DiretorioFotosSantinhos"]}{User.Identity.Name}/");
+                    var path =
+                        Server.MapPath(
+                            $"{WebConfigurationManager.AppSettings["DiretorioFotosSantinhos"]}{User.Identity.Name}/");
                     Directory.CreateDirectory(path);
                     filePath = $"{path}{Guid.NewGuid()}{extension}";
                     ViewBag.FilePath = filePath;
@@ -99,17 +103,17 @@ namespace PPVR.WebApp.Controllers
 
                     foreach (var candidato in candidatos)
                     {
-                        var matchByNomeUrna = compareInfo.IndexOf(imageText, candidato.NomeUrna, CompareOptions.IgnoreNonSpace) > -1;
-                        var matchByNumeroEleitoral = compareInfo.IndexOf(imageText, candidato.NumeroEleitoral.ToString(), CompareOptions.IgnoreNonSpace) > -1;
+                        //var matchByNomeUrna = compareInfo.IndexOf(imageText, candidato.NomeUrna, CompareOptions.IgnoreNonSpace) > -1;
+                        //var matchByNumeroEleitoral = compareInfo.IndexOf(imageText, candidato.NumeroEleitoral.ToString(), CompareOptions.IgnoreNonSpace) > -1;
 
-                        OcorrenciaTipoMatch? ocorrenciaTipoMatch = null;
+                        //if (matchByNomeUrna && matchByNumeroEleitoral)
+                        //    ocorrenciaTipoMatch = OcorrenciaTipoMatch.NomeUrnaENumeroEleitoral;
+                        //else if (matchByNomeUrna)
+                        //    ocorrenciaTipoMatch = OcorrenciaTipoMatch.NomeUrna;
+                        //else if (matchByNumeroEleitoral)
+                        //    ocorrenciaTipoMatch = OcorrenciaTipoMatch.NumeroEleitoral;
 
-                        if (matchByNomeUrna && matchByNumeroEleitoral)
-                            ocorrenciaTipoMatch = OcorrenciaTipoMatch.NomeUrnaENumeroEleitoral;
-                        else if (matchByNomeUrna)
-                            ocorrenciaTipoMatch = OcorrenciaTipoMatch.NomeUrna;
-                        else if (matchByNumeroEleitoral)
-                            ocorrenciaTipoMatch = OcorrenciaTipoMatch.NumeroEleitoral;
+                        var ocorrenciaTipoMatch = PesquisarCandidatoTexto(candidato.NomeUrna, candidato.NumeroEleitoral, imageText);
 
                         if (ocorrenciaTipoMatch.HasValue)
                         {
@@ -142,13 +146,17 @@ namespace PPVR.WebApp.Controllers
                 }
                 catch (GoogleGeocodingException)
                 {
-                    System.IO.File.Delete(filePath);
+                    if (System.IO.File.Exists(filePath))
+                        System.IO.File.Delete(filePath);
+
                     ViewBag.ErrorMessage = ValidationErrorMessage.UploadFotoGoogleGeocodingException;
                     return View(viewModel);
                 }
                 catch (Exception ex)
                 {
-                    System.IO.File.Delete(filePath);
+                    if (System.IO.File.Exists(filePath))
+                        System.IO.File.Delete(filePath);
+
                     ViewBag.ErrorMessage = ex.Message;
                     return View(viewModel);
                 }
@@ -161,6 +169,41 @@ namespace PPVR.WebApp.Controllers
         public ActionResult Sobre()
         {
             return View();
+        }
+
+        private static OcorrenciaTipoMatch? PesquisarCandidatoTexto(string nomeCandidato, int numeroEleitoral,
+            string texto)
+        {
+            OcorrenciaTipoMatch? matchType = null;
+            var containsNumeroEleitoral = false;
+            var regex = new Regex(@"\d+");
+            var palavras = texto.Replace(".", "").Replace(",", "").Split(' ');
+
+            foreach (var palavra in palavras)
+            {
+                var match = regex.Match(palavra);
+                if (match.Success)
+                {
+                    if (match.Value == numeroEleitoral.ToString())
+                    {
+                        matchType = OcorrenciaTipoMatch.NumeroEleitoral;
+                        containsNumeroEleitoral = true;
+                    }
+                }
+            }
+
+            if (containsNumeroEleitoral)
+            {
+                if (texto.Contains(nomeCandidato, StringComparison.OrdinalIgnoreCase))
+                    matchType = OcorrenciaTipoMatch.NomeUrnaENumeroEleitoral;
+            }
+            else
+            {
+                if (texto.Contains(nomeCandidato, StringComparison.OrdinalIgnoreCase))
+                    matchType = OcorrenciaTipoMatch.NomeUrna;
+            }
+
+            return matchType;
         }
     }
 }

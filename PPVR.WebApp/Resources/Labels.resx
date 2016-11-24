@@ -370,7 +370,7 @@
     <value>Centro-direita à Direita</value>
   </data>
   <data name="EspectroPoliticoCentroEsquerda" xml:space="preserve">
-    <value>Centro-direita</value>
+    <value>Centro-esquerda</value>
   </data>
   <data name="EspectroPoliticoCentroEsquerdaAEsquerda" xml:space="preserve">
     <value>Centro-esquerda à Esquerda</value>

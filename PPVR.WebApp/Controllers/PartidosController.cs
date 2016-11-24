@@ -183,6 +183,8 @@ namespace PPVR.WebApp.Controllers
                 partidoViewModel.PartidoIdeologias.Add(partidoIdeologiaViewModel);
             }
 
+            partidoViewModel.PartidoIdeologias = partidoViewModel.PartidoIdeologias.OrderBy(i => i.NomeIdeologia).ToList();
+
             return View(partidoViewModel);
         }
 

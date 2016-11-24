@@ -363,4 +363,7 @@
   <data name="PartidoQtdeCandidatosAssociados" xml:space="preserve">
     <value>Qtde. Candidatos Associados</value>
   </data>
+  <data name="ListaTiposPropaganda" xml:space="preserve">
+    <value>Lista de Tipos de Propaganda</value>
+  </data>
 </root>

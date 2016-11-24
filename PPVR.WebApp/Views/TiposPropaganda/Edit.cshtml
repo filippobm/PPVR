@@ -6,29 +6,29 @@
 }
 
 <h2>@ViewBag.Title</h2>
+<hr>
 
-@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "form" }))
+@using (Html.BeginForm(null, null, FormMethod.Post, new {id = "form"}))
 {
     @Html.HiddenFor(model => model.TipoPropagandaId)
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <hr>
 
         @Html.ValidationSummary(false, null,
-            new { id = "validation-summary", @class = "alert alert-danger", role = "alert", style = "display:none" })
+            new {id = "validation-summary", @class = "alert alert-danger", role = "alert", style = "display:none"})
 
         @*Descrição*@
         <div class="form-group">
             <div class="col-md-2 text-right">
                 @Html.ValidationMessageFor(model => model.Descricao, "*",
-                    new { @class = "text-danger", title = Labels.CampoObrigatorio })
+                    new {@class = "text-danger", title = Labels.CampoObrigatorio})
 
-                @Html.LabelFor(model => model.Descricao, new { @class = "control-label" }):
+                @Html.LabelFor(model => model.Descricao, new {@class = "control-label"}):
             </div>
             <div class="col-md-4">
                 @Html.EditorFor(model => model.Descricao,
-                    new { htmlAttributes = new { @class = "form-control", maxlength = "30", placeholder = Labels.TipoPropagandaDescricaoPlaceholder } })
+                    new {htmlAttributes = new {@class = "form-control", maxlength = "30", placeholder = Labels.TipoPropagandaDescricaoPlaceholder}})
             </div>
         </div>
 
@@ -36,9 +36,9 @@
         <div class="form-group">
             <div class="col-md-2 text-right">
                 @Html.ValidationMessageFor(model => model.ValorMedio, "*",
-                    new { @class = "text-danger", title = Labels.CampoObrigatorio })
+                    new {@class = "text-danger", title = Labels.CampoObrigatorio})
 
-                @Html.LabelFor(model => model.ValorMedio, new { @class = "control-label" }):
+                @Html.LabelFor(model => model.ValorMedio, new {@class = "control-label"}):
             </div>
             <div class="col-md-4">
                 <div class="input-group">
@@ -62,7 +62,7 @@
         @*Enabled*@
         <div class="form-group">
             <div class="col-md-2 text-right">
-                @Html.LabelFor(model => model.Enabled, new { @class = "control-label" })
+                @Html.LabelFor(model => model.Enabled, new {@class = "control-label"})
             </div>
             <div class="col-md-4">
                 <div class="checkbox">
@@ -73,13 +73,13 @@
 
         <div class="form-group">
             <div class="col-md-4 col-md-offset-2">
-                <input type="submit" value="@Labels.Salvar" class="btn btn-primary" />
+                <input type="submit" value="@Labels.Salvar" class="btn btn-primary"/>
             </div>
         </div>
     </div>
 
     <div>
-        @Html.ActionLink(Labels.TiposPropaganda, "Index")
+        @Html.ActionLink(Labels.ListaTiposPropaganda, "Index")
     </div>
 }
 
@@ -89,7 +89,7 @@
     @Scripts.Render("~/bundles/jquerymask")
 
     <script>
-        $(function () {
+        $(function() {
             validateForm("form", "validation-summary");
             endInputFocus("Descricao");
             $("#txt_valorMedio").mask("###0.00", { reverse: true });

@@ -76,7 +76,7 @@
                 @Html.DisplayFor(m => candidato.Enabled)
             </td>
             <td class="text-right">
-                <a href="@Url.Action("Details", "Candidatos", new {id = candidato.CandidatoId})" class="btn btn-default" title="@Labels.Visualizar">
+                <a href="@Url.Action("Details", new {id = candidato.CandidatoId})" class="btn btn-default" title="@Labels.Visualizar">
                     <span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span>
                 </a>
             </td>

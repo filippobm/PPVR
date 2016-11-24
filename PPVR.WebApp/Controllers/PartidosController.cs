@@ -149,7 +149,12 @@ namespace PPVR.WebApp.Controllers
             if (id == null)
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 
-            var partido = _db.Partidos.Find(id);
+            var ideologias = _db.Ideologias.Where(i => i.Enabled).ToList();
+
+            var partido = _db.Partidos.Select(p => p)
+                .Where(p => p.PartidoId == id)
+                .Include(p => p.Ideologias)
+                .FirstOrDefault();
 
             if (partido == null)
                 return HttpNotFound();
@@ -164,51 +169,19 @@ namespace PPVR.WebApp.Controllers
                 Enabled = partido.Enabled
             };
 
+            foreach (var ideologia in ideologias)
+            {
+                var partidoIdeologiaViewModel = new PartidoIdeologiaViewModel
+                {
+                    IdeologiaId = ideologia.IdeologiaId,
+                    NomeIdeologia = ideologia.Nome,
+                    Checked = partido.Ideologias.Any(i => i.IdeologiaId == ideologia.IdeologiaId)
+                };
+                partidoViewModel.PartidoIdeologias.Add(partidoIdeologiaViewModel);
+            }
+
             return View(partidoViewModel);
         }
-
-        //// POST: Ideologias/Edit/5
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Edit([Bind(Include = "IdeologiaId, Nome, Enabled")] IdeologiaViewModel ideologiaViewModel)
-        //{
-        //    try
-        //    {
-        //        if (ModelState.IsValid)
-        //        {
-        //            var ideologiaExists =
-        //                _db.Ideologias.Any(
-        //                    i => i.IdeologiaId != ideologiaViewModel.IdeologiaId && i.Nome == ideologiaViewModel.Nome);
-
-        //            if (ideologiaExists)
-        //            {
-        //                ModelState.AddModelError(nameof(ValidationErrorMessage.IdeologiaNomeJaCadastrado),
-        //                    ValidationErrorMessage.IdeologiaNomeJaCadastrado);
-        //            }
-        //            else
-        //            {
-        //                var ideologia = _db.Ideologias.Find(ideologiaViewModel.IdeologiaId);
-
-        //                if (ideologia != null)
-        //                {
-        //                    ideologia.Nome = ideologiaViewModel.Nome;
-        //                    ideologia.Enabled = ideologiaViewModel.Enabled;
-
-        //                    _db.Entry(ideologia).State = EntityState.Modified;
-        //                    _db.SaveChanges();
-
-        //                    return RedirectToAction("Index", new { q = ideologia.Nome, callbackAction = "Edit" });
-        //                }
-        //            }
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        ModelState.AddModelError("", ex.Message);
-        //    }
-
-        //    return View(ideologiaViewModel);
-        //}
 
         #endregion
     }

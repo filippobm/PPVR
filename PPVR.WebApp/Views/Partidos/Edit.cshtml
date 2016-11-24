@@ -65,7 +65,7 @@
                 @Html.LabelFor(model => model.EspectroPolitico, new { @class = "control-label" }):
             </div>
             <div class="col-md-4">
-                @Html.EnumDropDownListFor(m => m.EspectroPolitico, null, new {@id= "ddlEspectroPolitico" })
+                @Html.EnumDropDownListFor(m => m.EspectroPolitico, null, new { @class = "form-control" })
             </div>
         </div>
 
@@ -80,11 +80,26 @@
             </div>
         </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-4">
-                <input type="submit" value="@Labels.Salvar" class="btn btn-primary" />
-            </div>
+    </div>
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">@Labels.ListaPartidosAssociadosIdeologia</div>
+
+        <div class="row" style="padding: 20px">
+            @for (int i = 0; i < Model.PartidoIdeologias.Count; i++)
+            {
+                <p class="col-md-3">
+                    @Html.CheckBox(Model.PartidoIdeologias[i] + "_" + i, Model.PartidoIdeologias[i].Checked,
+                        new { value = Model.PartidoIdeologias[i].IdeologiaId })
+
+                    @Model.PartidoIdeologias[i].NomeIdeologia
+                </p>
+            }
         </div>
+    </div>
+
+    <div class="form-group text-right">
+        <input type="submit" value="@Labels.Salvar" class="btn btn-primary" />
     </div>
 }
 

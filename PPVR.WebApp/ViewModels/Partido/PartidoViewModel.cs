@@ -51,5 +51,7 @@ namespace PPVR.WebApp.ViewModels.Partido
         public DateTime? UpdatedAt { get; set; }
 
         public List<IdeologiaViewModel> Ideologias { get; set; }
+
+        public List<PartidoIdeologiaViewModel> PartidoIdeologias { get; set; } = new List<PartidoIdeologiaViewModel>();
     }
 }

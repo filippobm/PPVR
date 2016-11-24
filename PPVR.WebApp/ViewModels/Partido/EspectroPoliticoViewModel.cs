@@ -5,6 +5,7 @@ namespace PPVR.WebApp.ViewModels.Partido
 {
     public enum EspectroPoliticoViewModel : byte
     {
+        [Display(Name = nameof(Labels.PartidoEspectroPoliticoPlaceholder), ResourceType = typeof(Labels))]
         NaoInformado = 0,
 
         [Display(Name = nameof(Labels.EspectroPoliticoCentro), ResourceType = typeof(Labels))]

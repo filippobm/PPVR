@@ -300,6 +300,7 @@
     <Compile Include="ViewModels\Manage\SetPasswordViewModel.cs" />
     <Compile Include="ViewModels\Manage\VerifyPhoneNumberViewModel.cs" />
     <Compile Include="ViewModels\Partido\EspectroPoliticoViewModel.cs" />
+    <Compile Include="ViewModels\Partido\PartidoIdeologiaViewModel.cs" />
     <Compile Include="ViewModels\Partido\PartidoViewModel.cs" />
     <Compile Include="ViewModels\Relatorios\OcorrenciasTipoPropagandaViewModel.cs" />
     <Compile Include="ViewModels\Relatorios\ValoresGastosTipoOcorrenciaViewModel.cs" />

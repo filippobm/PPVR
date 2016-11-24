@@ -22,11 +22,15 @@ namespace PPVR.WebApp.Controllers
 
             var eleicoes = _db.Eleicoes.Select(e => e);
 
+            #region Filters
+
             if (!string.IsNullOrEmpty(q))
                 if (callbackAction == "Create" || callbackAction == "Edit")
                     eleicoes = eleicoes.Where(e => e.Descricao == q);
                 else
                     eleicoes = eleicoes.Where(e => e.Descricao.Contains(q));
+
+            #endregion
 
             #region Order By
 
@@ -87,6 +91,7 @@ namespace PPVR.WebApp.Controllers
 
                 default:
                     eleicoes = eleicoes.OrderBy(e => e.Descricao);
+                    ViewBag.SortDescricao = "descricao_desc";
                     break;
             }
 

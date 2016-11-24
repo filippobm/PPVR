@@ -31,6 +31,7 @@ namespace PPVR.WebApp.Controllers
         {
             var ocorrenciasTipoPropaganda = _db.Ocorrencias.Select(o => o)
                 .Include(o => o.TipoPropaganda)
+                .Where(o => o.TipoPropaganda.Enabled)
                 .GroupBy(g => g.TipoPropaganda.Descricao)
                 .Select(o => new OcorrenciasTipoPropagandaViewModel
                 {
@@ -56,6 +57,7 @@ namespace PPVR.WebApp.Controllers
         {
             var valoresGastosTipoOcorrencia = _db.Ocorrencias.Select(o => o)
                 .Include(o => o.TipoPropaganda)
+                .Where(o => o.TipoPropaganda.Enabled)
                 .GroupBy(g => g.TipoPropaganda.Descricao)
                 .Select(o => new ValoresGastosTipoOcorrenciaViewModel
                 {

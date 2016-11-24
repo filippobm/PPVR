@@ -25,10 +25,14 @@ namespace PPVR.WebApp.Controllers
                     .Include(c => c.Eleicao)
                     .Where(c => c.Enabled && c.Eleicao.Enabled);
 
+            #region Filters
+
             if (!string.IsNullOrEmpty(q))
                 candidatos =
                     candidatos.Where(
                         c => c.NumeroEleitoral.ToString() == q || c.Nome.Contains(q) || c.NomeUrna.Contains(q));
+
+            #endregion
 
             #region Order By
 
@@ -78,7 +82,8 @@ namespace PPVR.WebApp.Controllers
                     break;
 
                 default:
-                    candidatos = candidatos.OrderBy(p => p.NomeUrna);
+                    candidatos = candidatos.OrderBy(c => c.NomeUrna);
+                    ViewBag.SortNomeUrna = "nome_urna_desc";
                     break;
             }
 

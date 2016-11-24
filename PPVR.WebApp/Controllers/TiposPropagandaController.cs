@@ -24,11 +24,15 @@ namespace PPVR.WebApp.Controllers
 
             var tiposPropaganda = _db.TiposPropaganda.Select(tp => tp);
 
+            #region Filters
+
             if (!string.IsNullOrEmpty(q))
                 if (callbackAction == "Create" || callbackAction == "Edit")
                     tiposPropaganda = tiposPropaganda.Where(tp => tp.Descricao == q);
                 else
                     tiposPropaganda = tiposPropaganda.Where(tp => tp.Descricao.Contains(q));
+
+            #endregion
 
             #region Order By
 
@@ -79,6 +83,7 @@ namespace PPVR.WebApp.Controllers
 
                 default:
                     tiposPropaganda = tiposPropaganda.OrderBy(tp => tp.Descricao);
+                    ViewBag.SortDescricao = "descricao_desc";
                     break;
             }
 

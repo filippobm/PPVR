@@ -1,5 +1,7 @@
 ﻿using PPVR.WebApp.Resources;
+using PPVR.WebApp.ViewModels.Ideologia;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace PPVR.WebApp.ViewModels.Partido
@@ -30,6 +32,9 @@ namespace PPVR.WebApp.ViewModels.Partido
             ErrorMessageResourceName = nameof(ValidationErrorMessage.PartidoNumeroEleitoralInvalidRange))]
         public byte NumeroEleitoral { get; set; }
 
+        [Display(Name = nameof(Labels.PartidoEspectroPolitico), ResourceType = typeof(Labels))]
+        public EspectroPoliticoViewModel EspectroPolitico { get; set; }
+
         [Display(Name = nameof(Labels.PartidoQtdeCandidatosAssociados), ResourceType = typeof(Labels))]
         public int QtdeCandidatosAssociados { get; set; }
 
@@ -44,5 +49,7 @@ namespace PPVR.WebApp.ViewModels.Partido
         [Display(Name = nameof(Labels.UpdatedAt), ResourceType = typeof(Labels))]
         [ScaffoldColumn(false)]
         public DateTime? UpdatedAt { get; set; }
+
+        public List<IdeologiaViewModel> Ideologias { get; set; }
     }
 }

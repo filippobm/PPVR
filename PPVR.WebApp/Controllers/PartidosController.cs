@@ -1,7 +1,9 @@
 ﻿using PPVR.WebApp.DataAccess;
+using PPVR.WebApp.ViewModels.Ideologia;
 using PPVR.WebApp.ViewModels.Partido;
 using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Web.Mvc;
 using X.PagedList;
 
@@ -102,5 +104,112 @@ namespace PPVR.WebApp.Controllers
             var pagedViewModel = new StaticPagedList<PartidoViewModel>(partidoViewModel, pagedPartidos.GetMetaData());
             return View(pagedViewModel);
         }
+
+        // GET: Partidos/Details/5
+        public ActionResult Details(int? id)
+        {
+            if (id == null)
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
+            var partido = _db.Partidos.Select(p => p)
+                .Include(p => p.Candidatos)
+                .Include(p => p.Ideologias)
+                .Where(p => p.PartidoId == id)
+                .Select(p => new PartidoViewModel
+                {
+                    PartidoId = p.PartidoId,
+                    Nome = p.Nome,
+                    Sigla = p.Sigla,
+                    NumeroEleitoral = p.NumeroEleitoral,
+                    EspectroPolitico = (EspectroPoliticoViewModel)p.EspectroPolitico,
+                    QtdeCandidatosAssociados = p.Candidatos.Count,
+                    Ideologias = p.Ideologias.Where(i => i.Enabled)
+                        .Select(i => new IdeologiaViewModel
+                        {
+                            IdeologiaId = i.IdeologiaId,
+                            Nome = i.Nome
+                        })
+                        .ToList(),
+                    Enabled = p.Enabled,
+                    CreatedAt = p.CreatedAt,
+                    UpdatedAt = p.UpdatedAt
+                }).SingleOrDefault();
+
+            if (partido == null)
+                return HttpNotFound();
+
+            return View(partido);
+        }
+
+        #region Edit
+
+        // GET: Partidos/Edit/5
+        public ActionResult Edit(int? id)
+        {
+            if (id == null)
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
+            var partido = _db.Partidos.Find(id);
+
+            if (partido == null)
+                return HttpNotFound();
+
+            var partidoViewModel = new PartidoViewModel
+            {
+                PartidoId = partido.PartidoId,
+                Nome = partido.Nome,
+                Sigla = partido.Sigla,
+                NumeroEleitoral = partido.NumeroEleitoral,
+                EspectroPolitico = (EspectroPoliticoViewModel)partido.EspectroPolitico,
+                Enabled = partido.Enabled
+            };
+
+            return View(partidoViewModel);
+        }
+
+        //// POST: Ideologias/Edit/5
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Edit([Bind(Include = "IdeologiaId, Nome, Enabled")] IdeologiaViewModel ideologiaViewModel)
+        //{
+        //    try
+        //    {
+        //        if (ModelState.IsValid)
+        //        {
+        //            var ideologiaExists =
+        //                _db.Ideologias.Any(
+        //                    i => i.IdeologiaId != ideologiaViewModel.IdeologiaId && i.Nome == ideologiaViewModel.Nome);
+
+        //            if (ideologiaExists)
+        //            {
+        //                ModelState.AddModelError(nameof(ValidationErrorMessage.IdeologiaNomeJaCadastrado),
+        //                    ValidationErrorMessage.IdeologiaNomeJaCadastrado);
+        //            }
+        //            else
+        //            {
+        //                var ideologia = _db.Ideologias.Find(ideologiaViewModel.IdeologiaId);
+
+        //                if (ideologia != null)
+        //                {
+        //                    ideologia.Nome = ideologiaViewModel.Nome;
+        //                    ideologia.Enabled = ideologiaViewModel.Enabled;
+
+        //                    _db.Entry(ideologia).State = EntityState.Modified;
+        //                    _db.SaveChanges();
+
+        //                    return RedirectToAction("Index", new { q = ideologia.Nome, callbackAction = "Edit" });
+        //                }
+        //            }
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        ModelState.AddModelError("", ex.Message);
+        //    }
+
+        //    return View(ideologiaViewModel);
+        //}
+
+        #endregion
     }
 }

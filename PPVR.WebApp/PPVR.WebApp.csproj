@@ -299,6 +299,7 @@
     <Compile Include="ViewModels\Manage\ManageLoginsViewModel.cs" />
     <Compile Include="ViewModels\Manage\SetPasswordViewModel.cs" />
     <Compile Include="ViewModels\Manage\VerifyPhoneNumberViewModel.cs" />
+    <Compile Include="ViewModels\Partido\EspectroPoliticoViewModel.cs" />
     <Compile Include="ViewModels\Partido\PartidoViewModel.cs" />
     <Compile Include="ViewModels\Relatorios\OcorrenciasTipoPropagandaViewModel.cs" />
     <Compile Include="ViewModels\Relatorios\ValoresGastosTipoOcorrenciaViewModel.cs" />
@@ -421,6 +422,9 @@
     <Content Include="Views\Relatorios\Index.cshtml" />
     <Content Include="Views\Relatorios\OcorrenciasTipoPropaganda.cshtml" />
     <Content Include="Views\Relatorios\ValoresGastosTipoOcorrencia.cshtml" />
+    <Content Include="Views\Partidos\Details.cshtml" />
+    <Content Include="Views\Partidos\Edit.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Enum.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

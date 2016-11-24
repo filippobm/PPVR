@@ -366,4 +366,61 @@
   <data name="ListaTiposPropaganda" xml:space="preserve">
     <value>Lista de Tipos de Propaganda</value>
   </data>
+  <data name="CentroDireitaADireita" xml:space="preserve">
+    <value>Centro-direita à Direita</value>
+  </data>
+  <data name="ListaIdeologiasAssociadasPartido" xml:space="preserve">
+    <value>Lista de Ideologias que estão Associadas ao Partido</value>
+  </data>
+  <data name="PartidoEspectroPoliticoPlaceholder" xml:space="preserve">
+    <value>Selecione o espectro político do partido.</value>
+  </data>
+  <data name="PartidoNomePlaceholder" xml:space="preserve">
+    <value>Informe o nome do partido.</value>
+  </data>
+  <data name="PartidoNumeroEleitoralPlaceholder" xml:space="preserve">
+    <value>Informe o número eleitoral do partido.</value>
+  </data>
+  <data name="PartidoSiglaPlaceholder" xml:space="preserve">
+    <value>Informe a sigla do partido.</value>
+  </data>
+  <data name="PartidoEspectroPolitico" xml:space="preserve">
+    <value>Espectro Político</value>
+  </data>
+  <data name="EspectroPoliticoCentro" xml:space="preserve">
+    <value>Centro</value>
+  </data>
+  <data name="EspectroPoliticoCentroDireita" xml:space="preserve">
+    <value>Centro-direita</value>
+  </data>
+  <data name="EspectroPoliticoCentroDireitaADireita" xml:space="preserve">
+    <value>Centro-direita à Direita</value>
+  </data>
+  <data name="EspectroPoliticoCentroEsquerda" xml:space="preserve">
+    <value>Centro-direita</value>
+  </data>
+  <data name="EspectroPoliticoCentroEsquerdaAEsquerda" xml:space="preserve">
+    <value>Centro-esquerda à Esquerda</value>
+  </data>
+  <data name="EspectroPoliticoDireita" xml:space="preserve">
+    <value>Direita</value>
+  </data>
+  <data name="EspectroPoliticoDireitaAExtremaDireita" xml:space="preserve">
+    <value>Direita à Extrema-direita</value>
+  </data>
+  <data name="EspectroPoliticoEsquerda" xml:space="preserve">
+    <value>Esquerda</value>
+  </data>
+  <data name="EspectroPoliticoEsquerdaAExtremaEsquerda" xml:space="preserve">
+    <value>Esquerda à Extrema-esquerda</value>
+  </data>
+  <data name="EspectroPoliticoExtremaDireita" xml:space="preserve">
+    <value>Extrema-direita</value>
+  </data>
+  <data name="EspectroPoliticoExtremaEsquerda" xml:space="preserve">
+    <value>Extrema-esquerda</value>
+  </data>
+  <data name="EspectroPolitico" xml:space="preserve">
+    <value>Espectro Político</value>
+  </data>
 </root>

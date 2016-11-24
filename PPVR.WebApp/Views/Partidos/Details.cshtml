@@ -1,0 +1,119 @@
+﻿@using PPVR.WebApp.Resources
+@using PPVR.WebApp.ViewModels.Partido
+@model PPVR.WebApp.ViewModels.Partido.PartidoViewModel
+
+@{
+    ViewBag.Title = $"{Labels.Visualizar} {Labels.Partido}";
+}
+
+<h2>@ViewBag.Title</h2>
+<hr />
+
+<div class="form-horizontal">
+    <div class="form-group">
+        <div class="col-md-3 text-right">
+            <b>@Html.DisplayNameFor(model => model.Nome):</b>
+        </div>
+        <div class="col-md-5">
+            @Html.DisplayFor(model => model.Nome)
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-3 text-right">
+            <b>@Html.DisplayNameFor(model => model.Sigla):</b>
+        </div>
+        <div class="col-md-5">
+            @Html.DisplayFor(model => model.Sigla)
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-3 text-right">
+            <b>@Html.DisplayNameFor(model => model.NumeroEleitoral):</b>
+        </div>
+        <div class="col-md-5">
+            @Html.DisplayFor(model => model.NumeroEleitoral)
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-3 text-right">
+            <b>@Html.DisplayNameFor(model => model.EspectroPolitico):</b>
+        </div>
+        <div class="col-md-5">
+            @if (Model.EspectroPolitico != EspectroPoliticoViewModel.NaoInformado)
+            {
+                @Html.DisplayFor(model => model.EspectroPolitico)
+            }
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-3 text-right">
+            <b>@Html.DisplayNameFor(model => model.QtdeCandidatosAssociados):</b>
+        </div>
+        <div class="col-md-5">
+            @Html.DisplayFor(model => model.QtdeCandidatosAssociados)
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-3 text-right">
+            <b>@Html.DisplayNameFor(model => model.Enabled)</b>
+        </div>
+        <div class="col-md-5">
+            @Html.DisplayFor(model => model.Enabled)
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-3 text-right">
+            <b>@Html.DisplayNameFor(model => model.CreatedAt):</b>
+        </div>
+        <div class="col-md-5">
+            @Html.DisplayFor(model => model.CreatedAt)
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-3 text-right">
+            <b>@Html.DisplayNameFor(model => model.UpdatedAt):</b>
+        </div>
+        <div class="col-md-5">
+            @Html.DisplayFor(model => model.UpdatedAt)
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-primary">
+    <div class="panel-heading">@Labels.ListaPartidosAssociadosIdeologia</div>
+    @{
+        if (Model.Ideologias.Any())
+        {
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Ideologias[0].Nome)
+                    </th>
+                </tr>
+                @foreach (var ideologia in Model.Ideologias)
+                {
+                    <tr>
+                        <td>
+                            @Html.ActionLink(ideologia.Nome, "Details", "Ideologias", new { id = ideologia.IdeologiaId }, null)
+                        </td>
+                    </tr>
+                }
+            </table>
+        }
+        else
+        {
+            <div class="panel-body">
+                <i>@Labels.IdeologiaNenhumPartidoAssociado</i>
+            </div>
+        }
+    }
+</div>
+
+@Html.ActionLink(Labels.ListaCandidatos, "Index")

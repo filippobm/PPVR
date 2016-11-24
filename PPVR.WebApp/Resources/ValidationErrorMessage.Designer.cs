@@ -322,6 +322,15 @@ namespace PPVR.WebApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Já existe um partido cadastrado com este nome, informe outro..
+        /// </summary>
+        internal static string PartidoNomeJaCadastrado {
+            get {
+                return ResourceManager.GetString("PartidoNomeJaCadastrado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to O nome do partido não pode ser nulo..
         /// </summary>
         internal static string PartidoNomeNotNull {
@@ -340,6 +349,15 @@ namespace PPVR.WebApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Já existe um partido cadastrado com este número eleitoral, informe outro..
+        /// </summary>
+        internal static string PartidoNumeroEleitoralJaCadastrado {
+            get {
+                return ResourceManager.GetString("PartidoNumeroEleitoralJaCadastrado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to O número eleitoral do partido não pode ser nulo..
         /// </summary>
         internal static string PartidoNumeroEleitoralNotNull {
@@ -354,6 +372,15 @@ namespace PPVR.WebApp.Resources {
         internal static string PartidoSiglaInvalidLength {
             get {
                 return ResourceManager.GetString("PartidoSiglaInvalidLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Já existe um partido cadastrado com esta sigla, informe outra..
+        /// </summary>
+        internal static string PartidoSiglaJaCadastrado {
+            get {
+                return ResourceManager.GetString("PartidoSiglaJaCadastrado", resourceCulture);
             }
         }
         

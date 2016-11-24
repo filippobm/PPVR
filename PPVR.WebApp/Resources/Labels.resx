@@ -141,17 +141,11 @@
   <data name="Candidatos" xml:space="preserve">
     <value>Candidatos</value>
   </data>
-  <data name="CandidatoTitleListaCandidatos" xml:space="preserve">
-    <value>Lista de Candidatos</value>
-  </data>
   <data name="CreatedAt" xml:space="preserve">
     <value>Data Criação</value>
   </data>
   <data name="Editar" xml:space="preserve">
     <value>Editar</value>
-  </data>
-  <data name="Excluir" xml:space="preserve">
-    <value>Excluir</value>
   </data>
   <data name="Ideologia" xml:space="preserve">
     <value>Ideologia</value>
@@ -168,9 +162,6 @@
   <data name="Ideologias" xml:space="preserve">
     <value>Ideologias</value>
   </data>
-  <data name="IdeologiaTitleListaIdeologias" xml:space="preserve">
-    <value>Lista de Ideologias</value>
-  </data>
   <data name="PartidoNome" xml:space="preserve">
     <value>Nome</value>
   </data>
@@ -185,12 +176,6 @@
   </data>
   <data name="PartidoSigla" xml:space="preserve">
     <value>Sigla</value>
-  </data>
-  <data name="PartidoTitleListaPartidosPoliticos" xml:space="preserve">
-    <value>Lista de Partidos Políticos</value>
-  </data>
-  <data name="PartidoTotalPartidos" xml:space="preserve">
-    <value>Partidos encontrados</value>
   </data>
   <data name="Pesquisar" xml:space="preserve">
     <value>Pesquisar</value>
@@ -345,9 +330,6 @@
   <data name="RelatorioValoresGastosTipoOcorrencia" xml:space="preserve">
     <value>Valores Gastos por Tipo de Ocorrência</value>
   </data>
-  <data name="ValoresGastosTipoOcorrencia" xml:space="preserve">
-    <value>Valores Gastos por Tipo de Ocorrência</value>
-  </data>
   <data name="ListaCandidatos" xml:space="preserve">
     <value>Lista de Candidatos</value>
   </data>
@@ -357,20 +339,11 @@
   <data name="ListaIdeologias" xml:space="preserve">
     <value>Lista de Ideologias</value>
   </data>
-  <data name="ListaPartidos" xml:space="preserve">
-    <value>Lista de Partidos</value>
-  </data>
   <data name="PartidoQtdeCandidatosAssociados" xml:space="preserve">
     <value>Qtde. Candidatos Associados</value>
   </data>
   <data name="ListaTiposPropaganda" xml:space="preserve">
     <value>Lista de Tipos de Propaganda</value>
-  </data>
-  <data name="CentroDireitaADireita" xml:space="preserve">
-    <value>Centro-direita à Direita</value>
-  </data>
-  <data name="ListaIdeologiasAssociadasPartido" xml:space="preserve">
-    <value>Lista de Ideologias que estão Associadas ao Partido</value>
   </data>
   <data name="PartidoEspectroPoliticoPlaceholder" xml:space="preserve">
     <value>Selecione o espectro político do partido.</value>
@@ -420,7 +393,7 @@
   <data name="EspectroPoliticoExtremaEsquerda" xml:space="preserve">
     <value>Extrema-esquerda</value>
   </data>
-  <data name="EspectroPolitico" xml:space="preserve">
-    <value>Espectro Político</value>
+  <data name="EspectroPoliticoNaoInformado" xml:space="preserve">
+    <value>-</value>
   </data>
 </root>

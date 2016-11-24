@@ -160,15 +160,6 @@ namespace PPVR.WebApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Lista de Candidatos.
-        /// </summary>
-        public static string CandidatoTitleListaCandidatos {
-            get {
-                return ResourceManager.GetString("CandidatoTitleListaCandidatos", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Unidade Eleitoral.
         /// </summary>
         public static string CandidatoUnidadeEleitoral {
@@ -183,15 +174,6 @@ namespace PPVR.WebApp.Resources {
         public static string CandidatoUnidadeFederacao {
             get {
                 return ResourceManager.GetString("CandidatoUnidadeFederacao", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Centro-direita à Direita.
-        /// </summary>
-        public static string CentroDireitaADireita {
-            get {
-                return ResourceManager.GetString("CentroDireitaADireita", resourceCulture);
             }
         }
         
@@ -313,15 +295,6 @@ namespace PPVR.WebApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Espectro Político.
-        /// </summary>
-        public static string EspectroPolitico {
-            get {
-                return ResourceManager.GetString("EspectroPolitico", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Centro.
         /// </summary>
         public static string EspectroPoliticoCentro {
@@ -421,11 +394,11 @@ namespace PPVR.WebApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Excluir.
+        ///   Looks up a localized string similar to -.
         /// </summary>
-        public static string Excluir {
+        public static string EspectroPoliticoNaoInformado {
             get {
-                return ResourceManager.GetString("Excluir", resourceCulture);
+                return ResourceManager.GetString("EspectroPoliticoNaoInformado", resourceCulture);
             }
         }
         
@@ -511,15 +484,6 @@ namespace PPVR.WebApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Lista de Ideologias.
-        /// </summary>
-        public static string IdeologiaTitleListaIdeologias {
-            get {
-                return ResourceManager.GetString("IdeologiaTitleListaIdeologias", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Lembrar.
         /// </summary>
         public static string Lembrar {
@@ -552,24 +516,6 @@ namespace PPVR.WebApp.Resources {
         public static string ListaIdeologias {
             get {
                 return ResourceManager.GetString("ListaIdeologias", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Lista de Ideologias que estão Associadas ao Partido.
-        /// </summary>
-        public static string ListaIdeologiasAssociadasPartido {
-            get {
-                return ResourceManager.GetString("ListaIdeologiasAssociadasPartido", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Lista de Partidos.
-        /// </summary>
-        public static string ListaPartidos {
-            get {
-                return ResourceManager.GetString("ListaPartidos", resourceCulture);
             }
         }
         
@@ -696,24 +642,6 @@ namespace PPVR.WebApp.Resources {
         public static string PartidoSiglaPlaceholder {
             get {
                 return ResourceManager.GetString("PartidoSiglaPlaceholder", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Lista de Partidos Políticos.
-        /// </summary>
-        public static string PartidoTitleListaPartidosPoliticos {
-            get {
-                return ResourceManager.GetString("PartidoTitleListaPartidosPoliticos", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Partidos encontrados.
-        /// </summary>
-        public static string PartidoTotalPartidos {
-            get {
-                return ResourceManager.GetString("PartidoTotalPartidos", resourceCulture);
             }
         }
         
@@ -957,15 +885,6 @@ namespace PPVR.WebApp.Resources {
         public static string ValoresGastosCandidato {
             get {
                 return ResourceManager.GetString("ValoresGastosCandidato", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Valores Gastos por Tipo de Ocorrência.
-        /// </summary>
-        public static string ValoresGastosTipoOcorrencia {
-            get {
-                return ResourceManager.GetString("ValoresGastosTipoOcorrencia", resourceCulture);
             }
         }
         

@@ -1,6 +1,9 @@
 ﻿using PPVR.WebApp.DataAccess;
+using PPVR.WebApp.Models;
+using PPVR.WebApp.Resources;
 using PPVR.WebApp.ViewModels.Ideologia;
 using PPVR.WebApp.ViewModels.Partido;
+using System;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
@@ -163,7 +166,7 @@ namespace PPVR.WebApp.Controllers
             {
                 PartidoId = partido.PartidoId,
                 Nome = partido.Nome,
-                Sigla = partido.Sigla,
+                Sigla = partido.Sigla.TrimEnd(),
                 NumeroEleitoral = partido.NumeroEleitoral,
                 EspectroPolitico = (EspectroPoliticoViewModel)partido.EspectroPolitico,
                 Enabled = partido.Enabled
@@ -178,6 +181,79 @@ namespace PPVR.WebApp.Controllers
                     Checked = partido.Ideologias.Any(i => i.IdeologiaId == ideologia.IdeologiaId)
                 };
                 partidoViewModel.PartidoIdeologias.Add(partidoIdeologiaViewModel);
+            }
+
+            return View(partidoViewModel);
+        }
+
+        // POST: Ideologias/Edit/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "PartidoId, Nome, Sigla, Enabled, NumeroEleitoral, EspectroPolitico, PartidoIdeologias")] PartidoViewModel partidoViewModel)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    var isValid = true;
+
+                    // Verifica se já existe outro partido com o nome informado.
+                    if (_db.Partidos.Any(p => p.PartidoId != partidoViewModel.PartidoId && p.Nome == partidoViewModel.Nome))
+                    {
+                        ModelState.AddModelError(nameof(ValidationErrorMessage.PartidoNomeJaCadastrado),
+                            ValidationErrorMessage.PartidoNomeJaCadastrado);
+                        isValid = false;
+                    }
+
+                    // Verifica se já existe outro partido com a sigla informada.
+                    if (_db.Partidos.Any(p => p.PartidoId != partidoViewModel.PartidoId && p.Sigla == partidoViewModel.Sigla))
+                    {
+                        ModelState.AddModelError(nameof(ValidationErrorMessage.PartidoSiglaJaCadastrado),
+                            ValidationErrorMessage.PartidoSiglaJaCadastrado);
+                        isValid = false;
+                    }
+
+                    // Verifica se já existe outro partido com o número eleitoral informado.
+                    if (_db.Partidos.Any(p => p.PartidoId != partidoViewModel.PartidoId && p.NumeroEleitoral == partidoViewModel.NumeroEleitoral))
+                    {
+                        ModelState.AddModelError(nameof(ValidationErrorMessage.PartidoNumeroEleitoralJaCadastrado),
+                            ValidationErrorMessage.PartidoNumeroEleitoralJaCadastrado);
+                        isValid = false;
+                    }
+
+                    if (isValid)
+                    {
+                        var partido = _db.Partidos.Select(p => p)
+                            .Include(p => p.Ideologias)
+                            .FirstOrDefault(p => p.PartidoId == partidoViewModel.PartidoId);
+
+                        if (partido != null)
+                        {
+                            partido.Nome = partidoViewModel.Nome;
+                            partido.Sigla = partidoViewModel.Sigla;
+                            partido.EspectroPolitico = (EspectroPolitico)partidoViewModel.EspectroPolitico;
+                            partido.NumeroEleitoral = partidoViewModel.NumeroEleitoral;
+                            partido.Enabled = partidoViewModel.Enabled;
+
+                            partido.Ideologias.Clear();
+
+                            foreach (var partidoIdeologia in partidoViewModel.PartidoIdeologias.Where(i => i.Checked))
+                            {
+                                var ideologia = _db.Ideologias.Find(partidoIdeologia.IdeologiaId);
+                                partido.Ideologias.Add(ideologia);
+                            }
+
+                            _db.Entry(partido).State = EntityState.Modified;
+                            _db.SaveChanges();
+
+                            return RedirectToAction("Index", new { q = partido.Nome, callbackAction = "Edit" });
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", ex.Message);
             }
 
             return View(partidoViewModel);

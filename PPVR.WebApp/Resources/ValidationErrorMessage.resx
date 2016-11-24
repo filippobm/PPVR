@@ -204,17 +204,26 @@
   <data name="PartidoNomeInvalidLength" xml:space="preserve">
     <value>O nome do partido deve ter entre 1 e 60 caracteres.</value>
   </data>
+  <data name="PartidoNomeJaCadastrado" xml:space="preserve">
+    <value>Já existe um partido cadastrado com este nome, informe outro.</value>
+  </data>
   <data name="PartidoNomeNotNull" xml:space="preserve">
     <value>O nome do partido não pode ser nulo.</value>
   </data>
   <data name="PartidoNumeroEleitoralInvalidRange" xml:space="preserve">
     <value>O número eleitoral do partido não é válido.</value>
   </data>
+  <data name="PartidoNumeroEleitoralJaCadastrado" xml:space="preserve">
+    <value>Já existe um partido cadastrado com este número eleitoral, informe outro.</value>
+  </data>
   <data name="PartidoNumeroEleitoralNotNull" xml:space="preserve">
     <value>O número eleitoral do partido não pode ser nulo.</value>
   </data>
   <data name="PartidoSiglaInvalidLength" xml:space="preserve">
     <value>A sigla do partido deve ter entre 1 e 10 caracteres.</value>
+  </data>
+  <data name="PartidoSiglaJaCadastrado" xml:space="preserve">
+    <value>Já existe um partido cadastrado com esta sigla, informe outra.</value>
   </data>
   <data name="PartidoSiglaNotNull" xml:space="preserve">
     <value>A sigla do partido não pode ser nula.</value>

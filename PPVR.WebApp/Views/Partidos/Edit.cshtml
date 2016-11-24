@@ -53,7 +53,17 @@
             </div>
             <div class="col-md-4">
                 @Html.EditorFor(model => model.NumeroEleitoral,
-                    new { htmlAttributes = new { @class = "form-control", maxlength = "2", placeholder = Labels.PartidoNumeroEleitoralPlaceholder } })
+                    new
+                    {
+                        htmlAttributes = new
+                        {
+                            @class = "form-control",
+                            min = "10",
+                            max = "99",
+                            maxlength = "2",
+                            placeholder = Labels.PartidoNumeroEleitoralPlaceholder
+                        }
+                    })
             </div>
         </div>
 
@@ -65,7 +75,7 @@
                 @Html.LabelFor(model => model.EspectroPolitico, new { @class = "control-label" }):
             </div>
             <div class="col-md-4">
-                @Html.EnumDropDownListFor(m => m.EspectroPolitico, null, new { @class = "form-control" })
+                @Html.EnumDropDownListFor(m => m.EspectroPolitico, Labels.PartidoEspectroPoliticoPlaceholder, new { @class = "form-control" })
             </div>
         </div>
 
@@ -86,12 +96,11 @@
         <div class="panel-heading">@Labels.ListaPartidosAssociadosIdeologia</div>
 
         <div class="row" style="padding: 20px">
-            @for (int i = 0; i < Model.PartidoIdeologias.Count; i++)
+            @for (var i = 0; i < Model.PartidoIdeologias.Count; i++)
             {
                 <p class="col-md-3">
-                    @Html.CheckBox(Model.PartidoIdeologias[i] + "_" + i, Model.PartidoIdeologias[i].Checked,
-                        new { value = Model.PartidoIdeologias[i].IdeologiaId })
-
+                    @Html.HiddenFor(model => model.PartidoIdeologias[i].IdeologiaId)
+                    @Html.CheckBoxFor(model => model.PartidoIdeologias[i].Checked)
                     @Model.PartidoIdeologias[i].NomeIdeologia
                 </p>
             }
